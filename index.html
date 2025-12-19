@@ -1,2167 +1,557 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="/src/style.css" rel="stylesheet" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
-      rel="stylesheet"
-    />
-    <script type="module" src="/src/javascript/script.js" defer></script>
-  </head>
-  <body class="p-4 md:p-6 xl:p-8">
-    <header class="mb-6 w-100 md:w-full min-w-full">
-      <div class="top flex justify-between items-center">
-        <div class="w-5 h-5 md:hidden">
-          <a href="">
-            <svg
-              width="20px"
-              height="20px"
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M4 18L20 18"
-                stroke="#000000"
-                stroke-width="2"
-                stroke-linecap="round"
-              />
-              <path
-                d="M4 12L20 12"
-                stroke="#000000"
-                stroke-width="2"
-                stroke-linecap="round"
-              />
-              <path
-                d="M4 6L20 6"
-                stroke="#000000"
-                stroke-width="2"
-                stroke-linecap="round"
-              />
-            </svg>
-          </a>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="/src/style.css" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+    rel="stylesheet" />
+  <script type="module" src="/src/javascript/script.js" defer></script>
+</head>
+
+<body class="p-4 md:p-6 xl:p-8">
+  <header class="mb-6 w-100 md:w-full min-w-full">
+    <div class="top flex justify-between items-center">
+      <div class="w-5 h-5 md:hidden">
+        <button id="hamburger-menu-btn" type="button" class="hamburger-menu-btn" aria-label="Toggle menu">
+          <!-- Hamburger Icon -->
+          <svg id="hamburger-icon" width="20px" height="20px" viewBox="0 0 24 24" fill="none"
+            xmlns="http://www.w3.org/2000/svg" class="hamburger-svg">
+            <path d="M4 18L20 18" stroke="#000000" stroke-width="2" stroke-linecap="round" />
+            <path d="M4 12L20 12" stroke="#000000" stroke-width="2" stroke-linecap="round" />
+            <path d="M4 6L20 6" stroke="#000000" stroke-width="2" stroke-linecap="round" />
+          </svg>
+          <!-- X Icon (hidden by default) -->
+          <svg id="close-icon" width="20px" height="20px" viewBox="0 0 24 24" fill="none"
+            xmlns="http://www.w3.org/2000/svg" class="close-svg hidden">
+            <path d="M18 6L6 18" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M6 6L18 18" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </button>
+      </div>
+      <a href="/" class="">
+        <img src="./src/assets/icons/Type=Logo, Dark=Yes.svg" alt=""
+          class="hidden md:block xl:w-50 xl:h-20 2xl:ml-2 2xl:h-20 2xl:w-60" />
+      </a>
+
+      <div
+        class="searchbar relative flex items-center h-8 gap-2 md:h-8 md:w-60 xl:w-100 xl:h-12 xl:rounded-4xl xl:mr-20 bg-primary-100 rounded-2xl 2xl:ml-20 2xl:h-16 2xl:w-130 shadow-xl inset-shadow-xs focus-within:border focus-within:border-pink-500 focus-within:shadow-lg focus-within:shadow-pink-300 transition-all duration-300 overflow-hidden">
+        <div
+          class="search-bar ml-1 w-7 h-7 rounded-full md:mr-2 md:ml-2 md:h-6 md:w-6 2xl:w-10 2xl:h-10 2xl:rounded-4xl 2xl:ml-6 flex items-center justify-center bg-purple-50">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <mask id="mask0_402_50551" style="mask-type: luminance" maskUnits="userSpaceOnUse" x="2" y="2" width="20"
+              height="20">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M2 2H21.4768V21.477H2V2Z" fill="white" />
+            </mask>
+            <g mask="url(#mask0_402_50551)">
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M11.7388 3.5C7.19576 3.5 3.49976 7.195 3.49976 11.738C3.49976 16.281 7.19576 19.977 11.7388 19.977C16.2808 19.977 19.9768 16.281 19.9768 11.738C19.9768 7.195 16.2808 3.5 11.7388 3.5ZM11.7388 21.477C6.36876 21.477 1.99976 17.108 1.99976 11.738C1.99976 6.368 6.36876 2 11.7388 2C17.1088 2 21.4768 6.368 21.4768 11.738C21.4768 17.108 17.1088 21.477 11.7388 21.477Z"
+                fill="#c136a8" />
+            </g>
+            <mask id="mask1_402_50551" style="mask-type: luminance" maskUnits="userSpaceOnUse" x="17" y="17" width="6"
+              height="6">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M17.24 17.707H22.264V22.7217H17.24V17.707Z"
+                fill="white" />
+            </mask>
+            <g mask="url(#mask1_402_50551)">
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M21.5142 22.7217C21.3232 22.7217 21.1312 22.6487 20.9842 22.5027L17.4602 18.9887C17.1672 18.6957 17.1662 18.2207 17.4592 17.9277C17.7512 17.6327 18.2262 17.6347 18.5202 17.9257L22.0442 21.4407C22.3372 21.7337 22.3382 22.2077 22.0452 22.5007C21.8992 22.6487 21.7062 22.7217 21.5142 22.7217Z"
+                fill="#c136a8" />
+            </g>
+          </svg>
         </div>
-        <a href="" class="">
-          <img
-            src="./src/assets/icons/Type=Logo, Dark=Yes.svg"
-            alt=""
-            class="hidden md:block xl:w-50 xl:h-20 2xl:ml-2 2xl:h-20 2xl:w-60"
-          />
+        <input id="search" type="text" placeholder="Search by"
+          class="font-sans placeholder:text-sm placeholder:text-gray-500 outline-none search-input flex-1 min-w-0 px-3 py-1 h-full bg-transparent" />
+      </div>
+
+      <div id="suggestion-area"
+        class="hidden fixed z-50 max-h-80 overflow-y-auto p-3 rounded-3xl bg-white shadow-2xl border border-gray-200">
+      </div>
+
+      <div class="lg:hidden cart rounded-4xl h-8 w-12 flex items-center justify-center ml-4 bg-white cursor-pointer">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd"
+            d="M6.32759 8.3474L6.93059 15.5194C6.97459 16.0714 7.42559 16.4854 7.97659 16.4854H7.98059H18.8916H18.8936C19.4146 16.4854 19.8596 16.0974 19.9336 15.5824L20.8836 9.0234C20.9056 8.8674 20.8666 8.7114 20.7716 8.5854C20.6776 8.4584 20.5396 8.3764 20.3836 8.3544C20.1746 8.3624 11.5016 8.3504 6.32759 8.3474ZM7.97459 17.9854C6.65759 17.9854 5.54259 16.9574 5.43559 15.6424L4.51959 4.7484L3.01259 4.4884C2.60359 4.4164 2.33059 4.0294 2.40059 3.6204C2.47259 3.2114 2.86759 2.9454 3.26759 3.0094L5.34759 3.3694C5.68259 3.4284 5.93759 3.7064 5.96659 4.0464L6.20159 6.8474C20.4776 6.8534 20.5236 6.8604 20.5926 6.8684C21.1496 6.9494 21.6396 7.2404 21.9736 7.6884C22.3076 8.1354 22.4476 8.6864 22.3676 9.2384L21.4186 15.7964C21.2396 17.0444 20.1556 17.9854 18.8956 17.9854H18.8906H7.98259H7.97459Z"
+            fill="#FFFFFF" />
+          <path fill-rule="evenodd" clip-rule="evenodd"
+            d="M17.2874 12.0437H14.5154C14.1004 12.0437 13.7654 11.7077 13.7654 11.2937C13.7654 10.8797 14.1004 10.5437 14.5154 10.5437H17.2874C17.7014 10.5437 18.0374 10.8797 18.0374 11.2937C18.0374 11.7077 17.7014 12.0437 17.2874 12.0437Z"
+            fill="#FFFFFF" />
+          <path fill-rule="evenodd" clip-rule="evenodd"
+            d="M7.54451 20.7019C7.84551 20.7019 8.08851 20.9449 8.08851 21.2459C8.08851 21.5469 7.84551 21.7909 7.54451 21.7909C7.24251 21.7909 6.99951 21.5469 6.99951 21.2459C6.99951 20.9449 7.24251 20.7019 7.54451 20.7019Z"
+            fill="#FFFFFF" />
+          <mask id="mask0_401_46180" style="mask-type: luminance" maskUnits="userSpaceOnUse" x="6" y="20" width="3"
+            height="2">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M6.99878 21.2455C6.99878 21.5475 7.24178 21.7915 7.54478 21.7915C7.84578 21.7915 8.08878 21.5475 8.08878 21.2455C8.08878 20.9445 7.84578 20.7015 7.54478 20.7015C7.24178 20.7015 6.99878 20.9445 6.99878 21.2455Z"
+              fill="white" />
+          </mask>
+          <g mask="url(#mask0_401_46180)">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M1.99976 26.7905H13.0888V15.7015H1.99976V26.7905Z"
+              fill="#FFFFFF" />
+          </g>
+          <path fill-rule="evenodd" clip-rule="evenodd"
+            d="M7.54351 21.0408C7.43051 21.0408 7.33851 21.1328 7.33851 21.2458C7.33851 21.4728 7.74951 21.4728 7.74951 21.2458C7.74951 21.1328 7.65651 21.0408 7.54351 21.0408ZM7.54351 22.5408C6.82951 22.5408 6.24951 21.9598 6.24951 21.2458C6.24951 20.5318 6.82951 19.9518 7.54351 19.9518C8.25751 19.9518 8.83851 20.5318 8.83851 21.2458C8.83851 21.9598 8.25751 22.5408 7.54351 22.5408Z"
+            fill="#FFFFFF" />
+          <path fill-rule="evenodd" clip-rule="evenodd"
+            d="M18.8248 20.7019C19.1258 20.7019 19.3698 20.9449 19.3698 21.2459C19.3698 21.5469 19.1258 21.7909 18.8248 21.7909C18.5228 21.7909 18.2798 21.5469 18.2798 21.2459C18.2798 20.9449 18.5228 20.7019 18.8248 20.7019Z"
+            fill="#FFFFFF" />
+          <mask id="mask1_401_46180" style="mask-type: luminance" maskUnits="userSpaceOnUse" x="18" y="20" width="2"
+            height="2">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M18.2798 21.2455C18.2798 21.5475 18.5228 21.7915 18.8248 21.7915C19.1248 21.7915 19.3698 21.5475 19.3698 21.2455C19.3698 20.9445 19.1248 20.7015 18.8248 20.7015C18.5228 20.7015 18.2798 20.9445 18.2798 21.2455Z"
+              fill="white" />
+          </mask>
+          <g mask="url(#mask1_401_46180)">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M13.2798 26.7905H24.3698V15.7015H13.2798V26.7905Z"
+              fill="#FFFFFF" />
+          </g>
+          <path fill-rule="evenodd" clip-rule="evenodd"
+            d="M18.8238 21.0408C18.7118 21.0408 18.6198 21.1328 18.6198 21.2458C18.6208 21.4748 19.0308 21.4728 19.0298 21.2458C19.0298 21.1328 18.9368 21.0408 18.8238 21.0408ZM18.8238 22.5408C18.1098 22.5408 17.5298 21.9598 17.5298 21.2458C17.5298 20.5318 18.1098 19.9518 18.8238 19.9518C19.5388 19.9518 20.1198 20.5318 20.1198 21.2458C20.1198 21.9598 19.5388 22.5408 18.8238 22.5408Z"
+            fill="#FFFFFF" />
+        </svg>
+      </div>
+      <div class="hidden cart lg:flex 2xl:w-80 p-2 gap-4 w-80 2xl:ml-50 cursor-pointer">
+        <a href="/cart.html"
+          class="cart-left flex items-center justify-between p-3 w-34 h-12 bg-[#FEF5FD] gap-2 rounded-full">
+          <div
+            class="cart-left-left flex items-center w-16 h-10 justify-center gap-1 text-xs font-semibold text-[#B6349A] bg-white rounded-full border-b-amber-950">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M6.32759 8.3474L6.93059 15.5194C6.97459 16.0714 7.42559 16.4854 7.97659 16.4854H7.98059H18.8916H18.8936C19.4146 16.4854 19.8596 16.0974 19.9336 15.5824L20.8836 9.0234C20.9056 8.8674 20.8666 8.7114 20.7716 8.5854C20.6776 8.4584 20.5396 8.3764 20.3836 8.3544C20.1746 8.3624 11.5016 8.3504 6.32759 8.3474ZM7.97459 17.9854C6.65759 17.9854 5.54259 16.9574 5.43559 15.6424L4.51959 4.7484L3.01259 4.4884C2.60359 4.4164 2.33059 4.0294 2.40059 3.6204C2.47259 3.2114 2.86759 2.9454 3.26759 3.0094L5.34759 3.3694C5.68259 3.4284 5.93759 3.7064 5.96659 4.0464L6.20159 6.8474C20.4776 6.8534 20.5236 6.8604 20.5926 6.8684C21.1496 6.9494 21.6396 7.2404 21.9736 7.6884C22.3076 8.1354 22.4476 8.6864 22.3676 9.2384L21.4186 15.7964C21.2396 17.0444 20.1556 17.9854 18.8956 17.9854H18.8906H7.98259H7.97459Z"
+                fill="#B6349A" />
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M17.2874 12.0437H14.5154C14.1004 12.0437 13.7654 11.7077 13.7654 11.2937C13.7654 10.8797 14.1004 10.5437 14.5154 10.5437H17.2874C17.7014 10.5437 18.0374 10.8797 18.0374 11.2937C18.0374 11.7077 17.7014 12.0437 17.2874 12.0437Z"
+                fill="#212121" />
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M7.54451 20.7019C7.84551 20.7019 8.08851 20.9449 8.08851 21.2459C8.08851 21.5469 7.84551 21.7909 7.54451 21.7909C7.24251 21.7909 6.99951 21.5469 6.99951 21.2459C6.99951 20.9449 7.24251 20.7019 7.54451 20.7019Z"
+                fill="#212121" />
+              <mask id="mask0_401_46180" style="mask-type: luminance" maskUnits="userSpaceOnUse" x="6" y="20" width="3"
+                height="2">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M6.99878 21.2455C6.99878 21.5475 7.24178 21.7915 7.54478 21.7915C7.84578 21.7915 8.08878 21.5475 8.08878 21.2455C8.08878 20.9445 7.84578 20.7015 7.54478 20.7015C7.24178 20.7015 6.99878 20.9445 6.99878 21.2455Z"
+                  fill="white" />
+              </mask>
+              <g mask="url(#mask0_401_46180)">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M1.99976 26.7905H13.0888V15.7015H1.99976V26.7905Z" />
+              </g>
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M7.54351 21.0408C7.43051 21.0408 7.33851 21.1328 7.33851 21.2458C7.33851 21.4728 7.74951 21.4728 7.74951 21.2458C7.74951 21.1328 7.65651 21.0408 7.54351 21.0408ZM7.54351 22.5408C6.82951 22.5408 6.24951 21.9598 6.24951 21.2458C6.24951 20.5318 6.82951 19.9518 7.54351 19.9518C8.25751 19.9518 8.83851 20.5318 8.83851 21.2458C8.83851 21.9598 8.25751 22.5408 7.54351 22.5408Z"
+                fill="#B6349A" />
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M18.8248 20.7019C19.1258 20.7019 19.3698 20.9449 19.3698 21.2459C19.3698 21.5469 19.1258 21.7909 18.8248 21.7909C18.5228 21.7909 18.2798 21.5469 18.2798 21.2459C18.2798 20.9449 18.5228 20.7019 18.8248 20.7019Z"
+                fill="#B6349A" />
+              <mask id="mask1_401_46180" style="mask-type: luminance" maskUnits="userSpaceOnUse" x="18" y="20" width="2"
+                height="2">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M18.2798 21.2455C18.2798 21.5475 18.5228 21.7915 18.8248 21.7915C19.1248 21.7915 19.3698 21.5475 19.3698 21.2455C19.3698 20.9445 19.1248 20.7015 18.8248 20.7015C18.5228 20.7015 18.2798 20.9445 18.2798 21.2455Z"
+                  fill="#B6349A" />
+              </mask>
+              <g mask="url(#mask1_401_46180)">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M13.2798 26.7905H24.3698V15.7015H13.2798V26.7905Z" />
+              </g>
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M18.8238 21.0408C18.7118 21.0408 18.6198 21.1328 18.6198 21.2458C18.6208 21.4748 19.0308 21.4728 19.0298 21.2458C19.0298 21.1328 18.9368 21.0408 18.8238 21.0408ZM18.8238 22.5408C18.1098 22.5408 17.5298 21.9598 17.5298 21.2458C17.5298 20.5318 18.1098 19.9518 18.8238 19.9518C19.5388 19.9518 20.1198 20.5318 20.1198 21.2458C20.1198 21.9598 19.5388 22.5408 18.8238 22.5408Z"
+                fill="#B6349A" />
+            </svg>
+            <span id="cart-count-home">0</span>
+          </div>
+          <div class="cart-left-right text-sm font-semibold">Cart</div>
         </a>
-        <div
-          class="hidden sm:flex md:justify-center text-xs mr-2 md:ml-2 xl:w-50 xl:h-15 xl:text-xl xl:mt-10 xl:ml-10 gap-4 2xl:w-60 2xl:h-6 2xl:ml-10 text-center 2xl:mb-6"
-        >
-          <svg
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M12.2505 8.5C11.2855 8.5 10.5005 9.285 10.5005 10.251C10.5005 11.216 11.2855 12 12.2505 12C13.2155 12 14.0005 11.216 14.0005 10.251C14.0005 9.285 13.2155 8.5 12.2505 8.5ZM12.2505 13.5C10.4585 13.5 9.00049 12.043 9.00049 10.251C9.00049 8.458 10.4585 7 12.2505 7C14.0425 7 15.5005 8.458 15.5005 10.251C15.5005 12.043 14.0425 13.5 12.2505 13.5Z"
-              fill="#212121"
-            />
-            <mask
-              id="mask0_401_46173"
-              style="mask-type: luminance"
-              maskUnits="userSpaceOnUse"
-              x="4"
-              y="2"
-              width="17"
-              height="20"
-            >
-              <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
-                d="M4 2H20.4995V21.5H4V2Z"
-                fill="white"
-              />
-            </mask>
-            <g mask="url(#mask0_401_46173)">
-              <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
-                d="M12.2495 3.5C8.52751 3.5 5.49951 6.557 5.49951 10.313C5.49951 15.092 11.1235 19.748 12.2495 19.996C13.3755 19.747 18.9995 15.091 18.9995 10.313C18.9995 6.557 15.9715 3.5 12.2495 3.5ZM12.2495 21.5C10.4555 21.5 3.99951 15.948 3.99951 10.313C3.99951 5.729 7.70051 2 12.2495 2C16.7985 2 20.4995 5.729 20.4995 10.313C20.4995 15.948 14.0435 21.5 12.2495 21.5Z"
-                fill="#212121"
-              />
-            </g>
-          </svg>
-          <p class="text-sm">Location</p>
-        </div>
-
-        <div
-          class="searchbar relative flex items-center h-8 gap-2 md:h-8 md:w-60 xl:w-100 xl:h-12 xl:rounded-4xl xl:mr-20 bg-primary-100 rounded-2xl 2xl:ml-20 2xl:h-16 2xl:w-130 shadow-xl inset-shadow-xs focus-within:border focus-within:border-pink-500 focus-within:shadow-lg focus-within:shadow-pink-300 transition-all duration-300 overflow-hidden"
-        >
-          <div
-            class="search-bar ml-1 w-7 h-7 rounded-full md:mr-2 md:ml-2 md:h-6 md:w-6 2xl:w-10 2xl:h-10 2xl:rounded-4xl 2xl:ml-6 flex items-center justify-center bg-purple-50"
-          >
-            <svg
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <mask
-                id="mask0_402_50551"
-                style="mask-type: luminance"
-                maskUnits="userSpaceOnUse"
-                x="2"
-                y="2"
-                width="20"
-                height="20"
-              >
-                <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
-                  d="M2 2H21.4768V21.477H2V2Z"
-                  fill="white"
-                />
+        <a href="login.html" id="login-link"
+          class="cart-right flex items-center justify-center w-36 rounded-full gap-1 border-1 border-solid border-[#B6349A] hover:cursor-pointer">
+          <div class="cart-right-left">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <mask id="mask0_401_46169" style="mask-type: luminance" maskUnits="userSpaceOnUse" x="2" y="13" width="16"
+                height="9">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M2 13.957H17.1838V21.0566H2V13.957Z" fill="white" />
               </mask>
-              <g mask="url(#mask0_402_50551)">
-                <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
-                  d="M11.7388 3.5C7.19576 3.5 3.49976 7.195 3.49976 11.738C3.49976 16.281 7.19576 19.977 11.7388 19.977C16.2808 19.977 19.9768 16.281 19.9768 11.738C19.9768 7.195 16.2808 3.5 11.7388 3.5ZM11.7388 21.477C6.36876 21.477 1.99976 17.108 1.99976 11.738C1.99976 6.368 6.36876 2 11.7388 2C17.1088 2 21.4768 6.368 21.4768 11.738C21.4768 17.108 17.1088 21.477 11.7388 21.477Z"
-                  fill="#c136a8"
-                />
+              <g mask="url(#mask0_401_46169)">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M9.59176 15.457C6.81276 15.457 3.49976 15.814 3.49976 17.519C3.49976 18.871 5.54976 19.557 9.59176 19.557C13.6338 19.557 15.6838 18.864 15.6838 17.499C15.6838 16.144 13.6338 15.457 9.59176 15.457ZM9.59176 21.057C7.51576 21.057 1.99976 21.057 1.99976 17.519C1.99976 13.957 7.71376 13.957 9.59176 13.957C12.8508 13.957 17.1838 14.324 17.1838 17.499C17.1838 21.057 11.4698 21.057 9.59176 21.057Z"
+                  fill="#212121" />
               </g>
-              <mask
-                id="mask1_402_50551"
-                style="mask-type: luminance"
-                maskUnits="userSpaceOnUse"
-                x="17"
-                y="17"
-                width="6"
-                height="6"
-              >
-                <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
-                  d="M17.24 17.707H22.264V22.7217H17.24V17.707Z"
-                  fill="white"
-                />
+              <mask id="mask1_401_46169" style="mask-type: luminance" maskUnits="userSpaceOnUse" x="17" y="13" width="5"
+                height="6">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M17.8452 13.4834H21.979V18.4609H17.8452V13.4834Z"
+                  fill="white" />
               </mask>
-              <g mask="url(#mask1_402_50551)">
-                <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
-                  d="M21.5142 22.7217C21.3232 22.7217 21.1312 22.6487 20.9842 22.5027L17.4602 18.9887C17.1672 18.6957 17.1662 18.2207 17.4592 17.9277C17.7512 17.6327 18.2262 17.6347 18.5202 17.9257L22.0442 21.4407C22.3372 21.7337 22.3382 22.2077 22.0452 22.5007C21.8992 22.6487 21.7062 22.7217 21.5142 22.7217Z"
-                  fill="#c136a8"
-                />
+              <g mask="url(#mask1_401_46169)">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M19.8955 18.4609C19.5925 18.4609 19.3075 18.2759 19.1945 17.9769C19.0475 17.5899 19.2425 17.1559 19.6295 17.0099C20.4795 16.6879 20.4795 16.2949 20.4795 16.1269C20.4795 15.5599 19.8085 15.1719 18.4855 14.9749C18.0755 14.9129 17.7925 14.5309 17.8535 14.1219C17.9155 13.7119 18.3045 13.4369 18.7065 13.4899C21.4125 13.8949 21.9795 15.1479 21.9795 16.1269C21.9795 16.8559 21.6645 17.8429 20.1615 18.4119C20.0745 18.4449 19.9845 18.4609 19.8955 18.4609Z"
+                  fill="#212121" />
               </g>
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M16.4824 11.1318C16.1144 11.1318 15.7934 10.8608 15.7404 10.4858C15.6834 10.0758 15.9684 9.6958 16.3784 9.6388C17.6264 9.4638 18.5684 8.3808 18.5704 7.1188C18.5704 5.8648 17.6724 4.8068 16.4374 4.6048C16.0284 4.5368 15.7514 4.1518 15.8184 3.7428C15.8854 3.3338 16.2724 3.0588 16.6794 3.1238C18.6444 3.4458 20.0704 5.1268 20.0704 7.1198C20.0664 9.1248 18.5694 10.8468 16.5874 11.1248C16.5524 11.1298 16.5174 11.1318 16.4824 11.1318Z"
+                fill="#212121" />
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M9.59181 3.5C7.58681 3.5 5.95581 5.131 5.95581 7.135C5.95581 9.139 7.58681 10.77 9.59181 10.77H9.62281C10.5868 10.766 11.4948 10.387 12.1758 9.7C12.8578 9.015 13.2308 8.104 13.2268 7.138C13.2268 5.131 11.5958 3.5 9.59181 3.5ZM9.59181 12.27C6.75981 12.27 4.45581 9.966 4.45581 7.135C4.45581 4.304 6.75981 2 9.59181 2C12.4228 2 14.7268 4.304 14.7268 7.135C14.7328 8.499 14.2038 9.787 13.2398 10.757C12.2778 11.728 10.9928 12.265 9.62581 12.27H9.59181Z"
+                fill="#212121" />
             </svg>
           </div>
-          <input
-            id="search"
-            type="text"
-            placeholder="Search by"
-            class="font-sans placeholder:text-sm placeholder:text-gray-500 outline-none search-input flex-1 min-w-0 px-3 py-1 h-full bg-transparent"
-          />
-        </div>
-
-        <div
-          id="suggestion-area"
-          class="hidden fixed z-50 max-h-80 overflow-y-auto p-3 rounded-3xl bg-white shadow-2xl border border-gray-200"
-        ></div>
-
-        <div
-          class="lg:hidden cart bg-[#C136A8] rounded-4xl h-8 w-12 flex items-center justify-center ml-4"
-        >
-          <svg
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M6.32759 8.3474L6.93059 15.5194C6.97459 16.0714 7.42559 16.4854 7.97659 16.4854H7.98059H18.8916H18.8936C19.4146 16.4854 19.8596 16.0974 19.9336 15.5824L20.8836 9.0234C20.9056 8.8674 20.8666 8.7114 20.7716 8.5854C20.6776 8.4584 20.5396 8.3764 20.3836 8.3544C20.1746 8.3624 11.5016 8.3504 6.32759 8.3474ZM7.97459 17.9854C6.65759 17.9854 5.54259 16.9574 5.43559 15.6424L4.51959 4.7484L3.01259 4.4884C2.60359 4.4164 2.33059 4.0294 2.40059 3.6204C2.47259 3.2114 2.86759 2.9454 3.26759 3.0094L5.34759 3.3694C5.68259 3.4284 5.93759 3.7064 5.96659 4.0464L6.20159 6.8474C20.4776 6.8534 20.5236 6.8604 20.5926 6.8684C21.1496 6.9494 21.6396 7.2404 21.9736 7.6884C22.3076 8.1354 22.4476 8.6864 22.3676 9.2384L21.4186 15.7964C21.2396 17.0444 20.1556 17.9854 18.8956 17.9854H18.8906H7.98259H7.97459Z"
-              fill="#FFFFFF"
-            />
-            <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M17.2874 12.0437H14.5154C14.1004 12.0437 13.7654 11.7077 13.7654 11.2937C13.7654 10.8797 14.1004 10.5437 14.5154 10.5437H17.2874C17.7014 10.5437 18.0374 10.8797 18.0374 11.2937C18.0374 11.7077 17.7014 12.0437 17.2874 12.0437Z"
-              fill="#FFFFFF"
-            />
-            <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M7.54451 20.7019C7.84551 20.7019 8.08851 20.9449 8.08851 21.2459C8.08851 21.5469 7.84551 21.7909 7.54451 21.7909C7.24251 21.7909 6.99951 21.5469 6.99951 21.2459C6.99951 20.9449 7.24251 20.7019 7.54451 20.7019Z"
-              fill="#FFFFFF"
-            />
-            <mask
-              id="mask0_401_46180"
-              style="mask-type: luminance"
-              maskUnits="userSpaceOnUse"
-              x="6"
-              y="20"
-              width="3"
-              height="2"
-            >
-              <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
-                d="M6.99878 21.2455C6.99878 21.5475 7.24178 21.7915 7.54478 21.7915C7.84578 21.7915 8.08878 21.5475 8.08878 21.2455C8.08878 20.9445 7.84578 20.7015 7.54478 20.7015C7.24178 20.7015 6.99878 20.9445 6.99878 21.2455Z"
-                fill="white"
-              />
-            </mask>
-            <g mask="url(#mask0_401_46180)">
-              <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
-                d="M1.99976 26.7905H13.0888V15.7015H1.99976V26.7905Z"
-                fill="#FFFFFF"
-              />
-            </g>
-            <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M7.54351 21.0408C7.43051 21.0408 7.33851 21.1328 7.33851 21.2458C7.33851 21.4728 7.74951 21.4728 7.74951 21.2458C7.74951 21.1328 7.65651 21.0408 7.54351 21.0408ZM7.54351 22.5408C6.82951 22.5408 6.24951 21.9598 6.24951 21.2458C6.24951 20.5318 6.82951 19.9518 7.54351 19.9518C8.25751 19.9518 8.83851 20.5318 8.83851 21.2458C8.83851 21.9598 8.25751 22.5408 7.54351 22.5408Z"
-              fill="#FFFFFF"
-            />
-            <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M18.8248 20.7019C19.1258 20.7019 19.3698 20.9449 19.3698 21.2459C19.3698 21.5469 19.1258 21.7909 18.8248 21.7909C18.5228 21.7909 18.2798 21.5469 18.2798 21.2459C18.2798 20.9449 18.5228 20.7019 18.8248 20.7019Z"
-              fill="#FFFFFF"
-            />
-            <mask
-              id="mask1_401_46180"
-              style="mask-type: luminance"
-              maskUnits="userSpaceOnUse"
-              x="18"
-              y="20"
-              width="2"
-              height="2"
-            >
-              <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
-                d="M18.2798 21.2455C18.2798 21.5475 18.5228 21.7915 18.8248 21.7915C19.1248 21.7915 19.3698 21.5475 19.3698 21.2455C19.3698 20.9445 19.1248 20.7015 18.8248 20.7015C18.5228 20.7015 18.2798 20.9445 18.2798 21.2455Z"
-                fill="white"
-              />
-            </mask>
-            <g mask="url(#mask1_401_46180)">
-              <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
-                d="M13.2798 26.7905H24.3698V15.7015H13.2798V26.7905Z"
-                fill="#FFFFFF"
-              />
-            </g>
-            <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M18.8238 21.0408C18.7118 21.0408 18.6198 21.1328 18.6198 21.2458C18.6208 21.4748 19.0308 21.4728 19.0298 21.2458C19.0298 21.1328 18.9368 21.0408 18.8238 21.0408ZM18.8238 22.5408C18.1098 22.5408 17.5298 21.9598 17.5298 21.2458C17.5298 20.5318 18.1098 19.9518 18.8238 19.9518C19.5388 19.9518 20.1198 20.5318 20.1198 21.2458C20.1198 21.9598 19.5388 22.5408 18.8238 22.5408Z"
-              fill="#FFFFFF"
-            />
-          </svg>
-        </div>
-        <div class="hidden cart lg:flex 2xl:w-80 p-2 gap-4 w-80 2xl:ml-50">
-          <div
-            class="cart-left flex items-center justify-between p-3 w-34 h-12 bg-[#FEF5FD] gap-2 rounded-full"
-          >
-            <div
-              class="cart-left-left flex items-center w-16 h-10 justify-center gap-1 text-xs font-semibold text-[#B6349A] bg-white rounded-full border-b-amber-950"
-            >
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
-                  d="M6.32759 8.3474L6.93059 15.5194C6.97459 16.0714 7.42559 16.4854 7.97659 16.4854H7.98059H18.8916H18.8936C19.4146 16.4854 19.8596 16.0974 19.9336 15.5824L20.8836 9.0234C20.9056 8.8674 20.8666 8.7114 20.7716 8.5854C20.6776 8.4584 20.5396 8.3764 20.3836 8.3544C20.1746 8.3624 11.5016 8.3504 6.32759 8.3474ZM7.97459 17.9854C6.65759 17.9854 5.54259 16.9574 5.43559 15.6424L4.51959 4.7484L3.01259 4.4884C2.60359 4.4164 2.33059 4.0294 2.40059 3.6204C2.47259 3.2114 2.86759 2.9454 3.26759 3.0094L5.34759 3.3694C5.68259 3.4284 5.93759 3.7064 5.96659 4.0464L6.20159 6.8474C20.4776 6.8534 20.5236 6.8604 20.5926 6.8684C21.1496 6.9494 21.6396 7.2404 21.9736 7.6884C22.3076 8.1354 22.4476 8.6864 22.3676 9.2384L21.4186 15.7964C21.2396 17.0444 20.1556 17.9854 18.8956 17.9854H18.8906H7.98259H7.97459Z"
-                  fill="#B6349A"
-                />
-                <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
-                  d="M17.2874 12.0437H14.5154C14.1004 12.0437 13.7654 11.7077 13.7654 11.2937C13.7654 10.8797 14.1004 10.5437 14.5154 10.5437H17.2874C17.7014 10.5437 18.0374 10.8797 18.0374 11.2937C18.0374 11.7077 17.7014 12.0437 17.2874 12.0437Z"
-                  fill="#212121"
-                />
-                <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
-                  d="M7.54451 20.7019C7.84551 20.7019 8.08851 20.9449 8.08851 21.2459C8.08851 21.5469 7.84551 21.7909 7.54451 21.7909C7.24251 21.7909 6.99951 21.5469 6.99951 21.2459C6.99951 20.9449 7.24251 20.7019 7.54451 20.7019Z"
-                  fill="#212121"
-                />
-                <mask
-                  id="mask0_401_46180"
-                  style="mask-type: luminance"
-                  maskUnits="userSpaceOnUse"
-                  x="6"
-                  y="20"
-                  width="3"
-                  height="2"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
-                    d="M6.99878 21.2455C6.99878 21.5475 7.24178 21.7915 7.54478 21.7915C7.84578 21.7915 8.08878 21.5475 8.08878 21.2455C8.08878 20.9445 7.84578 20.7015 7.54478 20.7015C7.24178 20.7015 6.99878 20.9445 6.99878 21.2455Z"
-                    fill="white"
-                  />
-                </mask>
-                <g mask="url(#mask0_401_46180)">
-                  <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
-                    d="M1.99976 26.7905H13.0888V15.7015H1.99976V26.7905Z"
-                  />
-                </g>
-                <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
-                  d="M7.54351 21.0408C7.43051 21.0408 7.33851 21.1328 7.33851 21.2458C7.33851 21.4728 7.74951 21.4728 7.74951 21.2458C7.74951 21.1328 7.65651 21.0408 7.54351 21.0408ZM7.54351 22.5408C6.82951 22.5408 6.24951 21.9598 6.24951 21.2458C6.24951 20.5318 6.82951 19.9518 7.54351 19.9518C8.25751 19.9518 8.83851 20.5318 8.83851 21.2458C8.83851 21.9598 8.25751 22.5408 7.54351 22.5408Z"
-                  fill="#B6349A"
-                />
-                <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
-                  d="M18.8248 20.7019C19.1258 20.7019 19.3698 20.9449 19.3698 21.2459C19.3698 21.5469 19.1258 21.7909 18.8248 21.7909C18.5228 21.7909 18.2798 21.5469 18.2798 21.2459C18.2798 20.9449 18.5228 20.7019 18.8248 20.7019Z"
-                  fill="#B6349A"
-                />
-                <mask
-                  id="mask1_401_46180"
-                  style="mask-type: luminance"
-                  maskUnits="userSpaceOnUse"
-                  x="18"
-                  y="20"
-                  width="2"
-                  height="2"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
-                    d="M18.2798 21.2455C18.2798 21.5475 18.5228 21.7915 18.8248 21.7915C19.1248 21.7915 19.3698 21.5475 19.3698 21.2455C19.3698 20.9445 19.1248 20.7015 18.8248 20.7015C18.5228 20.7015 18.2798 20.9445 18.2798 21.2455Z"
-                    fill="#B6349A"
-                  />
-                </mask>
-                <g mask="url(#mask1_401_46180)">
-                  <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
-                    d="M13.2798 26.7905H24.3698V15.7015H13.2798V26.7905Z"
-                  />
-                </g>
-                <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
-                  d="M18.8238 21.0408C18.7118 21.0408 18.6198 21.1328 18.6198 21.2458C18.6208 21.4748 19.0308 21.4728 19.0298 21.2458C19.0298 21.1328 18.9368 21.0408 18.8238 21.0408ZM18.8238 22.5408C18.1098 22.5408 17.5298 21.9598 17.5298 21.2458C17.5298 20.5318 18.1098 19.9518 18.8238 19.9518C19.5388 19.9518 20.1198 20.5318 20.1198 21.2458C20.1198 21.9598 19.5388 22.5408 18.8238 22.5408Z"
-                  fill="#B6349A"
-                />
-              </svg>
-
-              10
-            </div>
-            <div class="cart-left-right text-sm font-semibold">Cart</div>
-          </div>
-          <a
-            href="login.html"
-            id="login-link"
-            class="cart-right flex items-center justify-center w-36 rounded-full gap-1 border-1 border-solid border-[#B6349A] hover:cursor-pointer"
-          >
-            <div class="cart-right-left">
-              <svg
-                width="14"
-                height="14"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <mask
-                  id="mask0_401_46169"
-                  style="mask-type: luminance"
-                  maskUnits="userSpaceOnUse"
-                  x="2"
-                  y="13"
-                  width="16"
-                  height="9"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
-                    d="M2 13.957H17.1838V21.0566H2V13.957Z"
-                    fill="white"
-                  />
-                </mask>
-                <g mask="url(#mask0_401_46169)">
-                  <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
-                    d="M9.59176 15.457C6.81276 15.457 3.49976 15.814 3.49976 17.519C3.49976 18.871 5.54976 19.557 9.59176 19.557C13.6338 19.557 15.6838 18.864 15.6838 17.499C15.6838 16.144 13.6338 15.457 9.59176 15.457ZM9.59176 21.057C7.51576 21.057 1.99976 21.057 1.99976 17.519C1.99976 13.957 7.71376 13.957 9.59176 13.957C12.8508 13.957 17.1838 14.324 17.1838 17.499C17.1838 21.057 11.4698 21.057 9.59176 21.057Z"
-                    fill="#212121"
-                  />
-                </g>
-                <mask
-                  id="mask1_401_46169"
-                  style="mask-type: luminance"
-                  maskUnits="userSpaceOnUse"
-                  x="17"
-                  y="13"
-                  width="5"
-                  height="6"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
-                    d="M17.8452 13.4834H21.979V18.4609H17.8452V13.4834Z"
-                    fill="white"
-                  />
-                </mask>
-                <g mask="url(#mask1_401_46169)">
-                  <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
-                    d="M19.8955 18.4609C19.5925 18.4609 19.3075 18.2759 19.1945 17.9769C19.0475 17.5899 19.2425 17.1559 19.6295 17.0099C20.4795 16.6879 20.4795 16.2949 20.4795 16.1269C20.4795 15.5599 19.8085 15.1719 18.4855 14.9749C18.0755 14.9129 17.7925 14.5309 17.8535 14.1219C17.9155 13.7119 18.3045 13.4369 18.7065 13.4899C21.4125 13.8949 21.9795 15.1479 21.9795 16.1269C21.9795 16.8559 21.6645 17.8429 20.1615 18.4119C20.0745 18.4449 19.9845 18.4609 19.8955 18.4609Z"
-                    fill="#212121"
-                  />
-                </g>
-                <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
-                  d="M16.4824 11.1318C16.1144 11.1318 15.7934 10.8608 15.7404 10.4858C15.6834 10.0758 15.9684 9.6958 16.3784 9.6388C17.6264 9.4638 18.5684 8.3808 18.5704 7.1188C18.5704 5.8648 17.6724 4.8068 16.4374 4.6048C16.0284 4.5368 15.7514 4.1518 15.8184 3.7428C15.8854 3.3338 16.2724 3.0588 16.6794 3.1238C18.6444 3.4458 20.0704 5.1268 20.0704 7.1198C20.0664 9.1248 18.5694 10.8468 16.5874 11.1248C16.5524 11.1298 16.5174 11.1318 16.4824 11.1318Z"
-                  fill="#212121"
-                />
-                <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
-                  d="M9.59181 3.5C7.58681 3.5 5.95581 5.131 5.95581 7.135C5.95581 9.139 7.58681 10.77 9.59181 10.77H9.62281C10.5868 10.766 11.4948 10.387 12.1758 9.7C12.8578 9.015 13.2308 8.104 13.2268 7.138C13.2268 5.131 11.5958 3.5 9.59181 3.5ZM9.59181 12.27C6.75981 12.27 4.45581 9.966 4.45581 7.135C4.45581 4.304 6.75981 2 9.59181 2C12.4228 2 14.7268 4.304 14.7268 7.135C14.7328 8.499 14.2038 9.787 13.2398 10.757C12.2778 11.728 10.9928 12.265 9.62581 12.27H9.59181Z"
-                  fill="#212121"
-                />
-              </svg>
-            </div>
-            <div class="cart-right-right text-sm font-semibold">Login</div>
-          </a>
-        </div>
-        <div class="login"></div>
+          <div class="cart-right-right text-sm font-semibold">Login</div>
+        </a>
       </div>
-    </header>
-
-    <main>
-      <section id="banners"
-        class="mb-4 lg:mb-10 flex flex-wrap sm:h-70 lg:h-90 xl:h-144 2xl:h-160 w-94 min-w-full"
-      >
-        <img
-          src="./src/assets/image/Banner01.jpg"
-          alt=""
-          class="xl:hidden rounded-4xl h-[100%] w-[74%] sm:w-[50%] md:w-[32%] lg:w-[32%]"
-        />
-
-        <img
-          src="./src/assets/image/Banner01.jpg"
-          alt=""
-          class="xl:hidden rounded-4xl h-auto w-[23%] sm:w-[48%] md:w-[32%] lg:w-[33%] ml-2"
-        />
-
-        <img
-          src="./src/assets/image/Banner01.jpg"
-          alt=""
-          class="xl:hidden hidden md:block h-[100%] rounded-4xl w-[30%] sm:w-[28%] md:w-[33%] lg:w-[33%] xl:w-[25%] 2xl:w-[28%] ml-2"
-        />
-
-        <img
-          src="./src/assets/image/Banner01.jpg"
-          alt=""
-          class="xl:hidden hidden h-[100%] rounded-4xl w-[30%] sm:w-[28%] md:w-[26%] lg:w-[25%] xl:w-[25%] 2xl:w-[19%] ml-2"
-        />
-
-        <div
-          class="banner hidden xl:flex flex-col w-full h-140 gap-3 overflow-hidden"
-        >
-          <div class="banner-top flex gap-2 px-2 h-[50%]">
-            <div class="rounded-4xl h-full overflow-hidden flex-shrink-0 xl:w-[30%] 2xl:w-[30%]">
-              <img
-                src="./src/assets/image/Rectangle 3.svg"
-                alt=""
-                class="w-full h-full object-cover rounded-4xl"
-              />
-            </div>
-
-            <div class="rounded-4xl h-full overflow-hidden flex-shrink-0 xl:w-[45%] 2xl:w-[45%]">
-              <img
-                src="./src/assets/image/Rectangle 4.svg"
-                alt=""
-                class="w-full h-full object-cover rounded-4xl"
-              />
-            </div>
-
-            <div class="rounded-4xl h-full overflow-hidden flex-shrink-0 xl:w-[25%] 2xl:w-[25%]">
-              <img
-                src="./src/assets/image/Rectangle 5.svg"
-                alt=""
-                class="w-full h-full object-cover rounded-4xl"
-              />
-            </div>
-          </div>
-
-          <div class="banner-bottom flex gap-2 px-2 pb-4 h-[50%]">
-            <div
-              class="rounded-4xl h-full overflow-hidden flex-shrink-0 xl:w-[20%] 2xl:w-[20%]"
-            >
-              <img
-                src="./src/assets/image/Rectangle 5.svg"
-                alt=""
-                class="w-full h-full object-cover rounded-4xl"
-              />
-            </div>
-
-            <div
-              class="rounded-4xl h-full overflow-hidden flex-shrink-0 xl:w-[60%] 2xl:w-[60%]"
-            >
-              <img
-                src="./src/assets/image/Rectangle 6.svg"
-                alt=""
-                class="w-full h-full object-cover rounded-4xl"
-              />
-            </div>
-
-            <div
-              class="rounded-4xl h-full overflow-hidden flex-shrink-0 xl:w-[20%] 2xl:w-[20%]"
-            >
-              <img
-                src="./src/assets/image/Rectangle 5.svg"
-                alt=""
-                class="w-full h-full object-cover rounded-4xl"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section
-        class="list mb-4 p-2 w-94 md:w-180 min-w-full xl:mt-30 2xl:mt-20 2xl:mb-20"
-      >
-        <div
-          class="xl:hidden row1 flex justify-between items-center gap-4 2xl:gap-2 mb-6"
-        >
-          <div class="item-1 flex flex-col items-center">
-            <div class="image">
-              <img
-                src="./src/assets/icons/Frame 27.svg"
-                alt=""
-                class="w-8 h-8 md:w-12 md:h-12 lg:w-16 lg:h-16"
-              />
-            </div>
-            <p class="text-sm">Bread</p>
-          </div>
-
-          <div class="item-1 flex flex-col items-center">
-            <div class="image">
-              <img
-                src="./src/assets/icons/Frame 27.svg"
-                alt=""
-                class="w-8 h-8 md:w-12 md:h-12 lg:w-16 lg:h-16"
-              />
-            </div>
-            <p class="text-sm">Bread</p>
-          </div>
-
-          <div class="item-1 flex flex-col items-center">
-            <div class="image">
-              <img
-                src="./src/assets/icons/Frame 27.svg"
-                alt=""
-                class="w-8 h-8 md:w-12 md:h-12 lg:w-16 lg:h-16"
-              />
-            </div>
-            <p class="text-sm">Bread</p>
-          </div>
-
-          <div class="item-1 flex flex-col items-center">
-            <div class="image">
-              <img
-                src="./src/assets/icons/Frame 27.svg"
-                alt=""
-                class="w-8 h-8 md:w-12 md:h-12 lg:w-16 lg:h-16"
-              />
-            </div>
-            <p class="text-sm">Bread</p>
-          </div>
-
-          <div class="item-1 flex flex-col items-center">
-            <div class="image">
-              <img
-                src="./src/assets/icons/Frame 27.svg"
-                alt=""
-                class="w-8 h-8 md:w-12 md:h-12 lg:w-16 lg:h-16"
-              />
-            </div>
-            <p class="text-sm">Bread</p>
-          </div>
-
-          <div class="hidden item-1 md:flex md:flex-col md:items-center">
-            <div class="image">
-              <img
-                src="./src/assets/icons/Frame 27.svg"
-                alt=""
-                class="w-8 h-8 md:w-12 md:h-12 lg:w-16 lg:h-16"
-              />
-            </div>
-            <p class="text-sm">Bread</p>
-          </div>
-
-          <div class="hidden item-1 md:flex md:flex-col md:items-center">
-            <div class="image">
-              <img
-                src="./src/assets/icons/Frame 27.svg"
-                alt=""
-                class="w-8 h-8 md:w-12 md:h-12 lg:w-16 lg:h-16"
-              />
-            </div>
-            <p class="text-sm">Bread</p>
-          </div>
-
-          <div class="hidden item-1 lg:flex lg:flex-col lg:items-center">
-            <div class="image">
-              <img
-                src="./src/assets/icons/Frame 27.svg"
-                alt=""
-                class="w-8 h-8 md:w-12 md:h-12 lg:w-16 lg:h-16"
-              />
-            </div>
-            <p class="text-sm">Bread</p>
-          </div>
-
-          <div class="hidden item-1 lg:flex lg:flex-col lg:items-center">
-            <div class="image">
-              <img
-                src="./src/assets/icons/Frame 27.svg"
-                alt=""
-                class="w-8 h-8 md:w-12 md:h-12 lg:w-16 lg:h-16"
-              />
-            </div>
-            <p class="text-sm">Bread</p>
-          </div>
-
-          <div class="hidden item-1 xl:flex xl:flex-col xl:items-center">
-            <div class="image">
-              <img
-                src="./src/assets/icons/Frame 27.svg"
-                alt=""
-                class="w-8 h-8 md:w-12 md:h-12 lg:w-16 lg:h-16"
-              />
-            </div>
-            <p class="text-sm">Bread</p>
-          </div>
-
-          <div class="hidden item-1 xl:flex xl:flex-col xl:items-center">
-            <div class="image">
-              <img
-                src="./src/assets/icons/Frame 27.svg"
-                alt=""
-                class="w-8 h-8 md:w-12 md:h-12 lg:w-16 lg:h-16"
-              />
-            </div>
-            <p class="text-sm">Bread</p>
-          </div>
-        </div>
-
-        <div
-          class="xl:hidden row2 flex justify-between items-center gap-4 2xl:gap-2 mb-6"
-        >
-          <div class="item-1 flex flex-col items-center">
-            <div class="image">
-              <img
-                src="./src/assets/icons/Frame 27.svg"
-                alt=""
-                class="w-8 h-8 md:w-12 md:h-12 lg:w-16 lg:h-16"
-              />
-            </div>
-            <p class="text-sm">Bread</p>
-          </div>
-
-          <div class="item-1 flex flex-col items-center">
-            <div class="image">
-              <img
-                src="./src/assets/icons/Frame 27.svg"
-                alt=""
-                class="w-8 h-8 md:w-12 md:h-12 lg:w-16 lg:h-16"
-              />
-            </div>
-            <p class="text-sm">Bread</p>
-          </div>
-
-          <div class="item-1 flex flex-col items-center">
-            <div class="image">
-              <img
-                src="./src/assets/icons/Frame 27.svg"
-                alt=""
-                class="w-8 h-8 md:w-12 md:h-12 lg:w-16 lg:h-16"
-              />
-            </div>
-            <p class="text-sm">Bread</p>
-          </div>
-
-          <div class="item-1 flex flex-col items-center">
-            <div class="image">
-              <img
-                src="./src/assets/icons/Frame 27.svg"
-                alt=""
-                class="w-8 h-8 md:w-12 md:h-12 lg:w-16 lg:h-16"
-              />
-            </div>
-            <p class="text-sm">Bread</p>
-          </div>
-
-          <div class="hidden item-1 md:flex md:flex-col md:items-center">
-            <div class="image">
-              <img
-                src="./src/assets/icons/Frame 27.svg"
-                alt=""
-                class="w-8 h-8 md:w-12 md:h-12 lg:w-16 lg:h-16"
-              />
-            </div>
-            <p class="text-sm">Bread</p>
-          </div>
-
-          <div class="hidden item-1 md:flex md:flex-col md:items-center">
-            <div class="image">
-              <img
-                src="./src/assets/icons/Frame 27.svg"
-                alt=""
-                class="w-8 h-8 md:w-12 md:h-12 lg:w-16 lg:h-16"
-              />
-            </div>
-            <p class="text-sm">Bread</p>
-          </div>
-
-          <div class="hidden item-1 lg:flex lg:flex-col lg:items-center">
-            <div class="image">
-              <img
-                src="./src/assets/icons/Frame 27.svg"
-                alt=""
-                class="w-8 h-8 md:w-12 md:h-12 lg:w-16 lg:h-16"
-              />
-            </div>
-            <p class="text-sm">Bread</p>
-          </div>
-
-          <div class="hidden item-1 lg:flex lg:flex-col lg:items-center">
-            <div class="image">
-              <img
-                src="./src/assets/icons/Frame 27.svg"
-                alt=""
-                class="w-8 h-8 md:w-12 md:h-12 lg:w-16 lg:h-16"
-              />
-            </div>
-            <p class="text-sm">Bread</p>
-          </div>
-
-          <div class="hidden item-1 xl:flex xl:flex-col xl:items-center">
-            <div class="image">
-              <img
-                src="./src/assets/icons/Frame 27.svg"
-                alt=""
-                class="w-8 h-8 md:w-12 md:h-12 lg:w-16 lg:h-16"
-              />
-            </div>
-            <p class="text-sm">Bread</p>
-          </div>
-
-          <div class="hidden item-1 xl:flex xl:flex-col xl:items-center">
-            <div class="image">
-              <img
-                src="./src/assets/icons/Frame 27.svg"
-                alt=""
-                class="w-8 h-8 md:w-12 md:h-12 lg:w-16 lg:h-16"
-              />
-            </div>
-            <p class="text-sm">Bread</p>
-          </div>
-
-          <div class="lg:flex item-1 lg:flex-col lg:items-center">
-            <div class="image">
-              <img
-                src="./src/assets/icons/dot-menu-more-2-svgrepo-com.svg"
-                alt=""
-                class="w-8 h-8 md:w-12 md:h-12 lg:w-12 lg:h-12"
-              />
-            </div>
-            <p class="text-xs">View all</p>
-          </div>
-        </div>
-
-        <div
-          class="hidden xl:flex xl:flex-nowrap overflow-x-auto large-screen-list gap-4"
-        >
-          <div
-            class="item flex flex-wrap items-center gap-3 bg-[#F8F7F8] rounded-4xl p-2 w-27 text-black h-12 text-sm"
-          >
-            <svg
-              width="26"
-              height="26"
-              viewBox="0 0 26 26"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <rect width="26" height="26" rx="13" fill="#F0EEF0" />
-              <g clip-path="url(#clip0_8859_8986)">
-                <path
-                  d="M22 13C22 17.9706 17.9706 22 13 22C11.8727 22 10.7939 21.7921 9.79941 21.4136C8.88754 19.0179 6.9821 17.1125 4.58653 16.2006C4.20792 15.2061 4 14.1273 4 13C4 8.02937 8.02937 4 13 4C17.9706 4 22 8.02937 22 13Z"
-                  fill="#08B772"
-                />
-                <path
-                  d="M20.9185 10.3016L16.9895 14.2306L9.80441 21.4156C7.40445 20.5038 5.49585 18.5952 4.58398 16.1952L15.698 5.08116C17.1396 3.63961 19.4769 3.63961 20.9185 5.08116C22.36 6.5227 22.36 8.86004 20.9185 10.3016Z"
-                  fill="#FCB30B"
-                />
-                <path
-                  d="M20.9184 10.3017L16.9894 14.2307L9.80435 21.4157C8.82218 21.0425 7.9224 20.5022 7.13934 19.8297C7.13262 19.8219 7.12602 19.8141 7.11929 19.8062C6.02382 18.5218 6.11116 16.6071 7.30483 15.4135L16.6675 6.05079C17.9434 4.77487 19.9208 4.62848 21.358 5.61107C22.3407 7.04835 22.1943 9.02575 20.9184 10.3017ZM20.8746 11.3829C20.6804 11.3829 20.523 11.5402 20.523 11.7344C20.523 11.9286 20.6804 12.086 20.8746 12.086C21.0688 12.086 21.2262 11.9286 21.2262 11.7344C21.2262 11.5402 21.0688 11.3829 20.8746 11.3829ZM21.5777 11.0313C21.7719 11.0313 21.9293 10.8739 21.9293 10.6797C21.9293 10.4856 21.7719 10.3282 21.5777 10.3282C21.3835 10.3282 21.2262 10.4856 21.2262 10.6797C21.2262 10.8739 21.3835 11.0313 21.5777 11.0313ZM21.648 13.1407C21.4538 13.1407 21.2965 13.2981 21.2965 13.4922C21.2965 13.6864 21.4538 13.8438 21.648 13.8438C21.8422 13.8438 21.9996 13.6864 21.9996 13.4922C21.9996 13.2981 21.8422 13.1407 21.648 13.1407Z"
-                  fill="#FDBF43"
-                />
-                <path
-                  d="M13.0211 13.2647C13.6183 14.299 13.9276 15.329 13.8991 16.0217C13.8934 16.1629 13.7405 16.251 13.6154 16.1855C13.0013 15.8638 12.264 15.0808 11.6667 14.0466C11.0696 13.0123 10.7603 11.9822 10.7888 11.2896C10.7945 11.1484 10.9472 11.0601 11.0725 11.1258C11.6865 11.4475 12.4239 12.2303 13.0211 13.2647ZM8.17224 14.026C8.04713 13.9604 7.89429 14.0485 7.88852 14.1897C7.86009 14.8824 8.16936 15.9125 8.76646 16.9467C9.36371 17.9811 10.101 18.764 10.7152 19.0856C10.8403 19.1513 10.9931 19.0631 10.9989 18.9219C11.0273 18.2292 10.718 17.1991 10.1208 16.1649C9.52369 15.1306 8.78624 14.3478 8.17224 14.026ZM13.9727 8.22551C13.8475 8.15987 13.6948 8.24817 13.689 8.38935C13.6606 9.08203 13.9699 10.112 14.567 11.1464C15.1642 12.1806 15.9015 12.9635 16.5157 13.2853C16.6408 13.3508 16.7935 13.2626 16.7994 13.1214C16.8278 12.4287 16.5186 11.3986 15.9213 10.3644C15.3242 9.33005 14.5867 8.54727 13.9727 8.22551ZM18.8216 7.46416C18.2245 6.4298 17.487 5.64702 16.873 5.32526C16.7478 5.25975 16.595 5.34792 16.5893 5.48909C16.5609 6.18178 16.8701 7.21175 17.4672 8.24611C18.0645 9.28034 18.8018 10.0633 19.4159 10.385C19.541 10.4505 19.6937 10.3624 19.6996 10.2212C19.7281 9.52849 19.4188 8.49852 18.8216 7.46416Z"
-                  fill="#FDA800"
-                />
-                <path
-                  d="M19.7001 10.2213C19.6942 10.3625 19.5415 10.4506 19.4164 10.3851C19.2299 10.2874 19.0321 10.147 18.8302 9.97012C18.9063 9.25272 18.675 8.17729 18.1569 7.07303C17.8843 6.49185 17.5668 5.97701 17.2398 5.56104C17.7662 5.95792 18.3398 6.62904 18.822 7.46428C19.4192 8.49864 19.7285 9.52861 19.7001 10.2213ZM8.5127 14.2422C8.84682 14.6624 9.17174 15.1866 9.4501 15.7798C9.96564 16.8787 10.1973 17.9491 10.1245 18.6666C10.328 18.8454 10.5276 18.9874 10.7156 19.0859C10.8407 19.1514 10.9935 19.0632 10.9993 18.9221C11.0277 18.2294 10.7185 17.1994 10.1212 16.165C9.63097 15.3158 9.04622 14.6364 8.5127 14.2422ZM11.3417 11.2908C11.695 11.7219 12.0403 12.2707 12.3337 12.8962C12.8425 13.9805 13.0748 15.0372 13.0109 15.7543C13.2192 15.939 13.4236 16.0848 13.6158 16.1856C13.741 16.2511 13.8938 16.163 13.8996 16.0218C13.928 15.3291 13.6187 14.2991 13.0215 13.2648C12.5092 12.3776 11.894 11.6758 11.3417 11.2908ZM13.9772 8.22783C14.3982 8.68555 14.8194 9.31987 15.1677 10.0623C15.649 11.088 15.8829 12.089 15.8527 12.8013C16.0812 13.011 16.3058 13.1752 16.5161 13.2854C16.6412 13.3509 16.7939 13.2627 16.7998 13.1216C16.8282 12.4289 16.519 11.3988 15.9217 10.3645C15.3259 9.3325 14.5905 8.55083 13.9772 8.22783Z"
-                  fill="#FC9302"
-                />
-              </g>
-              <defs>
-                <clipPath id="clip0_8859_8986">
-                  <rect
-                    width="18"
-                    height="18"
-                    fill="white"
-                    transform="translate(4 4)"
-                  />
-                </clipPath>
-              </defs>
-            </svg>
-
-            <p class="2xl:text-xs">Bread</p>
-          </div>
-
-          <div
-            class="item flex flex-wrap items-center gap-3 bg-[#F8F7F8] rounded-4xl p-2 w-27 text-black h-12 text-sm"
-          >
-            <svg
-              width="26"
-              height="26"
-              viewBox="0 0 26 26"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <rect width="26" height="26" rx="13" fill="#F0EEF0" />
-              <g clip-path="url(#clip0_8859_8986)">
-                <path
-                  d="M22 13C22 17.9706 17.9706 22 13 22C11.8727 22 10.7939 21.7921 9.79941 21.4136C8.88754 19.0179 6.9821 17.1125 4.58653 16.2006C4.20792 15.2061 4 14.1273 4 13C4 8.02937 8.02937 4 13 4C17.9706 4 22 8.02937 22 13Z"
-                  fill="#08B772"
-                />
-                <path
-                  d="M20.9185 10.3016L16.9895 14.2306L9.80441 21.4156C7.40445 20.5038 5.49585 18.5952 4.58398 16.1952L15.698 5.08116C17.1396 3.63961 19.4769 3.63961 20.9185 5.08116C22.36 6.5227 22.36 8.86004 20.9185 10.3016Z"
-                  fill="#FCB30B"
-                />
-                <path
-                  d="M20.9184 10.3017L16.9894 14.2307L9.80435 21.4157C8.82218 21.0425 7.9224 20.5022 7.13934 19.8297C7.13262 19.8219 7.12602 19.8141 7.11929 19.8062C6.02382 18.5218 6.11116 16.6071 7.30483 15.4135L16.6675 6.05079C17.9434 4.77487 19.9208 4.62848 21.358 5.61107C22.3407 7.04835 22.1943 9.02575 20.9184 10.3017ZM20.8746 11.3829C20.6804 11.3829 20.523 11.5402 20.523 11.7344C20.523 11.9286 20.6804 12.086 20.8746 12.086C21.0688 12.086 21.2262 11.9286 21.2262 11.7344C21.2262 11.5402 21.0688 11.3829 20.8746 11.3829ZM21.5777 11.0313C21.7719 11.0313 21.9293 10.8739 21.9293 10.6797C21.9293 10.4856 21.7719 10.3282 21.5777 10.3282C21.3835 10.3282 21.2262 10.4856 21.2262 10.6797C21.2262 10.8739 21.3835 11.0313 21.5777 11.0313ZM21.648 13.1407C21.4538 13.1407 21.2965 13.2981 21.2965 13.4922C21.2965 13.6864 21.4538 13.8438 21.648 13.8438C21.8422 13.8438 21.9996 13.6864 21.9996 13.4922C21.9996 13.2981 21.8422 13.1407 21.648 13.1407Z"
-                  fill="#FDBF43"
-                />
-                <path
-                  d="M13.0211 13.2647C13.6183 14.299 13.9276 15.329 13.8991 16.0217C13.8934 16.1629 13.7405 16.251 13.6154 16.1855C13.0013 15.8638 12.264 15.0808 11.6667 14.0466C11.0696 13.0123 10.7603 11.9822 10.7888 11.2896C10.7945 11.1484 10.9472 11.0601 11.0725 11.1258C11.6865 11.4475 12.4239 12.2303 13.0211 13.2647ZM8.17224 14.026C8.04713 13.9604 7.89429 14.0485 7.88852 14.1897C7.86009 14.8824 8.16936 15.9125 8.76646 16.9467C9.36371 17.9811 10.101 18.764 10.7152 19.0856C10.8403 19.1513 10.9931 19.0631 10.9989 18.9219C11.0273 18.2292 10.718 17.1991 10.1208 16.1649C9.52369 15.1306 8.78624 14.3478 8.17224 14.026ZM13.9727 8.22551C13.8475 8.15987 13.6948 8.24817 13.689 8.38935C13.6606 9.08203 13.9699 10.112 14.567 11.1464C15.1642 12.1806 15.9015 12.9635 16.5157 13.2853C16.6408 13.3508 16.7935 13.2626 16.7994 13.1214C16.8278 12.4287 16.5186 11.3986 15.9213 10.3644C15.3242 9.33005 14.5867 8.54727 13.9727 8.22551ZM18.8216 7.46416C18.2245 6.4298 17.487 5.64702 16.873 5.32526C16.7478 5.25975 16.595 5.34792 16.5893 5.48909C16.5609 6.18178 16.8701 7.21175 17.4672 8.24611C18.0645 9.28034 18.8018 10.0633 19.4159 10.385C19.541 10.4505 19.6937 10.3624 19.6996 10.2212C19.7281 9.52849 19.4188 8.49852 18.8216 7.46416Z"
-                  fill="#FDA800"
-                />
-                <path
-                  d="M19.7001 10.2213C19.6942 10.3625 19.5415 10.4506 19.4164 10.3851C19.2299 10.2874 19.0321 10.147 18.8302 9.97012C18.9063 9.25272 18.675 8.17729 18.1569 7.07303C17.8843 6.49185 17.5668 5.97701 17.2398 5.56104C17.7662 5.95792 18.3398 6.62904 18.822 7.46428C19.4192 8.49864 19.7285 9.52861 19.7001 10.2213ZM8.5127 14.2422C8.84682 14.6624 9.17174 15.1866 9.4501 15.7798C9.96564 16.8787 10.1973 17.9491 10.1245 18.6666C10.328 18.8454 10.5276 18.9874 10.7156 19.0859C10.8407 19.1514 10.9935 19.0632 10.9993 18.9221C11.0277 18.2294 10.7185 17.1994 10.1212 16.165C9.63097 15.3158 9.04622 14.6364 8.5127 14.2422ZM11.3417 11.2908C11.695 11.7219 12.0403 12.2707 12.3337 12.8962C12.8425 13.9805 13.0748 15.0372 13.0109 15.7543C13.2192 15.939 13.4236 16.0848 13.6158 16.1856C13.741 16.2511 13.8938 16.163 13.8996 16.0218C13.928 15.3291 13.6187 14.2991 13.0215 13.2648C12.5092 12.3776 11.894 11.6758 11.3417 11.2908ZM13.9772 8.22783C14.3982 8.68555 14.8194 9.31987 15.1677 10.0623C15.649 11.088 15.8829 12.089 15.8527 12.8013C16.0812 13.011 16.3058 13.1752 16.5161 13.2854C16.6412 13.3509 16.7939 13.2627 16.7998 13.1216C16.8282 12.4289 16.519 11.3988 15.9217 10.3645C15.3259 9.3325 14.5905 8.55083 13.9772 8.22783Z"
-                  fill="#FC9302"
-                />
-              </g>
-              <defs>
-                <clipPath id="clip0_8859_8986">
-                  <rect
-                    width="18"
-                    height="18"
-                    fill="white"
-                    transform="translate(4 4)"
-                  />
-                </clipPath>
-              </defs>
-            </svg>
-
-            <p class="2xl:text-xs">Bread</p>
-          </div>
-
-          <div
-            class="item flex flex-wrap items-center gap-3 bg-[#F8F7F8] rounded-4xl p-2 w-27 text-black h-12 text-sm"
-          >
-            <svg
-              width="26"
-              height="26"
-              viewBox="0 0 26 26"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <rect width="26" height="26" rx="13" fill="#F0EEF0" />
-              <g clip-path="url(#clip0_8859_8986)">
-                <path
-                  d="M22 13C22 17.9706 17.9706 22 13 22C11.8727 22 10.7939 21.7921 9.79941 21.4136C8.88754 19.0179 6.9821 17.1125 4.58653 16.2006C4.20792 15.2061 4 14.1273 4 13C4 8.02937 8.02937 4 13 4C17.9706 4 22 8.02937 22 13Z"
-                  fill="#08B772"
-                />
-                <path
-                  d="M20.9185 10.3016L16.9895 14.2306L9.80441 21.4156C7.40445 20.5038 5.49585 18.5952 4.58398 16.1952L15.698 5.08116C17.1396 3.63961 19.4769 3.63961 20.9185 5.08116C22.36 6.5227 22.36 8.86004 20.9185 10.3016Z"
-                  fill="#FCB30B"
-                />
-                <path
-                  d="M20.9184 10.3017L16.9894 14.2307L9.80435 21.4157C8.82218 21.0425 7.9224 20.5022 7.13934 19.8297C7.13262 19.8219 7.12602 19.8141 7.11929 19.8062C6.02382 18.5218 6.11116 16.6071 7.30483 15.4135L16.6675 6.05079C17.9434 4.77487 19.9208 4.62848 21.358 5.61107C22.3407 7.04835 22.1943 9.02575 20.9184 10.3017ZM20.8746 11.3829C20.6804 11.3829 20.523 11.5402 20.523 11.7344C20.523 11.9286 20.6804 12.086 20.8746 12.086C21.0688 12.086 21.2262 11.9286 21.2262 11.7344C21.2262 11.5402 21.0688 11.3829 20.8746 11.3829ZM21.5777 11.0313C21.7719 11.0313 21.9293 10.8739 21.9293 10.6797C21.9293 10.4856 21.7719 10.3282 21.5777 10.3282C21.3835 10.3282 21.2262 10.4856 21.2262 10.6797C21.2262 10.8739 21.3835 11.0313 21.5777 11.0313ZM21.648 13.1407C21.4538 13.1407 21.2965 13.2981 21.2965 13.4922C21.2965 13.6864 21.4538 13.8438 21.648 13.8438C21.8422 13.8438 21.9996 13.6864 21.9996 13.4922C21.9996 13.2981 21.8422 13.1407 21.648 13.1407Z"
-                  fill="#FDBF43"
-                />
-                <path
-                  d="M13.0211 13.2647C13.6183 14.299 13.9276 15.329 13.8991 16.0217C13.8934 16.1629 13.7405 16.251 13.6154 16.1855C13.0013 15.8638 12.264 15.0808 11.6667 14.0466C11.0696 13.0123 10.7603 11.9822 10.7888 11.2896C10.7945 11.1484 10.9472 11.0601 11.0725 11.1258C11.6865 11.4475 12.4239 12.2303 13.0211 13.2647ZM8.17224 14.026C8.04713 13.9604 7.89429 14.0485 7.88852 14.1897C7.86009 14.8824 8.16936 15.9125 8.76646 16.9467C9.36371 17.9811 10.101 18.764 10.7152 19.0856C10.8403 19.1513 10.9931 19.0631 10.9989 18.9219C11.0273 18.2292 10.718 17.1991 10.1208 16.1649C9.52369 15.1306 8.78624 14.3478 8.17224 14.026ZM13.9727 8.22551C13.8475 8.15987 13.6948 8.24817 13.689 8.38935C13.6606 9.08203 13.9699 10.112 14.567 11.1464C15.1642 12.1806 15.9015 12.9635 16.5157 13.2853C16.6408 13.3508 16.7935 13.2626 16.7994 13.1214C16.8278 12.4287 16.5186 11.3986 15.9213 10.3644C15.3242 9.33005 14.5867 8.54727 13.9727 8.22551ZM18.8216 7.46416C18.2245 6.4298 17.487 5.64702 16.873 5.32526C16.7478 5.25975 16.595 5.34792 16.5893 5.48909C16.5609 6.18178 16.8701 7.21175 17.4672 8.24611C18.0645 9.28034 18.8018 10.0633 19.4159 10.385C19.541 10.4505 19.6937 10.3624 19.6996 10.2212C19.7281 9.52849 19.4188 8.49852 18.8216 7.46416Z"
-                  fill="#FDA800"
-                />
-                <path
-                  d="M19.7001 10.2213C19.6942 10.3625 19.5415 10.4506 19.4164 10.3851C19.2299 10.2874 19.0321 10.147 18.8302 9.97012C18.9063 9.25272 18.675 8.17729 18.1569 7.07303C17.8843 6.49185 17.5668 5.97701 17.2398 5.56104C17.7662 5.95792 18.3398 6.62904 18.822 7.46428C19.4192 8.49864 19.7285 9.52861 19.7001 10.2213ZM8.5127 14.2422C8.84682 14.6624 9.17174 15.1866 9.4501 15.7798C9.96564 16.8787 10.1973 17.9491 10.1245 18.6666C10.328 18.8454 10.5276 18.9874 10.7156 19.0859C10.8407 19.1514 10.9935 19.0632 10.9993 18.9221C11.0277 18.2294 10.7185 17.1994 10.1212 16.165C9.63097 15.3158 9.04622 14.6364 8.5127 14.2422ZM11.3417 11.2908C11.695 11.7219 12.0403 12.2707 12.3337 12.8962C12.8425 13.9805 13.0748 15.0372 13.0109 15.7543C13.2192 15.939 13.4236 16.0848 13.6158 16.1856C13.741 16.2511 13.8938 16.163 13.8996 16.0218C13.928 15.3291 13.6187 14.2991 13.0215 13.2648C12.5092 12.3776 11.894 11.6758 11.3417 11.2908ZM13.9772 8.22783C14.3982 8.68555 14.8194 9.31987 15.1677 10.0623C15.649 11.088 15.8829 12.089 15.8527 12.8013C16.0812 13.011 16.3058 13.1752 16.5161 13.2854C16.6412 13.3509 16.7939 13.2627 16.7998 13.1216C16.8282 12.4289 16.519 11.3988 15.9217 10.3645C15.3259 9.3325 14.5905 8.55083 13.9772 8.22783Z"
-                  fill="#FC9302"
-                />
-              </g>
-              <defs>
-                <clipPath id="clip0_8859_8986">
-                  <rect
-                    width="18"
-                    height="18"
-                    fill="white"
-                    transform="translate(4 4)"
-                  />
-                </clipPath>
-              </defs>
-            </svg>
-
-            <p class="2xl:text-xs">Bread</p>
-          </div>
-
-          <div
-            class="item flex flex-wrap items-center gap-3 bg-[#F8F7F8] rounded-4xl p-2 w-27 text-black h-12 text-sm"
-          >
-            <svg
-              width="26"
-              height="26"
-              viewBox="0 0 26 26"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <rect width="26" height="26" rx="13" fill="#F0EEF0" />
-              <g clip-path="url(#clip0_8859_8986)">
-                <path
-                  d="M22 13C22 17.9706 17.9706 22 13 22C11.8727 22 10.7939 21.7921 9.79941 21.4136C8.88754 19.0179 6.9821 17.1125 4.58653 16.2006C4.20792 15.2061 4 14.1273 4 13C4 8.02937 8.02937 4 13 4C17.9706 4 22 8.02937 22 13Z"
-                  fill="#08B772"
-                />
-                <path
-                  d="M20.9185 10.3016L16.9895 14.2306L9.80441 21.4156C7.40445 20.5038 5.49585 18.5952 4.58398 16.1952L15.698 5.08116C17.1396 3.63961 19.4769 3.63961 20.9185 5.08116C22.36 6.5227 22.36 8.86004 20.9185 10.3016Z"
-                  fill="#FCB30B"
-                />
-                <path
-                  d="M20.9184 10.3017L16.9894 14.2307L9.80435 21.4157C8.82218 21.0425 7.9224 20.5022 7.13934 19.8297C7.13262 19.8219 7.12602 19.8141 7.11929 19.8062C6.02382 18.5218 6.11116 16.6071 7.30483 15.4135L16.6675 6.05079C17.9434 4.77487 19.9208 4.62848 21.358 5.61107C22.3407 7.04835 22.1943 9.02575 20.9184 10.3017ZM20.8746 11.3829C20.6804 11.3829 20.523 11.5402 20.523 11.7344C20.523 11.9286 20.6804 12.086 20.8746 12.086C21.0688 12.086 21.2262 11.9286 21.2262 11.7344C21.2262 11.5402 21.0688 11.3829 20.8746 11.3829ZM21.5777 11.0313C21.7719 11.0313 21.9293 10.8739 21.9293 10.6797C21.9293 10.4856 21.7719 10.3282 21.5777 10.3282C21.3835 10.3282 21.2262 10.4856 21.2262 10.6797C21.2262 10.8739 21.3835 11.0313 21.5777 11.0313ZM21.648 13.1407C21.4538 13.1407 21.2965 13.2981 21.2965 13.4922C21.2965 13.6864 21.4538 13.8438 21.648 13.8438C21.8422 13.8438 21.9996 13.6864 21.9996 13.4922C21.9996 13.2981 21.8422 13.1407 21.648 13.1407Z"
-                  fill="#FDBF43"
-                />
-                <path
-                  d="M13.0211 13.2647C13.6183 14.299 13.9276 15.329 13.8991 16.0217C13.8934 16.1629 13.7405 16.251 13.6154 16.1855C13.0013 15.8638 12.264 15.0808 11.6667 14.0466C11.0696 13.0123 10.7603 11.9822 10.7888 11.2896C10.7945 11.1484 10.9472 11.0601 11.0725 11.1258C11.6865 11.4475 12.4239 12.2303 13.0211 13.2647ZM8.17224 14.026C8.04713 13.9604 7.89429 14.0485 7.88852 14.1897C7.86009 14.8824 8.16936 15.9125 8.76646 16.9467C9.36371 17.9811 10.101 18.764 10.7152 19.0856C10.8403 19.1513 10.9931 19.0631 10.9989 18.9219C11.0273 18.2292 10.718 17.1991 10.1208 16.1649C9.52369 15.1306 8.78624 14.3478 8.17224 14.026ZM13.9727 8.22551C13.8475 8.15987 13.6948 8.24817 13.689 8.38935C13.6606 9.08203 13.9699 10.112 14.567 11.1464C15.1642 12.1806 15.9015 12.9635 16.5157 13.2853C16.6408 13.3508 16.7935 13.2626 16.7994 13.1214C16.8278 12.4287 16.5186 11.3986 15.9213 10.3644C15.3242 9.33005 14.5867 8.54727 13.9727 8.22551ZM18.8216 7.46416C18.2245 6.4298 17.487 5.64702 16.873 5.32526C16.7478 5.25975 16.595 5.34792 16.5893 5.48909C16.5609 6.18178 16.8701 7.21175 17.4672 8.24611C18.0645 9.28034 18.8018 10.0633 19.4159 10.385C19.541 10.4505 19.6937 10.3624 19.6996 10.2212C19.7281 9.52849 19.4188 8.49852 18.8216 7.46416Z"
-                  fill="#FDA800"
-                />
-                <path
-                  d="M19.7001 10.2213C19.6942 10.3625 19.5415 10.4506 19.4164 10.3851C19.2299 10.2874 19.0321 10.147 18.8302 9.97012C18.9063 9.25272 18.675 8.17729 18.1569 7.07303C17.8843 6.49185 17.5668 5.97701 17.2398 5.56104C17.7662 5.95792 18.3398 6.62904 18.822 7.46428C19.4192 8.49864 19.7285 9.52861 19.7001 10.2213ZM8.5127 14.2422C8.84682 14.6624 9.17174 15.1866 9.4501 15.7798C9.96564 16.8787 10.1973 17.9491 10.1245 18.6666C10.328 18.8454 10.5276 18.9874 10.7156 19.0859C10.8407 19.1514 10.9935 19.0632 10.9993 18.9221C11.0277 18.2294 10.7185 17.1994 10.1212 16.165C9.63097 15.3158 9.04622 14.6364 8.5127 14.2422ZM11.3417 11.2908C11.695 11.7219 12.0403 12.2707 12.3337 12.8962C12.8425 13.9805 13.0748 15.0372 13.0109 15.7543C13.2192 15.939 13.4236 16.0848 13.6158 16.1856C13.741 16.2511 13.8938 16.163 13.8996 16.0218C13.928 15.3291 13.6187 14.2991 13.0215 13.2648C12.5092 12.3776 11.894 11.6758 11.3417 11.2908ZM13.9772 8.22783C14.3982 8.68555 14.8194 9.31987 15.1677 10.0623C15.649 11.088 15.8829 12.089 15.8527 12.8013C16.0812 13.011 16.3058 13.1752 16.5161 13.2854C16.6412 13.3509 16.7939 13.2627 16.7998 13.1216C16.8282 12.4289 16.519 11.3988 15.9217 10.3645C15.3259 9.3325 14.5905 8.55083 13.9772 8.22783Z"
-                  fill="#FC9302"
-                />
-              </g>
-              <defs>
-                <clipPath id="clip0_8859_8986">
-                  <rect
-                    width="18"
-                    height="18"
-                    fill="white"
-                    transform="translate(4 4)"
-                  />
-                </clipPath>
-              </defs>
-            </svg>
-
-            <p class="2xl:text-xs">Bread</p>
-          </div>
-
-          <div
-            class="item flex flex-wrap items-center gap-3 bg-[#F8F7F8] rounded-4xl p-2 w-27 text-black h-12 text-sm"
-          >
-            <svg
-              width="26"
-              height="26"
-              viewBox="0 0 26 26"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <rect width="26" height="26" rx="13" fill="#F0EEF0" />
-              <g clip-path="url(#clip0_8859_8986)">
-                <path
-                  d="M22 13C22 17.9706 17.9706 22 13 22C11.8727 22 10.7939 21.7921 9.79941 21.4136C8.88754 19.0179 6.9821 17.1125 4.58653 16.2006C4.20792 15.2061 4 14.1273 4 13C4 8.02937 8.02937 4 13 4C17.9706 4 22 8.02937 22 13Z"
-                  fill="#08B772"
-                />
-                <path
-                  d="M20.9185 10.3016L16.9895 14.2306L9.80441 21.4156C7.40445 20.5038 5.49585 18.5952 4.58398 16.1952L15.698 5.08116C17.1396 3.63961 19.4769 3.63961 20.9185 5.08116C22.36 6.5227 22.36 8.86004 20.9185 10.3016Z"
-                  fill="#FCB30B"
-                />
-                <path
-                  d="M20.9184 10.3017L16.9894 14.2307L9.80435 21.4157C8.82218 21.0425 7.9224 20.5022 7.13934 19.8297C7.13262 19.8219 7.12602 19.8141 7.11929 19.8062C6.02382 18.5218 6.11116 16.6071 7.30483 15.4135L16.6675 6.05079C17.9434 4.77487 19.9208 4.62848 21.358 5.61107C22.3407 7.04835 22.1943 9.02575 20.9184 10.3017ZM20.8746 11.3829C20.6804 11.3829 20.523 11.5402 20.523 11.7344C20.523 11.9286 20.6804 12.086 20.8746 12.086C21.0688 12.086 21.2262 11.9286 21.2262 11.7344C21.2262 11.5402 21.0688 11.3829 20.8746 11.3829ZM21.5777 11.0313C21.7719 11.0313 21.9293 10.8739 21.9293 10.6797C21.9293 10.4856 21.7719 10.3282 21.5777 10.3282C21.3835 10.3282 21.2262 10.4856 21.2262 10.6797C21.2262 10.8739 21.3835 11.0313 21.5777 11.0313ZM21.648 13.1407C21.4538 13.1407 21.2965 13.2981 21.2965 13.4922C21.2965 13.6864 21.4538 13.8438 21.648 13.8438C21.8422 13.8438 21.9996 13.6864 21.9996 13.4922C21.9996 13.2981 21.8422 13.1407 21.648 13.1407Z"
-                  fill="#FDBF43"
-                />
-                <path
-                  d="M13.0211 13.2647C13.6183 14.299 13.9276 15.329 13.8991 16.0217C13.8934 16.1629 13.7405 16.251 13.6154 16.1855C13.0013 15.8638 12.264 15.0808 11.6667 14.0466C11.0696 13.0123 10.7603 11.9822 10.7888 11.2896C10.7945 11.1484 10.9472 11.0601 11.0725 11.1258C11.6865 11.4475 12.4239 12.2303 13.0211 13.2647ZM8.17224 14.026C8.04713 13.9604 7.89429 14.0485 7.88852 14.1897C7.86009 14.8824 8.16936 15.9125 8.76646 16.9467C9.36371 17.9811 10.101 18.764 10.7152 19.0856C10.8403 19.1513 10.9931 19.0631 10.9989 18.9219C11.0273 18.2292 10.718 17.1991 10.1208 16.1649C9.52369 15.1306 8.78624 14.3478 8.17224 14.026ZM13.9727 8.22551C13.8475 8.15987 13.6948 8.24817 13.689 8.38935C13.6606 9.08203 13.9699 10.112 14.567 11.1464C15.1642 12.1806 15.9015 12.9635 16.5157 13.2853C16.6408 13.3508 16.7935 13.2626 16.7994 13.1214C16.8278 12.4287 16.5186 11.3986 15.9213 10.3644C15.3242 9.33005 14.5867 8.54727 13.9727 8.22551ZM18.8216 7.46416C18.2245 6.4298 17.487 5.64702 16.873 5.32526C16.7478 5.25975 16.595 5.34792 16.5893 5.48909C16.5609 6.18178 16.8701 7.21175 17.4672 8.24611C18.0645 9.28034 18.8018 10.0633 19.4159 10.385C19.541 10.4505 19.6937 10.3624 19.6996 10.2212C19.7281 9.52849 19.4188 8.49852 18.8216 7.46416Z"
-                  fill="#FDA800"
-                />
-                <path
-                  d="M19.7001 10.2213C19.6942 10.3625 19.5415 10.4506 19.4164 10.3851C19.2299 10.2874 19.0321 10.147 18.8302 9.97012C18.9063 9.25272 18.675 8.17729 18.1569 7.07303C17.8843 6.49185 17.5668 5.97701 17.2398 5.56104C17.7662 5.95792 18.3398 6.62904 18.822 7.46428C19.4192 8.49864 19.7285 9.52861 19.7001 10.2213ZM8.5127 14.2422C8.84682 14.6624 9.17174 15.1866 9.4501 15.7798C9.96564 16.8787 10.1973 17.9491 10.1245 18.6666C10.328 18.8454 10.5276 18.9874 10.7156 19.0859C10.8407 19.1514 10.9935 19.0632 10.9993 18.9221C11.0277 18.2294 10.7185 17.1994 10.1212 16.165C9.63097 15.3158 9.04622 14.6364 8.5127 14.2422ZM11.3417 11.2908C11.695 11.7219 12.0403 12.2707 12.3337 12.8962C12.8425 13.9805 13.0748 15.0372 13.0109 15.7543C13.2192 15.939 13.4236 16.0848 13.6158 16.1856C13.741 16.2511 13.8938 16.163 13.8996 16.0218C13.928 15.3291 13.6187 14.2991 13.0215 13.2648C12.5092 12.3776 11.894 11.6758 11.3417 11.2908ZM13.9772 8.22783C14.3982 8.68555 14.8194 9.31987 15.1677 10.0623C15.649 11.088 15.8829 12.089 15.8527 12.8013C16.0812 13.011 16.3058 13.1752 16.5161 13.2854C16.6412 13.3509 16.7939 13.2627 16.7998 13.1216C16.8282 12.4289 16.519 11.3988 15.9217 10.3645C15.3259 9.3325 14.5905 8.55083 13.9772 8.22783Z"
-                  fill="#FC9302"
-                />
-              </g>
-              <defs>
-                <clipPath id="clip0_8859_8986">
-                  <rect
-                    width="18"
-                    height="18"
-                    fill="white"
-                    transform="translate(4 4)"
-                  />
-                </clipPath>
-              </defs>
-            </svg>
-
-            <p class="2xl:text-xs">Bread</p>
-          </div>
-
-          <div
-            class="item flex flex-wrap items-center gap-3 bg-[#F8F7F8] rounded-4xl p-2 w-27 text-black h-12 text-sm"
-          >
-            <svg
-              width="26"
-              height="26"
-              viewBox="0 0 26 26"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <rect width="26" height="26" rx="13" fill="#F0EEF0" />
-              <g clip-path="url(#clip0_8859_8986)">
-                <path
-                  d="M22 13C22 17.9706 17.9706 22 13 22C11.8727 22 10.7939 21.7921 9.79941 21.4136C8.88754 19.0179 6.9821 17.1125 4.58653 16.2006C4.20792 15.2061 4 14.1273 4 13C4 8.02937 8.02937 4 13 4C17.9706 4 22 8.02937 22 13Z"
-                  fill="#08B772"
-                />
-                <path
-                  d="M20.9185 10.3016L16.9895 14.2306L9.80441 21.4156C7.40445 20.5038 5.49585 18.5952 4.58398 16.1952L15.698 5.08116C17.1396 3.63961 19.4769 3.63961 20.9185 5.08116C22.36 6.5227 22.36 8.86004 20.9185 10.3016Z"
-                  fill="#FCB30B"
-                />
-                <path
-                  d="M20.9184 10.3017L16.9894 14.2307L9.80435 21.4157C8.82218 21.0425 7.9224 20.5022 7.13934 19.8297C7.13262 19.8219 7.12602 19.8141 7.11929 19.8062C6.02382 18.5218 6.11116 16.6071 7.30483 15.4135L16.6675 6.05079C17.9434 4.77487 19.9208 4.62848 21.358 5.61107C22.3407 7.04835 22.1943 9.02575 20.9184 10.3017ZM20.8746 11.3829C20.6804 11.3829 20.523 11.5402 20.523 11.7344C20.523 11.9286 20.6804 12.086 20.8746 12.086C21.0688 12.086 21.2262 11.9286 21.2262 11.7344C21.2262 11.5402 21.0688 11.3829 20.8746 11.3829ZM21.5777 11.0313C21.7719 11.0313 21.9293 10.8739 21.9293 10.6797C21.9293 10.4856 21.7719 10.3282 21.5777 10.3282C21.3835 10.3282 21.2262 10.4856 21.2262 10.6797C21.2262 10.8739 21.3835 11.0313 21.5777 11.0313ZM21.648 13.1407C21.4538 13.1407 21.2965 13.2981 21.2965 13.4922C21.2965 13.6864 21.4538 13.8438 21.648 13.8438C21.8422 13.8438 21.9996 13.6864 21.9996 13.4922C21.9996 13.2981 21.8422 13.1407 21.648 13.1407Z"
-                  fill="#FDBF43"
-                />
-                <path
-                  d="M13.0211 13.2647C13.6183 14.299 13.9276 15.329 13.8991 16.0217C13.8934 16.1629 13.7405 16.251 13.6154 16.1855C13.0013 15.8638 12.264 15.0808 11.6667 14.0466C11.0696 13.0123 10.7603 11.9822 10.7888 11.2896C10.7945 11.1484 10.9472 11.0601 11.0725 11.1258C11.6865 11.4475 12.4239 12.2303 13.0211 13.2647ZM8.17224 14.026C8.04713 13.9604 7.89429 14.0485 7.88852 14.1897C7.86009 14.8824 8.16936 15.9125 8.76646 16.9467C9.36371 17.9811 10.101 18.764 10.7152 19.0856C10.8403 19.1513 10.9931 19.0631 10.9989 18.9219C11.0273 18.2292 10.718 17.1991 10.1208 16.1649C9.52369 15.1306 8.78624 14.3478 8.17224 14.026ZM13.9727 8.22551C13.8475 8.15987 13.6948 8.24817 13.689 8.38935C13.6606 9.08203 13.9699 10.112 14.567 11.1464C15.1642 12.1806 15.9015 12.9635 16.5157 13.2853C16.6408 13.3508 16.7935 13.2626 16.7994 13.1214C16.8278 12.4287 16.5186 11.3986 15.9213 10.3644C15.3242 9.33005 14.5867 8.54727 13.9727 8.22551ZM18.8216 7.46416C18.2245 6.4298 17.487 5.64702 16.873 5.32526C16.7478 5.25975 16.595 5.34792 16.5893 5.48909C16.5609 6.18178 16.8701 7.21175 17.4672 8.24611C18.0645 9.28034 18.8018 10.0633 19.4159 10.385C19.541 10.4505 19.6937 10.3624 19.6996 10.2212C19.7281 9.52849 19.4188 8.49852 18.8216 7.46416Z"
-                  fill="#FDA800"
-                />
-                <path
-                  d="M19.7001 10.2213C19.6942 10.3625 19.5415 10.4506 19.4164 10.3851C19.2299 10.2874 19.0321 10.147 18.8302 9.97012C18.9063 9.25272 18.675 8.17729 18.1569 7.07303C17.8843 6.49185 17.5668 5.97701 17.2398 5.56104C17.7662 5.95792 18.3398 6.62904 18.822 7.46428C19.4192 8.49864 19.7285 9.52861 19.7001 10.2213ZM8.5127 14.2422C8.84682 14.6624 9.17174 15.1866 9.4501 15.7798C9.96564 16.8787 10.1973 17.9491 10.1245 18.6666C10.328 18.8454 10.5276 18.9874 10.7156 19.0859C10.8407 19.1514 10.9935 19.0632 10.9993 18.9221C11.0277 18.2294 10.7185 17.1994 10.1212 16.165C9.63097 15.3158 9.04622 14.6364 8.5127 14.2422ZM11.3417 11.2908C11.695 11.7219 12.0403 12.2707 12.3337 12.8962C12.8425 13.9805 13.0748 15.0372 13.0109 15.7543C13.2192 15.939 13.4236 16.0848 13.6158 16.1856C13.741 16.2511 13.8938 16.163 13.8996 16.0218C13.928 15.3291 13.6187 14.2991 13.0215 13.2648C12.5092 12.3776 11.894 11.6758 11.3417 11.2908ZM13.9772 8.22783C14.3982 8.68555 14.8194 9.31987 15.1677 10.0623C15.649 11.088 15.8829 12.089 15.8527 12.8013C16.0812 13.011 16.3058 13.1752 16.5161 13.2854C16.6412 13.3509 16.7939 13.2627 16.7998 13.1216C16.8282 12.4289 16.519 11.3988 15.9217 10.3645C15.3259 9.3325 14.5905 8.55083 13.9772 8.22783Z"
-                  fill="#FC9302"
-                />
-              </g>
-              <defs>
-                <clipPath id="clip0_8859_8986">
-                  <rect
-                    width="18"
-                    height="18"
-                    fill="white"
-                    transform="translate(4 4)"
-                  />
-                </clipPath>
-              </defs>
-            </svg>
-
-            <p class="2xl:text-xs">Bread</p>
-          </div>
-
-          <div
-            class="item flex flex-wrap items-center gap-3 bg-[#F8F7F8] rounded-4xl p-2 w-27 text-black h-12 text-sm"
-          >
-            <svg
-              width="26"
-              height="26"
-              viewBox="0 0 26 26"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <rect width="26" height="26" rx="13" fill="#F0EEF0" />
-              <g clip-path="url(#clip0_8859_8986)">
-                <path
-                  d="M22 13C22 17.9706 17.9706 22 13 22C11.8727 22 10.7939 21.7921 9.79941 21.4136C8.88754 19.0179 6.9821 17.1125 4.58653 16.2006C4.20792 15.2061 4 14.1273 4 13C4 8.02937 8.02937 4 13 4C17.9706 4 22 8.02937 22 13Z"
-                  fill="#08B772"
-                />
-                <path
-                  d="M20.9185 10.3016L16.9895 14.2306L9.80441 21.4156C7.40445 20.5038 5.49585 18.5952 4.58398 16.1952L15.698 5.08116C17.1396 3.63961 19.4769 3.63961 20.9185 5.08116C22.36 6.5227 22.36 8.86004 20.9185 10.3016Z"
-                  fill="#FCB30B"
-                />
-                <path
-                  d="M20.9184 10.3017L16.9894 14.2307L9.80435 21.4157C8.82218 21.0425 7.9224 20.5022 7.13934 19.8297C7.13262 19.8219 7.12602 19.8141 7.11929 19.8062C6.02382 18.5218 6.11116 16.6071 7.30483 15.4135L16.6675 6.05079C17.9434 4.77487 19.9208 4.62848 21.358 5.61107C22.3407 7.04835 22.1943 9.02575 20.9184 10.3017ZM20.8746 11.3829C20.6804 11.3829 20.523 11.5402 20.523 11.7344C20.523 11.9286 20.6804 12.086 20.8746 12.086C21.0688 12.086 21.2262 11.9286 21.2262 11.7344C21.2262 11.5402 21.0688 11.3829 20.8746 11.3829ZM21.5777 11.0313C21.7719 11.0313 21.9293 10.8739 21.9293 10.6797C21.9293 10.4856 21.7719 10.3282 21.5777 10.3282C21.3835 10.3282 21.2262 10.4856 21.2262 10.6797C21.2262 10.8739 21.3835 11.0313 21.5777 11.0313ZM21.648 13.1407C21.4538 13.1407 21.2965 13.2981 21.2965 13.4922C21.2965 13.6864 21.4538 13.8438 21.648 13.8438C21.8422 13.8438 21.9996 13.6864 21.9996 13.4922C21.9996 13.2981 21.8422 13.1407 21.648 13.1407Z"
-                  fill="#FDBF43"
-                />
-                <path
-                  d="M13.0211 13.2647C13.6183 14.299 13.9276 15.329 13.8991 16.0217C13.8934 16.1629 13.7405 16.251 13.6154 16.1855C13.0013 15.8638 12.264 15.0808 11.6667 14.0466C11.0696 13.0123 10.7603 11.9822 10.7888 11.2896C10.7945 11.1484 10.9472 11.0601 11.0725 11.1258C11.6865 11.4475 12.4239 12.2303 13.0211 13.2647ZM8.17224 14.026C8.04713 13.9604 7.89429 14.0485 7.88852 14.1897C7.86009 14.8824 8.16936 15.9125 8.76646 16.9467C9.36371 17.9811 10.101 18.764 10.7152 19.0856C10.8403 19.1513 10.9931 19.0631 10.9989 18.9219C11.0273 18.2292 10.718 17.1991 10.1208 16.1649C9.52369 15.1306 8.78624 14.3478 8.17224 14.026ZM13.9727 8.22551C13.8475 8.15987 13.6948 8.24817 13.689 8.38935C13.6606 9.08203 13.9699 10.112 14.567 11.1464C15.1642 12.1806 15.9015 12.9635 16.5157 13.2853C16.6408 13.3508 16.7935 13.2626 16.7994 13.1214C16.8278 12.4287 16.5186 11.3986 15.9213 10.3644C15.3242 9.33005 14.5867 8.54727 13.9727 8.22551ZM18.8216 7.46416C18.2245 6.4298 17.487 5.64702 16.873 5.32526C16.7478 5.25975 16.595 5.34792 16.5893 5.48909C16.5609 6.18178 16.8701 7.21175 17.4672 8.24611C18.0645 9.28034 18.8018 10.0633 19.4159 10.385C19.541 10.4505 19.6937 10.3624 19.6996 10.2212C19.7281 9.52849 19.4188 8.49852 18.8216 7.46416Z"
-                  fill="#FDA800"
-                />
-                <path
-                  d="M19.7001 10.2213C19.6942 10.3625 19.5415 10.4506 19.4164 10.3851C19.2299 10.2874 19.0321 10.147 18.8302 9.97012C18.9063 9.25272 18.675 8.17729 18.1569 7.07303C17.8843 6.49185 17.5668 5.97701 17.2398 5.56104C17.7662 5.95792 18.3398 6.62904 18.822 7.46428C19.4192 8.49864 19.7285 9.52861 19.7001 10.2213ZM8.5127 14.2422C8.84682 14.6624 9.17174 15.1866 9.4501 15.7798C9.96564 16.8787 10.1973 17.9491 10.1245 18.6666C10.328 18.8454 10.5276 18.9874 10.7156 19.0859C10.8407 19.1514 10.9935 19.0632 10.9993 18.9221C11.0277 18.2294 10.7185 17.1994 10.1212 16.165C9.63097 15.3158 9.04622 14.6364 8.5127 14.2422ZM11.3417 11.2908C11.695 11.7219 12.0403 12.2707 12.3337 12.8962C12.8425 13.9805 13.0748 15.0372 13.0109 15.7543C13.2192 15.939 13.4236 16.0848 13.6158 16.1856C13.741 16.2511 13.8938 16.163 13.8996 16.0218C13.928 15.3291 13.6187 14.2991 13.0215 13.2648C12.5092 12.3776 11.894 11.6758 11.3417 11.2908ZM13.9772 8.22783C14.3982 8.68555 14.8194 9.31987 15.1677 10.0623C15.649 11.088 15.8829 12.089 15.8527 12.8013C16.0812 13.011 16.3058 13.1752 16.5161 13.2854C16.6412 13.3509 16.7939 13.2627 16.7998 13.1216C16.8282 12.4289 16.519 11.3988 15.9217 10.3645C15.3259 9.3325 14.5905 8.55083 13.9772 8.22783Z"
-                  fill="#FC9302"
-                />
-              </g>
-              <defs>
-                <clipPath id="clip0_8859_8986">
-                  <rect
-                    width="18"
-                    height="18"
-                    fill="white"
-                    transform="translate(4 4)"
-                  />
-                </clipPath>
-              </defs>
-            </svg>
-
-            <p class="2xl:text-xs">Bread</p>
-          </div>
-
-          <div
-            class="item flex flex-wrap items-center gap-3 bg-[#F8F7F8] rounded-4xl p-2 w-27 text-black h-12 text-sm"
-          >
-            <svg
-              width="26"
-              height="26"
-              viewBox="0 0 26 26"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <rect width="26" height="26" rx="13" fill="#F0EEF0" />
-              <g clip-path="url(#clip0_8859_8986)">
-                <path
-                  d="M22 13C22 17.9706 17.9706 22 13 22C11.8727 22 10.7939 21.7921 9.79941 21.4136C8.88754 19.0179 6.9821 17.1125 4.58653 16.2006C4.20792 15.2061 4 14.1273 4 13C4 8.02937 8.02937 4 13 4C17.9706 4 22 8.02937 22 13Z"
-                  fill="#08B772"
-                />
-                <path
-                  d="M20.9185 10.3016L16.9895 14.2306L9.80441 21.4156C7.40445 20.5038 5.49585 18.5952 4.58398 16.1952L15.698 5.08116C17.1396 3.63961 19.4769 3.63961 20.9185 5.08116C22.36 6.5227 22.36 8.86004 20.9185 10.3016Z"
-                  fill="#FCB30B"
-                />
-                <path
-                  d="M20.9184 10.3017L16.9894 14.2307L9.80435 21.4157C8.82218 21.0425 7.9224 20.5022 7.13934 19.8297C7.13262 19.8219 7.12602 19.8141 7.11929 19.8062C6.02382 18.5218 6.11116 16.6071 7.30483 15.4135L16.6675 6.05079C17.9434 4.77487 19.9208 4.62848 21.358 5.61107C22.3407 7.04835 22.1943 9.02575 20.9184 10.3017ZM20.8746 11.3829C20.6804 11.3829 20.523 11.5402 20.523 11.7344C20.523 11.9286 20.6804 12.086 20.8746 12.086C21.0688 12.086 21.2262 11.9286 21.2262 11.7344C21.2262 11.5402 21.0688 11.3829 20.8746 11.3829ZM21.5777 11.0313C21.7719 11.0313 21.9293 10.8739 21.9293 10.6797C21.9293 10.4856 21.7719 10.3282 21.5777 10.3282C21.3835 10.3282 21.2262 10.4856 21.2262 10.6797C21.2262 10.8739 21.3835 11.0313 21.5777 11.0313ZM21.648 13.1407C21.4538 13.1407 21.2965 13.2981 21.2965 13.4922C21.2965 13.6864 21.4538 13.8438 21.648 13.8438C21.8422 13.8438 21.9996 13.6864 21.9996 13.4922C21.9996 13.2981 21.8422 13.1407 21.648 13.1407Z"
-                  fill="#FDBF43"
-                />
-                <path
-                  d="M13.0211 13.2647C13.6183 14.299 13.9276 15.329 13.8991 16.0217C13.8934 16.1629 13.7405 16.251 13.6154 16.1855C13.0013 15.8638 12.264 15.0808 11.6667 14.0466C11.0696 13.0123 10.7603 11.9822 10.7888 11.2896C10.7945 11.1484 10.9472 11.0601 11.0725 11.1258C11.6865 11.4475 12.4239 12.2303 13.0211 13.2647ZM8.17224 14.026C8.04713 13.9604 7.89429 14.0485 7.88852 14.1897C7.86009 14.8824 8.16936 15.9125 8.76646 16.9467C9.36371 17.9811 10.101 18.764 10.7152 19.0856C10.8403 19.1513 10.9931 19.0631 10.9989 18.9219C11.0273 18.2292 10.718 17.1991 10.1208 16.1649C9.52369 15.1306 8.78624 14.3478 8.17224 14.026ZM13.9727 8.22551C13.8475 8.15987 13.6948 8.24817 13.689 8.38935C13.6606 9.08203 13.9699 10.112 14.567 11.1464C15.1642 12.1806 15.9015 12.9635 16.5157 13.2853C16.6408 13.3508 16.7935 13.2626 16.7994 13.1214C16.8278 12.4287 16.5186 11.3986 15.9213 10.3644C15.3242 9.33005 14.5867 8.54727 13.9727 8.22551ZM18.8216 7.46416C18.2245 6.4298 17.487 5.64702 16.873 5.32526C16.7478 5.25975 16.595 5.34792 16.5893 5.48909C16.5609 6.18178 16.8701 7.21175 17.4672 8.24611C18.0645 9.28034 18.8018 10.0633 19.4159 10.385C19.541 10.4505 19.6937 10.3624 19.6996 10.2212C19.7281 9.52849 19.4188 8.49852 18.8216 7.46416Z"
-                  fill="#FDA800"
-                />
-                <path
-                  d="M19.7001 10.2213C19.6942 10.3625 19.5415 10.4506 19.4164 10.3851C19.2299 10.2874 19.0321 10.147 18.8302 9.97012C18.9063 9.25272 18.675 8.17729 18.1569 7.07303C17.8843 6.49185 17.5668 5.97701 17.2398 5.56104C17.7662 5.95792 18.3398 6.62904 18.822 7.46428C19.4192 8.49864 19.7285 9.52861 19.7001 10.2213ZM8.5127 14.2422C8.84682 14.6624 9.17174 15.1866 9.4501 15.7798C9.96564 16.8787 10.1973 17.9491 10.1245 18.6666C10.328 18.8454 10.5276 18.9874 10.7156 19.0859C10.8407 19.1514 10.9935 19.0632 10.9993 18.9221C11.0277 18.2294 10.7185 17.1994 10.1212 16.165C9.63097 15.3158 9.04622 14.6364 8.5127 14.2422ZM11.3417 11.2908C11.695 11.7219 12.0403 12.2707 12.3337 12.8962C12.8425 13.9805 13.0748 15.0372 13.0109 15.7543C13.2192 15.939 13.4236 16.0848 13.6158 16.1856C13.741 16.2511 13.8938 16.163 13.8996 16.0218C13.928 15.3291 13.6187 14.2991 13.0215 13.2648C12.5092 12.3776 11.894 11.6758 11.3417 11.2908ZM13.9772 8.22783C14.3982 8.68555 14.8194 9.31987 15.1677 10.0623C15.649 11.088 15.8829 12.089 15.8527 12.8013C16.0812 13.011 16.3058 13.1752 16.5161 13.2854C16.6412 13.3509 16.7939 13.2627 16.7998 13.1216C16.8282 12.4289 16.519 11.3988 15.9217 10.3645C15.3259 9.3325 14.5905 8.55083 13.9772 8.22783Z"
-                  fill="#FC9302"
-                />
-              </g>
-              <defs>
-                <clipPath id="clip0_8859_8986">
-                  <rect
-                    width="18"
-                    height="18"
-                    fill="white"
-                    transform="translate(4 4)"
-                  />
-                </clipPath>
-              </defs>
-            </svg>
-
-            <p class="2xl:text-xs">Bread</p>
-          </div>
-
-          <div
-            class="item flex flex-wrap items-center gap-3 bg-[#F8F7F8] rounded-4xl p-2 w-27 text-black h-12 text-sm"
-          >
-            <svg
-              width="26"
-              height="26"
-              viewBox="0 0 26 26"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <rect width="26" height="26" rx="13" fill="#F0EEF0" />
-              <g clip-path="url(#clip0_8859_8986)">
-                <path
-                  d="M22 13C22 17.9706 17.9706 22 13 22C11.8727 22 10.7939 21.7921 9.79941 21.4136C8.88754 19.0179 6.9821 17.1125 4.58653 16.2006C4.20792 15.2061 4 14.1273 4 13C4 8.02937 8.02937 4 13 4C17.9706 4 22 8.02937 22 13Z"
-                  fill="#08B772"
-                />
-                <path
-                  d="M20.9185 10.3016L16.9895 14.2306L9.80441 21.4156C7.40445 20.5038 5.49585 18.5952 4.58398 16.1952L15.698 5.08116C17.1396 3.63961 19.4769 3.63961 20.9185 5.08116C22.36 6.5227 22.36 8.86004 20.9185 10.3016Z"
-                  fill="#FCB30B"
-                />
-                <path
-                  d="M20.9184 10.3017L16.9894 14.2307L9.80435 21.4157C8.82218 21.0425 7.9224 20.5022 7.13934 19.8297C7.13262 19.8219 7.12602 19.8141 7.11929 19.8062C6.02382 18.5218 6.11116 16.6071 7.30483 15.4135L16.6675 6.05079C17.9434 4.77487 19.9208 4.62848 21.358 5.61107C22.3407 7.04835 22.1943 9.02575 20.9184 10.3017ZM20.8746 11.3829C20.6804 11.3829 20.523 11.5402 20.523 11.7344C20.523 11.9286 20.6804 12.086 20.8746 12.086C21.0688 12.086 21.2262 11.9286 21.2262 11.7344C21.2262 11.5402 21.0688 11.3829 20.8746 11.3829ZM21.5777 11.0313C21.7719 11.0313 21.9293 10.8739 21.9293 10.6797C21.9293 10.4856 21.7719 10.3282 21.5777 10.3282C21.3835 10.3282 21.2262 10.4856 21.2262 10.6797C21.2262 10.8739 21.3835 11.0313 21.5777 11.0313ZM21.648 13.1407C21.4538 13.1407 21.2965 13.2981 21.2965 13.4922C21.2965 13.6864 21.4538 13.8438 21.648 13.8438C21.8422 13.8438 21.9996 13.6864 21.9996 13.4922C21.9996 13.2981 21.8422 13.1407 21.648 13.1407Z"
-                  fill="#FDBF43"
-                />
-                <path
-                  d="M13.0211 13.2647C13.6183 14.299 13.9276 15.329 13.8991 16.0217C13.8934 16.1629 13.7405 16.251 13.6154 16.1855C13.0013 15.8638 12.264 15.0808 11.6667 14.0466C11.0696 13.0123 10.7603 11.9822 10.7888 11.2896C10.7945 11.1484 10.9472 11.0601 11.0725 11.1258C11.6865 11.4475 12.4239 12.2303 13.0211 13.2647ZM8.17224 14.026C8.04713 13.9604 7.89429 14.0485 7.88852 14.1897C7.86009 14.8824 8.16936 15.9125 8.76646 16.9467C9.36371 17.9811 10.101 18.764 10.7152 19.0856C10.8403 19.1513 10.9931 19.0631 10.9989 18.9219C11.0273 18.2292 10.718 17.1991 10.1208 16.1649C9.52369 15.1306 8.78624 14.3478 8.17224 14.026ZM13.9727 8.22551C13.8475 8.15987 13.6948 8.24817 13.689 8.38935C13.6606 9.08203 13.9699 10.112 14.567 11.1464C15.1642 12.1806 15.9015 12.9635 16.5157 13.2853C16.6408 13.3508 16.7935 13.2626 16.7994 13.1214C16.8278 12.4287 16.5186 11.3986 15.9213 10.3644C15.3242 9.33005 14.5867 8.54727 13.9727 8.22551ZM18.8216 7.46416C18.2245 6.4298 17.487 5.64702 16.873 5.32526C16.7478 5.25975 16.595 5.34792 16.5893 5.48909C16.5609 6.18178 16.8701 7.21175 17.4672 8.24611C18.0645 9.28034 18.8018 10.0633 19.4159 10.385C19.541 10.4505 19.6937 10.3624 19.6996 10.2212C19.7281 9.52849 19.4188 8.49852 18.8216 7.46416Z"
-                  fill="#FDA800"
-                />
-                <path
-                  d="M19.7001 10.2213C19.6942 10.3625 19.5415 10.4506 19.4164 10.3851C19.2299 10.2874 19.0321 10.147 18.8302 9.97012C18.9063 9.25272 18.675 8.17729 18.1569 7.07303C17.8843 6.49185 17.5668 5.97701 17.2398 5.56104C17.7662 5.95792 18.3398 6.62904 18.822 7.46428C19.4192 8.49864 19.7285 9.52861 19.7001 10.2213ZM8.5127 14.2422C8.84682 14.6624 9.17174 15.1866 9.4501 15.7798C9.96564 16.8787 10.1973 17.9491 10.1245 18.6666C10.328 18.8454 10.5276 18.9874 10.7156 19.0859C10.8407 19.1514 10.9935 19.0632 10.9993 18.9221C11.0277 18.2294 10.7185 17.1994 10.1212 16.165C9.63097 15.3158 9.04622 14.6364 8.5127 14.2422ZM11.3417 11.2908C11.695 11.7219 12.0403 12.2707 12.3337 12.8962C12.8425 13.9805 13.0748 15.0372 13.0109 15.7543C13.2192 15.939 13.4236 16.0848 13.6158 16.1856C13.741 16.2511 13.8938 16.163 13.8996 16.0218C13.928 15.3291 13.6187 14.2991 13.0215 13.2648C12.5092 12.3776 11.894 11.6758 11.3417 11.2908ZM13.9772 8.22783C14.3982 8.68555 14.8194 9.31987 15.1677 10.0623C15.649 11.088 15.8829 12.089 15.8527 12.8013C16.0812 13.011 16.3058 13.1752 16.5161 13.2854C16.6412 13.3509 16.7939 13.2627 16.7998 13.1216C16.8282 12.4289 16.519 11.3988 15.9217 10.3645C15.3259 9.3325 14.5905 8.55083 13.9772 8.22783Z"
-                  fill="#FC9302"
-                />
-              </g>
-              <defs>
-                <clipPath id="clip0_8859_8986">
-                  <rect
-                    width="18"
-                    height="18"
-                    fill="white"
-                    transform="translate(4 4)"
-                  />
-                </clipPath>
-              </defs>
-            </svg>
-
-            <p class="2xl:text-xs">Bread</p>
-          </div>
-
-          <div
-            class="item flex flex-wrap items-center gap-3 bg-[#F8F7F8] rounded-4xl p-2 w-27 text-black h-12 text-sm"
-          >
-            <svg
-              width="26"
-              height="26"
-              viewBox="0 0 26 26"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <rect width="26" height="26" rx="13" fill="#F0EEF0" />
-              <g clip-path="url(#clip0_8859_8986)">
-                <path
-                  d="M22 13C22 17.9706 17.9706 22 13 22C11.8727 22 10.7939 21.7921 9.79941 21.4136C8.88754 19.0179 6.9821 17.1125 4.58653 16.2006C4.20792 15.2061 4 14.1273 4 13C4 8.02937 8.02937 4 13 4C17.9706 4 22 8.02937 22 13Z"
-                  fill="#08B772"
-                />
-                <path
-                  d="M20.9185 10.3016L16.9895 14.2306L9.80441 21.4156C7.40445 20.5038 5.49585 18.5952 4.58398 16.1952L15.698 5.08116C17.1396 3.63961 19.4769 3.63961 20.9185 5.08116C22.36 6.5227 22.36 8.86004 20.9185 10.3016Z"
-                  fill="#FCB30B"
-                />
-                <path
-                  d="M20.9184 10.3017L16.9894 14.2307L9.80435 21.4157C8.82218 21.0425 7.9224 20.5022 7.13934 19.8297C7.13262 19.8219 7.12602 19.8141 7.11929 19.8062C6.02382 18.5218 6.11116 16.6071 7.30483 15.4135L16.6675 6.05079C17.9434 4.77487 19.9208 4.62848 21.358 5.61107C22.3407 7.04835 22.1943 9.02575 20.9184 10.3017ZM20.8746 11.3829C20.6804 11.3829 20.523 11.5402 20.523 11.7344C20.523 11.9286 20.6804 12.086 20.8746 12.086C21.0688 12.086 21.2262 11.9286 21.2262 11.7344C21.2262 11.5402 21.0688 11.3829 20.8746 11.3829ZM21.5777 11.0313C21.7719 11.0313 21.9293 10.8739 21.9293 10.6797C21.9293 10.4856 21.7719 10.3282 21.5777 10.3282C21.3835 10.3282 21.2262 10.4856 21.2262 10.6797C21.2262 10.8739 21.3835 11.0313 21.5777 11.0313ZM21.648 13.1407C21.4538 13.1407 21.2965 13.2981 21.2965 13.4922C21.2965 13.6864 21.4538 13.8438 21.648 13.8438C21.8422 13.8438 21.9996 13.6864 21.9996 13.4922C21.9996 13.2981 21.8422 13.1407 21.648 13.1407Z"
-                  fill="#FDBF43"
-                />
-                <path
-                  d="M13.0211 13.2647C13.6183 14.299 13.9276 15.329 13.8991 16.0217C13.8934 16.1629 13.7405 16.251 13.6154 16.1855C13.0013 15.8638 12.264 15.0808 11.6667 14.0466C11.0696 13.0123 10.7603 11.9822 10.7888 11.2896C10.7945 11.1484 10.9472 11.0601 11.0725 11.1258C11.6865 11.4475 12.4239 12.2303 13.0211 13.2647ZM8.17224 14.026C8.04713 13.9604 7.89429 14.0485 7.88852 14.1897C7.86009 14.8824 8.16936 15.9125 8.76646 16.9467C9.36371 17.9811 10.101 18.764 10.7152 19.0856C10.8403 19.1513 10.9931 19.0631 10.9989 18.9219C11.0273 18.2292 10.718 17.1991 10.1208 16.1649C9.52369 15.1306 8.78624 14.3478 8.17224 14.026ZM13.9727 8.22551C13.8475 8.15987 13.6948 8.24817 13.689 8.38935C13.6606 9.08203 13.9699 10.112 14.567 11.1464C15.1642 12.1806 15.9015 12.9635 16.5157 13.2853C16.6408 13.3508 16.7935 13.2626 16.7994 13.1214C16.8278 12.4287 16.5186 11.3986 15.9213 10.3644C15.3242 9.33005 14.5867 8.54727 13.9727 8.22551ZM18.8216 7.46416C18.2245 6.4298 17.487 5.64702 16.873 5.32526C16.7478 5.25975 16.595 5.34792 16.5893 5.48909C16.5609 6.18178 16.8701 7.21175 17.4672 8.24611C18.0645 9.28034 18.8018 10.0633 19.4159 10.385C19.541 10.4505 19.6937 10.3624 19.6996 10.2212C19.7281 9.52849 19.4188 8.49852 18.8216 7.46416Z"
-                  fill="#FDA800"
-                />
-                <path
-                  d="M19.7001 10.2213C19.6942 10.3625 19.5415 10.4506 19.4164 10.3851C19.2299 10.2874 19.0321 10.147 18.8302 9.97012C18.9063 9.25272 18.675 8.17729 18.1569 7.07303C17.8843 6.49185 17.5668 5.97701 17.2398 5.56104C17.7662 5.95792 18.3398 6.62904 18.822 7.46428C19.4192 8.49864 19.7285 9.52861 19.7001 10.2213ZM8.5127 14.2422C8.84682 14.6624 9.17174 15.1866 9.4501 15.7798C9.96564 16.8787 10.1973 17.9491 10.1245 18.6666C10.328 18.8454 10.5276 18.9874 10.7156 19.0859C10.8407 19.1514 10.9935 19.0632 10.9993 18.9221C11.0277 18.2294 10.7185 17.1994 10.1212 16.165C9.63097 15.3158 9.04622 14.6364 8.5127 14.2422ZM11.3417 11.2908C11.695 11.7219 12.0403 12.2707 12.3337 12.8962C12.8425 13.9805 13.0748 15.0372 13.0109 15.7543C13.2192 15.939 13.4236 16.0848 13.6158 16.1856C13.741 16.2511 13.8938 16.163 13.8996 16.0218C13.928 15.3291 13.6187 14.2991 13.0215 13.2648C12.5092 12.3776 11.894 11.6758 11.3417 11.2908ZM13.9772 8.22783C14.3982 8.68555 14.8194 9.31987 15.1677 10.0623C15.649 11.088 15.8829 12.089 15.8527 12.8013C16.0812 13.011 16.3058 13.1752 16.5161 13.2854C16.6412 13.3509 16.7939 13.2627 16.7998 13.1216C16.8282 12.4289 16.519 11.3988 15.9217 10.3645C15.3259 9.3325 14.5905 8.55083 13.9772 8.22783Z"
-                  fill="#FC9302"
-                />
-              </g>
-              <defs>
-                <clipPath id="clip0_8859_8986">
-                  <rect
-                    width="18"
-                    height="18"
-                    fill="white"
-                    transform="translate(4 4)"
-                  />
-                </clipPath>
-              </defs>
-            </svg>
-
-            <p class="2xl:text-xs">Bread</p>
-          </div>
-
-          <div
-            class="item flex flex-wrap items-center gap-3 bg-[#F8F7F8] rounded-4xl p-2 w-27 text-black h-12 text-sm"
-          >
-            <svg
-              width="26"
-              height="26"
-              viewBox="0 0 26 26"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <rect width="26" height="26" rx="13" fill="#F0EEF0" />
-              <g clip-path="url(#clip0_8859_8986)">
-                <path
-                  d="M22 13C22 17.9706 17.9706 22 13 22C11.8727 22 10.7939 21.7921 9.79941 21.4136C8.88754 19.0179 6.9821 17.1125 4.58653 16.2006C4.20792 15.2061 4 14.1273 4 13C4 8.02937 8.02937 4 13 4C17.9706 4 22 8.02937 22 13Z"
-                  fill="#08B772"
-                />
-                <path
-                  d="M20.9185 10.3016L16.9895 14.2306L9.80441 21.4156C7.40445 20.5038 5.49585 18.5952 4.58398 16.1952L15.698 5.08116C17.1396 3.63961 19.4769 3.63961 20.9185 5.08116C22.36 6.5227 22.36 8.86004 20.9185 10.3016Z"
-                  fill="#FCB30B"
-                />
-                <path
-                  d="M20.9184 10.3017L16.9894 14.2307L9.80435 21.4157C8.82218 21.0425 7.9224 20.5022 7.13934 19.8297C7.13262 19.8219 7.12602 19.8141 7.11929 19.8062C6.02382 18.5218 6.11116 16.6071 7.30483 15.4135L16.6675 6.05079C17.9434 4.77487 19.9208 4.62848 21.358 5.61107C22.3407 7.04835 22.1943 9.02575 20.9184 10.3017ZM20.8746 11.3829C20.6804 11.3829 20.523 11.5402 20.523 11.7344C20.523 11.9286 20.6804 12.086 20.8746 12.086C21.0688 12.086 21.2262 11.9286 21.2262 11.7344C21.2262 11.5402 21.0688 11.3829 20.8746 11.3829ZM21.5777 11.0313C21.7719 11.0313 21.9293 10.8739 21.9293 10.6797C21.9293 10.4856 21.7719 10.3282 21.5777 10.3282C21.3835 10.3282 21.2262 10.4856 21.2262 10.6797C21.2262 10.8739 21.3835 11.0313 21.5777 11.0313ZM21.648 13.1407C21.4538 13.1407 21.2965 13.2981 21.2965 13.4922C21.2965 13.6864 21.4538 13.8438 21.648 13.8438C21.8422 13.8438 21.9996 13.6864 21.9996 13.4922C21.9996 13.2981 21.8422 13.1407 21.648 13.1407Z"
-                  fill="#FDBF43"
-                />
-                <path
-                  d="M13.0211 13.2647C13.6183 14.299 13.9276 15.329 13.8991 16.0217C13.8934 16.1629 13.7405 16.251 13.6154 16.1855C13.0013 15.8638 12.264 15.0808 11.6667 14.0466C11.0696 13.0123 10.7603 11.9822 10.7888 11.2896C10.7945 11.1484 10.9472 11.0601 11.0725 11.1258C11.6865 11.4475 12.4239 12.2303 13.0211 13.2647ZM8.17224 14.026C8.04713 13.9604 7.89429 14.0485 7.88852 14.1897C7.86009 14.8824 8.16936 15.9125 8.76646 16.9467C9.36371 17.9811 10.101 18.764 10.7152 19.0856C10.8403 19.1513 10.9931 19.0631 10.9989 18.9219C11.0273 18.2292 10.718 17.1991 10.1208 16.1649C9.52369 15.1306 8.78624 14.3478 8.17224 14.026ZM13.9727 8.22551C13.8475 8.15987 13.6948 8.24817 13.689 8.38935C13.6606 9.08203 13.9699 10.112 14.567 11.1464C15.1642 12.1806 15.9015 12.9635 16.5157 13.2853C16.6408 13.3508 16.7935 13.2626 16.7994 13.1214C16.8278 12.4287 16.5186 11.3986 15.9213 10.3644C15.3242 9.33005 14.5867 8.54727 13.9727 8.22551ZM18.8216 7.46416C18.2245 6.4298 17.487 5.64702 16.873 5.32526C16.7478 5.25975 16.595 5.34792 16.5893 5.48909C16.5609 6.18178 16.8701 7.21175 17.4672 8.24611C18.0645 9.28034 18.8018 10.0633 19.4159 10.385C19.541 10.4505 19.6937 10.3624 19.6996 10.2212C19.7281 9.52849 19.4188 8.49852 18.8216 7.46416Z"
-                  fill="#FDA800"
-                />
-                <path
-                  d="M19.7001 10.2213C19.6942 10.3625 19.5415 10.4506 19.4164 10.3851C19.2299 10.2874 19.0321 10.147 18.8302 9.97012C18.9063 9.25272 18.675 8.17729 18.1569 7.07303C17.8843 6.49185 17.5668 5.97701 17.2398 5.56104C17.7662 5.95792 18.3398 6.62904 18.822 7.46428C19.4192 8.49864 19.7285 9.52861 19.7001 10.2213ZM8.5127 14.2422C8.84682 14.6624 9.17174 15.1866 9.4501 15.7798C9.96564 16.8787 10.1973 17.9491 10.1245 18.6666C10.328 18.8454 10.5276 18.9874 10.7156 19.0859C10.8407 19.1514 10.9935 19.0632 10.9993 18.9221C11.0277 18.2294 10.7185 17.1994 10.1212 16.165C9.63097 15.3158 9.04622 14.6364 8.5127 14.2422ZM11.3417 11.2908C11.695 11.7219 12.0403 12.2707 12.3337 12.8962C12.8425 13.9805 13.0748 15.0372 13.0109 15.7543C13.2192 15.939 13.4236 16.0848 13.6158 16.1856C13.741 16.2511 13.8938 16.163 13.8996 16.0218C13.928 15.3291 13.6187 14.2991 13.0215 13.2648C12.5092 12.3776 11.894 11.6758 11.3417 11.2908ZM13.9772 8.22783C14.3982 8.68555 14.8194 9.31987 15.1677 10.0623C15.649 11.088 15.8829 12.089 15.8527 12.8013C16.0812 13.011 16.3058 13.1752 16.5161 13.2854C16.6412 13.3509 16.7939 13.2627 16.7998 13.1216C16.8282 12.4289 16.519 11.3988 15.9217 10.3645C15.3259 9.3325 14.5905 8.55083 13.9772 8.22783Z"
-                  fill="#FC9302"
-                />
-              </g>
-              <defs>
-                <clipPath id="clip0_8859_8986">
-                  <rect
-                    width="18"
-                    height="18"
-                    fill="white"
-                    transform="translate(4 4)"
-                  />
-                </clipPath>
-              </defs>
-            </svg>
-
-            <p class="2xl:text-xs">Bread</p>
-          </div>
-
-          <div
-            class="item flex flex-wrap items-center gap-3 bg-[#F8F7F8] rounded-4xl p-2 w-27 text-black h-12 text-sm"
-          >
-            <svg
-              width="26"
-              height="26"
-              viewBox="0 0 26 26"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <rect width="26" height="26" rx="13" fill="#F0EEF0" />
-              <g clip-path="url(#clip0_8859_8986)">
-                <path
-                  d="M22 13C22 17.9706 17.9706 22 13 22C11.8727 22 10.7939 21.7921 9.79941 21.4136C8.88754 19.0179 6.9821 17.1125 4.58653 16.2006C4.20792 15.2061 4 14.1273 4 13C4 8.02937 8.02937 4 13 4C17.9706 4 22 8.02937 22 13Z"
-                  fill="#08B772"
-                />
-                <path
-                  d="M20.9185 10.3016L16.9895 14.2306L9.80441 21.4156C7.40445 20.5038 5.49585 18.5952 4.58398 16.1952L15.698 5.08116C17.1396 3.63961 19.4769 3.63961 20.9185 5.08116C22.36 6.5227 22.36 8.86004 20.9185 10.3016Z"
-                  fill="#FCB30B"
-                />
-                <path
-                  d="M20.9184 10.3017L16.9894 14.2307L9.80435 21.4157C8.82218 21.0425 7.9224 20.5022 7.13934 19.8297C7.13262 19.8219 7.12602 19.8141 7.11929 19.8062C6.02382 18.5218 6.11116 16.6071 7.30483 15.4135L16.6675 6.05079C17.9434 4.77487 19.9208 4.62848 21.358 5.61107C22.3407 7.04835 22.1943 9.02575 20.9184 10.3017ZM20.8746 11.3829C20.6804 11.3829 20.523 11.5402 20.523 11.7344C20.523 11.9286 20.6804 12.086 20.8746 12.086C21.0688 12.086 21.2262 11.9286 21.2262 11.7344C21.2262 11.5402 21.0688 11.3829 20.8746 11.3829ZM21.5777 11.0313C21.7719 11.0313 21.9293 10.8739 21.9293 10.6797C21.9293 10.4856 21.7719 10.3282 21.5777 10.3282C21.3835 10.3282 21.2262 10.4856 21.2262 10.6797C21.2262 10.8739 21.3835 11.0313 21.5777 11.0313ZM21.648 13.1407C21.4538 13.1407 21.2965 13.2981 21.2965 13.4922C21.2965 13.6864 21.4538 13.8438 21.648 13.8438C21.8422 13.8438 21.9996 13.6864 21.9996 13.4922C21.9996 13.2981 21.8422 13.1407 21.648 13.1407Z"
-                  fill="#FDBF43"
-                />
-                <path
-                  d="M13.0211 13.2647C13.6183 14.299 13.9276 15.329 13.8991 16.0217C13.8934 16.1629 13.7405 16.251 13.6154 16.1855C13.0013 15.8638 12.264 15.0808 11.6667 14.0466C11.0696 13.0123 10.7603 11.9822 10.7888 11.2896C10.7945 11.1484 10.9472 11.0601 11.0725 11.1258C11.6865 11.4475 12.4239 12.2303 13.0211 13.2647ZM8.17224 14.026C8.04713 13.9604 7.89429 14.0485 7.88852 14.1897C7.86009 14.8824 8.16936 15.9125 8.76646 16.9467C9.36371 17.9811 10.101 18.764 10.7152 19.0856C10.8403 19.1513 10.9931 19.0631 10.9989 18.9219C11.0273 18.2292 10.718 17.1991 10.1208 16.1649C9.52369 15.1306 8.78624 14.3478 8.17224 14.026ZM13.9727 8.22551C13.8475 8.15987 13.6948 8.24817 13.689 8.38935C13.6606 9.08203 13.9699 10.112 14.567 11.1464C15.1642 12.1806 15.9015 12.9635 16.5157 13.2853C16.6408 13.3508 16.7935 13.2626 16.7994 13.1214C16.8278 12.4287 16.5186 11.3986 15.9213 10.3644C15.3242 9.33005 14.5867 8.54727 13.9727 8.22551ZM18.8216 7.46416C18.2245 6.4298 17.487 5.64702 16.873 5.32526C16.7478 5.25975 16.595 5.34792 16.5893 5.48909C16.5609 6.18178 16.8701 7.21175 17.4672 8.24611C18.0645 9.28034 18.8018 10.0633 19.4159 10.385C19.541 10.4505 19.6937 10.3624 19.6996 10.2212C19.7281 9.52849 19.4188 8.49852 18.8216 7.46416Z"
-                  fill="#FDA800"
-                />
-                <path
-                  d="M19.7001 10.2213C19.6942 10.3625 19.5415 10.4506 19.4164 10.3851C19.2299 10.2874 19.0321 10.147 18.8302 9.97012C18.9063 9.25272 18.675 8.17729 18.1569 7.07303C17.8843 6.49185 17.5668 5.97701 17.2398 5.56104C17.7662 5.95792 18.3398 6.62904 18.822 7.46428C19.4192 8.49864 19.7285 9.52861 19.7001 10.2213ZM8.5127 14.2422C8.84682 14.6624 9.17174 15.1866 9.4501 15.7798C9.96564 16.8787 10.1973 17.9491 10.1245 18.6666C10.328 18.8454 10.5276 18.9874 10.7156 19.0859C10.8407 19.1514 10.9935 19.0632 10.9993 18.9221C11.0277 18.2294 10.7185 17.1994 10.1212 16.165C9.63097 15.3158 9.04622 14.6364 8.5127 14.2422ZM11.3417 11.2908C11.695 11.7219 12.0403 12.2707 12.3337 12.8962C12.8425 13.9805 13.0748 15.0372 13.0109 15.7543C13.2192 15.939 13.4236 16.0848 13.6158 16.1856C13.741 16.2511 13.8938 16.163 13.8996 16.0218C13.928 15.3291 13.6187 14.2991 13.0215 13.2648C12.5092 12.3776 11.894 11.6758 11.3417 11.2908ZM13.9772 8.22783C14.3982 8.68555 14.8194 9.31987 15.1677 10.0623C15.649 11.088 15.8829 12.089 15.8527 12.8013C16.0812 13.011 16.3058 13.1752 16.5161 13.2854C16.6412 13.3509 16.7939 13.2627 16.7998 13.1216C16.8282 12.4289 16.519 11.3988 15.9217 10.3645C15.3259 9.3325 14.5905 8.55083 13.9772 8.22783Z"
-                  fill="#FC9302"
-                />
-              </g>
-              <defs>
-                <clipPath id="clip0_8859_8986">
-                  <rect
-                    width="18"
-                    height="18"
-                    fill="white"
-                    transform="translate(4 4)"
-                  />
-                </clipPath>
-              </defs>
-            </svg>
-
-            <p class="2xl:text-xs">Bread</p>
-          </div>
-
-          <div
-            class="hidden item 2xl:flex flex-wrap items-center gap-3 bg-[#F8F7F8] rounded-4xl p-2 w-27 text-black h-12 text-sm"
-          >
-            <svg
-              width="26"
-              height="26"
-              viewBox="0 0 26 26"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <rect width="26" height="26" rx="13" fill="#F0EEF0" />
-              <g clip-path="url(#clip0_8859_8986)">
-                <path
-                  d="M22 13C22 17.9706 17.9706 22 13 22C11.8727 22 10.7939 21.7921 9.79941 21.4136C8.88754 19.0179 6.9821 17.1125 4.58653 16.2006C4.20792 15.2061 4 14.1273 4 13C4 8.02937 8.02937 4 13 4C17.9706 4 22 8.02937 22 13Z"
-                  fill="#08B772"
-                />
-                <path
-                  d="M20.9185 10.3016L16.9895 14.2306L9.80441 21.4156C7.40445 20.5038 5.49585 18.5952 4.58398 16.1952L15.698 5.08116C17.1396 3.63961 19.4769 3.63961 20.9185 5.08116C22.36 6.5227 22.36 8.86004 20.9185 10.3016Z"
-                  fill="#FCB30B"
-                />
-                <path
-                  d="M20.9184 10.3017L16.9894 14.2307L9.80435 21.4157C8.82218 21.0425 7.9224 20.5022 7.13934 19.8297C7.13262 19.8219 7.12602 19.8141 7.11929 19.8062C6.02382 18.5218 6.11116 16.6071 7.30483 15.4135L16.6675 6.05079C17.9434 4.77487 19.9208 4.62848 21.358 5.61107C22.3407 7.04835 22.1943 9.02575 20.9184 10.3017ZM20.8746 11.3829C20.6804 11.3829 20.523 11.5402 20.523 11.7344C20.523 11.9286 20.6804 12.086 20.8746 12.086C21.0688 12.086 21.2262 11.9286 21.2262 11.7344C21.2262 11.5402 21.0688 11.3829 20.8746 11.3829ZM21.5777 11.0313C21.7719 11.0313 21.9293 10.8739 21.9293 10.6797C21.9293 10.4856 21.7719 10.3282 21.5777 10.3282C21.3835 10.3282 21.2262 10.4856 21.2262 10.6797C21.2262 10.8739 21.3835 11.0313 21.5777 11.0313ZM21.648 13.1407C21.4538 13.1407 21.2965 13.2981 21.2965 13.4922C21.2965 13.6864 21.4538 13.8438 21.648 13.8438C21.8422 13.8438 21.9996 13.6864 21.9996 13.4922C21.9996 13.2981 21.8422 13.1407 21.648 13.1407Z"
-                  fill="#FDBF43"
-                />
-                <path
-                  d="M13.0211 13.2647C13.6183 14.299 13.9276 15.329 13.8991 16.0217C13.8934 16.1629 13.7405 16.251 13.6154 16.1855C13.0013 15.8638 12.264 15.0808 11.6667 14.0466C11.0696 13.0123 10.7603 11.9822 10.7888 11.2896C10.7945 11.1484 10.9472 11.0601 11.0725 11.1258C11.6865 11.4475 12.4239 12.2303 13.0211 13.2647ZM8.17224 14.026C8.04713 13.9604 7.89429 14.0485 7.88852 14.1897C7.86009 14.8824 8.16936 15.9125 8.76646 16.9467C9.36371 17.9811 10.101 18.764 10.7152 19.0856C10.8403 19.1513 10.9931 19.0631 10.9989 18.9219C11.0273 18.2292 10.718 17.1991 10.1208 16.1649C9.52369 15.1306 8.78624 14.3478 8.17224 14.026ZM13.9727 8.22551C13.8475 8.15987 13.6948 8.24817 13.689 8.38935C13.6606 9.08203 13.9699 10.112 14.567 11.1464C15.1642 12.1806 15.9015 12.9635 16.5157 13.2853C16.6408 13.3508 16.7935 13.2626 16.7994 13.1214C16.8278 12.4287 16.5186 11.3986 15.9213 10.3644C15.3242 9.33005 14.5867 8.54727 13.9727 8.22551ZM18.8216 7.46416C18.2245 6.4298 17.487 5.64702 16.873 5.32526C16.7478 5.25975 16.595 5.34792 16.5893 5.48909C16.5609 6.18178 16.8701 7.21175 17.4672 8.24611C18.0645 9.28034 18.8018 10.0633 19.4159 10.385C19.541 10.4505 19.6937 10.3624 19.6996 10.2212C19.7281 9.52849 19.4188 8.49852 18.8216 7.46416Z"
-                  fill="#FDA800"
-                />
-                <path
-                  d="M19.7001 10.2213C19.6942 10.3625 19.5415 10.4506 19.4164 10.3851C19.2299 10.2874 19.0321 10.147 18.8302 9.97012C18.9063 9.25272 18.675 8.17729 18.1569 7.07303C17.8843 6.49185 17.5668 5.97701 17.2398 5.56104C17.7662 5.95792 18.3398 6.62904 18.822 7.46428C19.4192 8.49864 19.7285 9.52861 19.7001 10.2213ZM8.5127 14.2422C8.84682 14.6624 9.17174 15.1866 9.4501 15.7798C9.96564 16.8787 10.1973 17.9491 10.1245 18.6666C10.328 18.8454 10.5276 18.9874 10.7156 19.0859C10.8407 19.1514 10.9935 19.0632 10.9993 18.9221C11.0277 18.2294 10.7185 17.1994 10.1212 16.165C9.63097 15.3158 9.04622 14.6364 8.5127 14.2422ZM11.3417 11.2908C11.695 11.7219 12.0403 12.2707 12.3337 12.8962C12.8425 13.9805 13.0748 15.0372 13.0109 15.7543C13.2192 15.939 13.4236 16.0848 13.6158 16.1856C13.741 16.2511 13.8938 16.163 13.8996 16.0218C13.928 15.3291 13.6187 14.2991 13.0215 13.2648C12.5092 12.3776 11.894 11.6758 11.3417 11.2908ZM13.9772 8.22783C14.3982 8.68555 14.8194 9.31987 15.1677 10.0623C15.649 11.088 15.8829 12.089 15.8527 12.8013C16.0812 13.011 16.3058 13.1752 16.5161 13.2854C16.6412 13.3509 16.7939 13.2627 16.7998 13.1216C16.8282 12.4289 16.519 11.3988 15.9217 10.3645C15.3259 9.3325 14.5905 8.55083 13.9772 8.22783Z"
-                  fill="#FC9302"
-                />
-              </g>
-              <defs>
-                <clipPath id="clip0_8859_8986">
-                  <rect
-                    width="18"
-                    height="18"
-                    fill="white"
-                    transform="translate(4 4)"
-                  />
-                </clipPath>
-              </defs>
-            </svg>
-
-            <p class="2xl:text-xs">Bread</p>
-          </div>
-
-          <div
-            class="hidden item 2xl:flex flex-wrap items-center gap-3 bg-[#F8F7F8] rounded-4xl p-2 w-27 text-black h-12 text-sm"
-          >
-            <svg
-              width="26"
-              height="26"
-              viewBox="0 0 26 26"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <rect width="26" height="26" rx="13" fill="#F0EEF0" />
-              <g clip-path="url(#clip0_8859_8986)">
-                <path
-                  d="M22 13C22 17.9706 17.9706 22 13 22C11.8727 22 10.7939 21.7921 9.79941 21.4136C8.88754 19.0179 6.9821 17.1125 4.58653 16.2006C4.20792 15.2061 4 14.1273 4 13C4 8.02937 8.02937 4 13 4C17.9706 4 22 8.02937 22 13Z"
-                  fill="#08B772"
-                />
-                <path
-                  d="M20.9185 10.3016L16.9895 14.2306L9.80441 21.4156C7.40445 20.5038 5.49585 18.5952 4.58398 16.1952L15.698 5.08116C17.1396 3.63961 19.4769 3.63961 20.9185 5.08116C22.36 6.5227 22.36 8.86004 20.9185 10.3016Z"
-                  fill="#FCB30B"
-                />
-                <path
-                  d="M20.9184 10.3017L16.9894 14.2307L9.80435 21.4157C8.82218 21.0425 7.9224 20.5022 7.13934 19.8297C7.13262 19.8219 7.12602 19.8141 7.11929 19.8062C6.02382 18.5218 6.11116 16.6071 7.30483 15.4135L16.6675 6.05079C17.9434 4.77487 19.9208 4.62848 21.358 5.61107C22.3407 7.04835 22.1943 9.02575 20.9184 10.3017ZM20.8746 11.3829C20.6804 11.3829 20.523 11.5402 20.523 11.7344C20.523 11.9286 20.6804 12.086 20.8746 12.086C21.0688 12.086 21.2262 11.9286 21.2262 11.7344C21.2262 11.5402 21.0688 11.3829 20.8746 11.3829ZM21.5777 11.0313C21.7719 11.0313 21.9293 10.8739 21.9293 10.6797C21.9293 10.4856 21.7719 10.3282 21.5777 10.3282C21.3835 10.3282 21.2262 10.4856 21.2262 10.6797C21.2262 10.8739 21.3835 11.0313 21.5777 11.0313ZM21.648 13.1407C21.4538 13.1407 21.2965 13.2981 21.2965 13.4922C21.2965 13.6864 21.4538 13.8438 21.648 13.8438C21.8422 13.8438 21.9996 13.6864 21.9996 13.4922C21.9996 13.2981 21.8422 13.1407 21.648 13.1407Z"
-                  fill="#FDBF43"
-                />
-                <path
-                  d="M13.0211 13.2647C13.6183 14.299 13.9276 15.329 13.8991 16.0217C13.8934 16.1629 13.7405 16.251 13.6154 16.1855C13.0013 15.8638 12.264 15.0808 11.6667 14.0466C11.0696 13.0123 10.7603 11.9822 10.7888 11.2896C10.7945 11.1484 10.9472 11.0601 11.0725 11.1258C11.6865 11.4475 12.4239 12.2303 13.0211 13.2647ZM8.17224 14.026C8.04713 13.9604 7.89429 14.0485 7.88852 14.1897C7.86009 14.8824 8.16936 15.9125 8.76646 16.9467C9.36371 17.9811 10.101 18.764 10.7152 19.0856C10.8403 19.1513 10.9931 19.0631 10.9989 18.9219C11.0273 18.2292 10.718 17.1991 10.1208 16.1649C9.52369 15.1306 8.78624 14.3478 8.17224 14.026ZM13.9727 8.22551C13.8475 8.15987 13.6948 8.24817 13.689 8.38935C13.6606 9.08203 13.9699 10.112 14.567 11.1464C15.1642 12.1806 15.9015 12.9635 16.5157 13.2853C16.6408 13.3508 16.7935 13.2626 16.7994 13.1214C16.8278 12.4287 16.5186 11.3986 15.9213 10.3644C15.3242 9.33005 14.5867 8.54727 13.9727 8.22551ZM18.8216 7.46416C18.2245 6.4298 17.487 5.64702 16.873 5.32526C16.7478 5.25975 16.595 5.34792 16.5893 5.48909C16.5609 6.18178 16.8701 7.21175 17.4672 8.24611C18.0645 9.28034 18.8018 10.0633 19.4159 10.385C19.541 10.4505 19.6937 10.3624 19.6996 10.2212C19.7281 9.52849 19.4188 8.49852 18.8216 7.46416Z"
-                  fill="#FDA800"
-                />
-                <path
-                  d="M19.7001 10.2213C19.6942 10.3625 19.5415 10.4506 19.4164 10.3851C19.2299 10.2874 19.0321 10.147 18.8302 9.97012C18.9063 9.25272 18.675 8.17729 18.1569 7.07303C17.8843 6.49185 17.5668 5.97701 17.2398 5.56104C17.7662 5.95792 18.3398 6.62904 18.822 7.46428C19.4192 8.49864 19.7285 9.52861 19.7001 10.2213ZM8.5127 14.2422C8.84682 14.6624 9.17174 15.1866 9.4501 15.7798C9.96564 16.8787 10.1973 17.9491 10.1245 18.6666C10.328 18.8454 10.5276 18.9874 10.7156 19.0859C10.8407 19.1514 10.9935 19.0632 10.9993 18.9221C11.0277 18.2294 10.7185 17.1994 10.1212 16.165C9.63097 15.3158 9.04622 14.6364 8.5127 14.2422ZM11.3417 11.2908C11.695 11.7219 12.0403 12.2707 12.3337 12.8962C12.8425 13.9805 13.0748 15.0372 13.0109 15.7543C13.2192 15.939 13.4236 16.0848 13.6158 16.1856C13.741 16.2511 13.8938 16.163 13.8996 16.0218C13.928 15.3291 13.6187 14.2991 13.0215 13.2648C12.5092 12.3776 11.894 11.6758 11.3417 11.2908ZM13.9772 8.22783C14.3982 8.68555 14.8194 9.31987 15.1677 10.0623C15.649 11.088 15.8829 12.089 15.8527 12.8013C16.0812 13.011 16.3058 13.1752 16.5161 13.2854C16.6412 13.3509 16.7939 13.2627 16.7998 13.1216C16.8282 12.4289 16.519 11.3988 15.9217 10.3645C15.3259 9.3325 14.5905 8.55083 13.9772 8.22783Z"
-                  fill="#FC9302"
-                />
-              </g>
-              <defs>
-                <clipPath id="clip0_8859_8986">
-                  <rect
-                    width="18"
-                    height="18"
-                    fill="white"
-                    transform="translate(4 4)"
-                  />
-                </clipPath>
-              </defs>
-            </svg>
-
-            <p class="2xl:text-xs">Bread</p>
-          </div>
-
-          <div
-            class="hidden item 2xl:flex flex-wrap items-center gap-3 bg-[#F8F7F8] rounded-4xl p-2 w-27 text-black h-12 text-sm"
-          >
-            <svg
-              width="26"
-              height="26"
-              viewBox="0 0 26 26"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <rect width="26" height="26" rx="13" fill="#F0EEF0" />
-              <g clip-path="url(#clip0_8859_8986)">
-                <path
-                  d="M22 13C22 17.9706 17.9706 22 13 22C11.8727 22 10.7939 21.7921 9.79941 21.4136C8.88754 19.0179 6.9821 17.1125 4.58653 16.2006C4.20792 15.2061 4 14.1273 4 13C4 8.02937 8.02937 4 13 4C17.9706 4 22 8.02937 22 13Z"
-                  fill="#08B772"
-                />
-                <path
-                  d="M20.9185 10.3016L16.9895 14.2306L9.80441 21.4156C7.40445 20.5038 5.49585 18.5952 4.58398 16.1952L15.698 5.08116C17.1396 3.63961 19.4769 3.63961 20.9185 5.08116C22.36 6.5227 22.36 8.86004 20.9185 10.3016Z"
-                  fill="#FCB30B"
-                />
-                <path
-                  d="M20.9184 10.3017L16.9894 14.2307L9.80435 21.4157C8.82218 21.0425 7.9224 20.5022 7.13934 19.8297C7.13262 19.8219 7.12602 19.8141 7.11929 19.8062C6.02382 18.5218 6.11116 16.6071 7.30483 15.4135L16.6675 6.05079C17.9434 4.77487 19.9208 4.62848 21.358 5.61107C22.3407 7.04835 22.1943 9.02575 20.9184 10.3017ZM20.8746 11.3829C20.6804 11.3829 20.523 11.5402 20.523 11.7344C20.523 11.9286 20.6804 12.086 20.8746 12.086C21.0688 12.086 21.2262 11.9286 21.2262 11.7344C21.2262 11.5402 21.0688 11.3829 20.8746 11.3829ZM21.5777 11.0313C21.7719 11.0313 21.9293 10.8739 21.9293 10.6797C21.9293 10.4856 21.7719 10.3282 21.5777 10.3282C21.3835 10.3282 21.2262 10.4856 21.2262 10.6797C21.2262 10.8739 21.3835 11.0313 21.5777 11.0313ZM21.648 13.1407C21.4538 13.1407 21.2965 13.2981 21.2965 13.4922C21.2965 13.6864 21.4538 13.8438 21.648 13.8438C21.8422 13.8438 21.9996 13.6864 21.9996 13.4922C21.9996 13.2981 21.8422 13.1407 21.648 13.1407Z"
-                  fill="#FDBF43"
-                />
-                <path
-                  d="M13.0211 13.2647C13.6183 14.299 13.9276 15.329 13.8991 16.0217C13.8934 16.1629 13.7405 16.251 13.6154 16.1855C13.0013 15.8638 12.264 15.0808 11.6667 14.0466C11.0696 13.0123 10.7603 11.9822 10.7888 11.2896C10.7945 11.1484 10.9472 11.0601 11.0725 11.1258C11.6865 11.4475 12.4239 12.2303 13.0211 13.2647ZM8.17224 14.026C8.04713 13.9604 7.89429 14.0485 7.88852 14.1897C7.86009 14.8824 8.16936 15.9125 8.76646 16.9467C9.36371 17.9811 10.101 18.764 10.7152 19.0856C10.8403 19.1513 10.9931 19.0631 10.9989 18.9219C11.0273 18.2292 10.718 17.1991 10.1208 16.1649C9.52369 15.1306 8.78624 14.3478 8.17224 14.026ZM13.9727 8.22551C13.8475 8.15987 13.6948 8.24817 13.689 8.38935C13.6606 9.08203 13.9699 10.112 14.567 11.1464C15.1642 12.1806 15.9015 12.9635 16.5157 13.2853C16.6408 13.3508 16.7935 13.2626 16.7994 13.1214C16.8278 12.4287 16.5186 11.3986 15.9213 10.3644C15.3242 9.33005 14.5867 8.54727 13.9727 8.22551ZM18.8216 7.46416C18.2245 6.4298 17.487 5.64702 16.873 5.32526C16.7478 5.25975 16.595 5.34792 16.5893 5.48909C16.5609 6.18178 16.8701 7.21175 17.4672 8.24611C18.0645 9.28034 18.8018 10.0633 19.4159 10.385C19.541 10.4505 19.6937 10.3624 19.6996 10.2212C19.7281 9.52849 19.4188 8.49852 18.8216 7.46416Z"
-                  fill="#FDA800"
-                />
-                <path
-                  d="M19.7001 10.2213C19.6942 10.3625 19.5415 10.4506 19.4164 10.3851C19.2299 10.2874 19.0321 10.147 18.8302 9.97012C18.9063 9.25272 18.675 8.17729 18.1569 7.07303C17.8843 6.49185 17.5668 5.97701 17.2398 5.56104C17.7662 5.95792 18.3398 6.62904 18.822 7.46428C19.4192 8.49864 19.7285 9.52861 19.7001 10.2213ZM8.5127 14.2422C8.84682 14.6624 9.17174 15.1866 9.4501 15.7798C9.96564 16.8787 10.1973 17.9491 10.1245 18.6666C10.328 18.8454 10.5276 18.9874 10.7156 19.0859C10.8407 19.1514 10.9935 19.0632 10.9993 18.9221C11.0277 18.2294 10.7185 17.1994 10.1212 16.165C9.63097 15.3158 9.04622 14.6364 8.5127 14.2422ZM11.3417 11.2908C11.695 11.7219 12.0403 12.2707 12.3337 12.8962C12.8425 13.9805 13.0748 15.0372 13.0109 15.7543C13.2192 15.939 13.4236 16.0848 13.6158 16.1856C13.741 16.2511 13.8938 16.163 13.8996 16.0218C13.928 15.3291 13.6187 14.2991 13.0215 13.2648C12.5092 12.3776 11.894 11.6758 11.3417 11.2908ZM13.9772 8.22783C14.3982 8.68555 14.8194 9.31987 15.1677 10.0623C15.649 11.088 15.8829 12.089 15.8527 12.8013C16.0812 13.011 16.3058 13.1752 16.5161 13.2854C16.6412 13.3509 16.7939 13.2627 16.7998 13.1216C16.8282 12.4289 16.519 11.3988 15.9217 10.3645C15.3259 9.3325 14.5905 8.55083 13.9772 8.22783Z"
-                  fill="#FC9302"
-                />
-              </g>
-              <defs>
-                <clipPath id="clip0_8859_8986">
-                  <rect
-                    width="18"
-                    height="18"
-                    fill="white"
-                    transform="translate(4 4)"
-                  />
-                </clipPath>
-              </defs>
-            </svg>
-
-            <p class="2xl:text-xs">Bread</p>
-          </div>
-        </div>
-      </section>
-
-      <section id="content" class="mb-4 w-94 md:w-180 lg:w-232 min-w-full">
-        <div id="card-1" class="mb-10">
-          <div
-            id="card-header"
-            class="w-92 flex justify-between md:w-178 lg:w-230 min-w-full mb-10"
-          >
-            <h3 class="lg:text-2xl">Best Seller – Fruits</h3>
-            <div class="flex items-center justify-center gap-4">
-              <a
-                class="flex items-center justify-center text-xs p-1 border-2 border-pink-700 w-28 h-8 sm:h-8 sm:w-34 lg:w-40 md:w-32 md:h-8 lg:h-8 xl:h-10 2xl:h-12 rounded-2xl sm:rounded-4xl md:rounded-2xl lg:rounded-2xl 2xl:rounded-4xl 2xl:text-md xl:text-md lg:text-sm text-center"
-                href=""
-                >View All (+40)
-                <img
-                  src="./src/assets/icons/Arrow - Right 2.svg"
-                  alt=""
-                  class="w-4 h-4 ml-2 2xl:"
-              /></a>
-              <div class="hidden arrows xl:flex">
-                <a
-                  href=""
-                  class="left-arrow bg-[#F0EEF0] rounded-full p-2 mr-2"
-                >
-                  <svg
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M16.0303 4.46967C16.2966 4.73594 16.3208 5.1526 16.1029 5.44621L16.0303 5.53033L9.561 12L16.0303 18.4697C16.2966 18.7359 16.3208 19.1526 16.1029 19.4462L16.0303 19.5303C15.7641 19.7966 15.3474 19.8208 15.0538 19.6029L14.9697 19.5303L7.96967 12.5303C7.7034 12.2641 7.6792 11.8474 7.89705 11.5538L7.96967 11.4697L14.9697 4.46967C15.2626 4.17678 15.7374 4.17678 16.0303 4.46967Z"
-                      fill="#212121"
-                    />
-                  </svg>
-                </a>
-                <a
-                  href=""
-                  class="right-arrow bg-[#F0EEF0] rounded-full p-2 mr-2"
-                >
-                  <svg
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M7.96967 19.5303C7.7034 19.2641 7.6792 18.8474 7.89705 18.5538L7.96967 18.4697L14.439 12L7.96967 5.53033C7.7034 5.26406 7.6792 4.8474 7.89705 4.55379L7.96967 4.46967C8.23594 4.2034 8.6526 4.1792 8.94621 4.39705L9.03033 4.46967L16.0303 11.4697C16.2966 11.7359 16.3208 12.1526 16.1029 12.4462L16.0303 12.5303L9.03033 19.5303C8.73744 19.8232 8.26256 19.8232 7.96967 19.5303Z"
-                      fill="#212121"
-                    />
-                  </svg>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <div
-            data-home-container
-            id="card-row-1"
-            class="flex overflow-x-auto gap-3 md:gap-5 xl:gap-6 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6"
-          ></div>
-        </div>
-
-        <div id="card-2" class="mb-10">
-          <div
-            id="card-header-2"
-            class="w-92 flex justify-between md:w-178 lg:w-230 min-w-full mb-10"
-          >
-            <h3 class="lg:text-2xl">Best Seller – Personal Care</h3>
-            <div class="cta flex items-center justify-center gap-4">
-              <a
-                class="flex items-center justify-center text-xs p-1 border-2 border-pink-700 w-28 h-8 sm:h-8 sm:w-34 lg:w-40 md:w-32 md:h-8 lg:h-8 xl:h-10 2xl:h-12 rounded-2xl sm:rounded-4xl md:rounded-2xl lg:rounded-2xl 2xl:rounded-4xl 2xl:text-md xl:text-md lg:text-sm text-center"
-                href=""
-                >View All (+40)
-                <img
-                  src="./src/assets/icons/Arrow - Right 2.svg"
-                  alt=""
-                  class="w-4 h-4 ml-2 2xl:"
-              /></a>
-              <div class="hidden arrows xl:flex">
-                <a
-                  href=""
-                  class="left-arrow bg-[#F0EEF0] rounded-full p-2 mr-2"
-                >
-                  <svg
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M16.0303 4.46967C16.2966 4.73594 16.3208 5.1526 16.1029 5.44621L16.0303 5.53033L9.561 12L16.0303 18.4697C16.2966 18.7359 16.3208 19.1526 16.1029 19.4462L16.0303 19.5303C15.7641 19.7966 15.3474 19.8208 15.0538 19.6029L14.9697 19.5303L7.96967 12.5303C7.7034 12.2641 7.6792 11.8474 7.89705 11.5538L7.96967 11.4697L14.9697 4.46967C15.2626 4.17678 15.7374 4.17678 16.0303 4.46967Z"
-                      fill="#212121"
-                    />
-                  </svg>
-                </a>
-                <a
-                  href=""
-                  class="right-arrow bg-[#F0EEF0] rounded-full p-2 mr-2"
-                >
-                  <svg
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M7.96967 19.5303C7.7034 19.2641 7.6792 18.8474 7.89705 18.5538L7.96967 18.4697L14.439 12L7.96967 5.53033C7.7034 5.26406 7.6792 4.8474 7.89705 4.55379L7.96967 4.46967C8.23594 4.2034 8.6526 4.1792 8.94621 4.39705L9.03033 4.46967L16.0303 11.4697C16.2966 11.7359 16.3208 12.1526 16.1029 12.4462L16.0303 12.5303L9.03033 19.5303C8.73744 19.8232 8.26256 19.8232 7.96967 19.5303Z"
-                      fill="#212121"
-                    />
-                  </svg>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <div
-            id="card-row-2"
-            class="flex overflow-x-auto gap-3 md:gap-5 xl:gap-6 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6"
-          ></div>
-        </div>
-
-        <div id="card-3" class="mb-10">
-          <div
-            id="card-header-3"
-            class="w-92 flex justify-between md:w-178 lg:w-230 min-w-full mb-10"
-          >
-            <h3 class="lg:text-2xl">Best Seller – Groceries</h3>
-            <div class="cta flex items-center justify-center gap-4">
-              <a
-                class="flex items-center justify-center text-xs p-1 border-2 border-pink-700 w-28 h-8 sm:h-8 sm:w-34 lg:w-40 md:w-32 md:h-8 lg:h-8 xl:h-10 2xl:h-12 rounded-2xl sm:rounded-4xl md:rounded-2xl lg:rounded-2xl 2xl:rounded-4xl 2xl:text-md xl:text-md lg:text-sm text-center"
-                href=""
-                >View All (+40)
-                <img
-                  src="./src/assets/icons/Arrow - Right 2.svg"
-                  alt=""
-                  class="w-4 h-4 ml-2 2xl:"
-              /></a>
-              <div class="hidden arrows xl:flex">
-                <a
-                  href=""
-                  class="left-arrow bg-[#F0EEF0] rounded-full p-2 mr-2"
-                >
-                  <svg
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M16.0303 4.46967C16.2966 4.73594 16.3208 5.1526 16.1029 5.44621L16.0303 5.53033L9.561 12L16.0303 18.4697C16.2966 18.7359 16.3208 19.1526 16.1029 19.4462L16.0303 19.5303C15.7641 19.7966 15.3474 19.8208 15.0538 19.6029L14.9697 19.5303L7.96967 12.5303C7.7034 12.2641 7.6792 11.8474 7.89705 11.5538L7.96967 11.4697L14.9697 4.46967C15.2626 4.17678 15.7374 4.17678 16.0303 4.46967Z"
-                      fill="#212121"
-                    />
-                  </svg>
-                </a>
-                <a
-                  href=""
-                  class="right-arrow bg-[#F0EEF0] rounded-full p-2 mr-2"
-                >
-                  <svg
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M7.96967 19.5303C7.7034 19.2641 7.6792 18.8474 7.89705 18.5538L7.96967 18.4697L14.439 12L7.96967 5.53033C7.7034 5.26406 7.6792 4.8474 7.89705 4.55379L7.96967 4.46967C8.23594 4.2034 8.6526 4.1792 8.94621 4.39705L9.03033 4.46967L16.0303 11.4697C16.2966 11.7359 16.3208 12.1526 16.1029 12.4462L16.0303 12.5303L9.03033 19.5303C8.73744 19.8232 8.26256 19.8232 7.96967 19.5303Z"
-                      fill="#212121"
-                    />
-                  </svg>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <div
-            id="card-row-3"
-            class="flex overflow-x-auto gap-3 md:gap-5 xl:gap-6 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6"
-          ></div>
-        </div>
-      </section>
-
-      <section
-        id="trending-store-favorites"
-        class="hidden lg:block mt-30 bg-[#F0EEF0] rounded-4xl border border-gray-300 p-6"
-      >
-        <div
-          id="trending-store-favorites-header"
-          class="flex justify-between mb-4"
-        >
-          <h3 class="text-2xl">Trending Store Favorites</h3>
-          <a
-            class="flex items-center justify-center text-xs border-2 border-pink-700 rounded-2xl sm:rounded-4xl md:rounded-2xl lg:rounded-2xl 2xl:rounded-4xl 2xl:text-md xl:text-md lg:text-sm text-center p-2"
-            href=""
-            >View All
-
-            <svg
-              width="22"
-              height="22"
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M13.171 6.23278C12.8775 5.94051 12.8765 5.46564 13.1687 5.17212C13.4344 4.90528 13.851 4.88018 14.1451 5.0974L14.2294 5.16983L20.2794 11.1938C20.547 11.4603 20.5714 11.8784 20.3524 12.1725L20.2794 12.2567L14.2294 18.2817C13.9359 18.574 13.4611 18.573 13.1688 18.2795C12.9031 18.0127 12.8797 17.596 13.0982 17.3028L13.171 17.2189L18.687 11.725L13.171 6.23278Z"
-                fill="#212121"
-              />
-              <path
-                d="M4 11.7257C4 11.346 4.28215 11.0322 4.64823 10.9826L4.75 10.9757H19.75C20.1642 10.9757 20.5 11.3115 20.5 11.7257C20.5 12.1054 20.2178 12.4192 19.8518 12.4689L19.75 12.4757L4.75 12.4757C4.33579 12.4757 4 12.1399 4 11.7257Z"
-                fill="#212121"
-              />
-            </svg>
-          </a>
-        </div>
-        <div
-          id="trending-store-favorites-group"
-          class="flex mb-6 justify-between"
-        >
-          <div class="tags w-140">
-            <div
-              class="row1 flex flex-wrap justify-between items-center gap-4 2xl:gap-2"
-            >
-              <div
-                class="item-1 flex flex-col items-center bg-white rounded-xl p-2 border border-gray-200"
-              >
-                <p class="text-sm">Beef</p>
-              </div>
-
-              <div
-                class="item-1 flex flex-col items-center bg-white rounded-2xl p-2 border border-gray-200"
-              >
-                <p class="text-sm">Rice</p>
-              </div>
-
-              <div
-                class="item-1 flex flex-col items-center bg-white rounded-2xl p-2 border border-gray-200"
-              >
-                <p class="text-sm">Fresh bakery</p>
-              </div>
-
-              <div
-                class="item-1 flex flex-col items-center bg-white rounded-2xl p-2 border border-[#B6349A]"
-              >
-                <p class="text-sm">Snacks</p>
-              </div>
-
-              <div
-                class="item-1 flex flex-col items-center bg-white rounded-2xl p-2 border border-gray-200"
-              >
-                <p class="text-sm">Bread</p>
-              </div>
-
-              <div
-                class="item-1 flex flex-col items-center bg-white rounded-2xl p-2 border border-gray-200"
-              >
-                <p class="text-sm">Health and wellness</p>
-              </div>
-
-              <div
-                class="item-1 flex flex-col items-center bg-white rounded-2xl p-2 border border-gray-200"
-              >
-                <p class="text-sm">Organic</p>
-              </div>
-
-              <div
-                class="item-1 flex flex-col items-center bg-white rounded-2xl p-2 border border-gray-200"
-              >
-                <p class="text-sm">Bread</p>
-              </div>
-
-              <div
-                class="item-1 flex flex-col items-center bg-white rounded-2xl p-2 border border-gray-200"
-              >
-                <p class="text-sm">Bread</p>
-              </div>
-
-              <div
-                class="item-1 flex flex-col items-center bg-white rounded-2xl p-2 border border-gray-200"
-              >
-                <p class="text-sm">Bread</p>
-              </div>
-
-              <div
-                class="item-1 flex flex-col items-center bg-white rounded-2xl p-2 border border-gray-200"
-              >
-                <p class="text-sm">Bread</p>
-              </div>
-
-              <div
-                class="item-1 flex flex-col items-center bg-white rounded-2xl p-2 border border-gray-200"
-              >
-                <p class="text-sm">Bread</p>
-              </div>
-
-              <div
-                class="item-1 flex flex-col items-center bg-white rounded-2xl p-2 border border-gray-200"
-              >
-                <p class="text-sm">Bread</p>
-              </div>
-            </div>
-          </div>
-          <div class="hidden arrows xl:flex">
-            <a href="" class="bg-[#F0EEF0] rounded-full p-2 mr-2">
-              <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M16.0303 4.46967C16.2966 4.73594 16.3208 5.1526 16.1029 5.44621L16.0303 5.53033L9.561 12L16.0303 18.4697C16.2966 18.7359 16.3208 19.1526 16.1029 19.4462L16.0303 19.5303C15.7641 19.7966 15.3474 19.8208 15.0538 19.6029L14.9697 19.5303L7.96967 12.5303C7.7034 12.2641 7.6792 11.8474 7.89705 11.5538L7.96967 11.4697L14.9697 4.46967C15.2626 4.17678 15.7374 4.17678 16.0303 4.46967Z"
-                  fill="#212121"
-                />
-              </svg>
-            </a>
-            <a href="" class="bg-[#F0EEF0] rounded-full p-2 mr-2">
-              <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M7.96967 19.5303C7.7034 19.2641 7.6792 18.8474 7.89705 18.5538L7.96967 18.4697L14.439 12L7.96967 5.53033C7.7034 5.26406 7.6792 4.8474 7.89705 4.55379L7.96967 4.46967C8.23594 4.2034 8.6526 4.1792 8.94621 4.39705L9.03033 4.46967L16.0303 11.4697C16.2966 11.7359 16.3208 12.1526 16.1029 12.4462L16.0303 12.5303L9.03033 19.5303C8.73744 19.8232 8.26256 19.8232 7.96967 19.5303Z"
-                  fill="#212121"
-                />
-              </svg>
-            </a>
-          </div>
-        </div>
-        <div id="trending-store-favorites-list">
-          <div
-            id="trending-card-row"
-            class="flex overflow-x-auto gap-3 md:gap-5 xl:gap-6 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6"
-          ></div>
-        </div>
-      </section>
-
-      <section
-        id="order-now-your"
-        class="hidden lg:flex flex-col md:flex-row mt-30 bg-[#FCFCFC] rounded-4xl"
-      >
-        <div
-          id="order-now-your-left"
-          class="w-full md:w-3/5 p-2 md:pr-6 flex gap-4"
-        ></div>
-        <div id="order-now-your-right" class="w-full md:w-2/5 p-4">
-          <p class="text-[#B6349A] font-semibold ml-10">
-            Get 10% OFF On Your First Order
-          </p>
-          <h3 class="font-bold text-3xl mt-6 ml-10">Order Now your Grocery!</h3>
-          <div id="order-now-tags" class="flex mt-6 ml-10">
-            <div class="tags w-100">
-              <div
-                class="row1 flex flex-wrap justify-between items-center gap-4 2xl:gap-2"
-              >
-                <div
-                  class="item-1 flex flex-col items-center bg-white rounded-xl p-2 border border-gray-200"
-                >
-                  <p class="text-sm">Beef</p>
-                </div>
-
-                <div
-                  class="item-1 flex flex-col items-center bg-white rounded-2xl p-2 border border-gray-200"
-                >
-                  <p class="text-sm">Rice</p>
-                </div>
-
-                <div
-                  class="item-1 flex flex-col items-center bg-white rounded-2xl p-2 border border-gray-200"
-                >
-                  <p class="text-sm">Fresh bakery</p>
-                </div>
-
-                <div
-                  class="item-1 flex flex-col items-center bg-white rounded-2xl p-2 border border-gray-200"
-                >
-                  <p class="text-sm">Snacks</p>
-                </div>
-
-                <div
-                  class="item-1 flex flex-col items-center bg-white rounded-2xl p-2 border border-gray-200"
-                >
-                  <p class="text-sm">Bread</p>
-                </div>
-
-                <div
-                  class="item-1 flex flex-col items-center bg-white rounded-2xl p-2 border border-gray-200"
-                >
-                  <p class="text-sm">Health and wellness</p>
-                </div>
-
-                <div
-                  class="item-1 flex flex-col items-center bg-white rounded-2xl p-2 border border-gray-200"
-                >
-                  <p class="text-sm">Organic</p>
-                </div>
-
-                <div
-                  class="item-1 flex flex-col items-center bg-white rounded-2xl p-2 border border-gray-200"
-                >
-                  <p class="text-sm">Bread</p>
-                </div>
-
-                <div
-                  class="item-1 flex flex-col items-center bg-white rounded-2xl p-2 border border-gray-200"
-                >
-                  <p class="text-sm">Bread</p>
-                </div>
-
-                <div
-                  class="item-1 flex flex-col items-center bg-white rounded-2xl p-2 border border-gray-200"
-                >
-                  <p class="text-sm">Bread</p>
-                </div>
-
-                <div
-                  class="item-1 flex flex-col items-center bg-white rounded-2xl p-2 border border-gray-200"
-                >
-                  <p class="text-sm">Bread</p>
-                </div>
-
-                <div
-                  class="item-1 flex flex-col items-center bg-white rounded-2xl p-2 border border-gray-200"
-                >
-                  <p class="text-sm">Bread</p>
-                </div>
-
-                <div
-                  class="item-1 flex flex-col items-center bg-white rounded-2xl p-2 border border-gray-200"
-                >
-                  <p class="text-sm">Bread</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <div id="sizeBox">Loading screen size...</div>
-
-    <footer class="mt-30 px-6 py-10 bg-white">
-      <div
-        class="w-full max-w-[1280px] mx-auto flex flex-col lg:flex-row lg:items-start lg:justify-between gap-8"
-      >
-        <div
-          id="footer-header"
-          class="flex-shrink-0 flex justify-center lg:justify-start mb-6 lg:mb-0 lg:mr-6"
-        >
-          <svg
-            width="50"
-            height="50"
-            viewBox="0 0 50 50"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M46.0204 46.0228C42.0432 50 35.9546 50 24.9978 50C14.0432 50 7.95454 49.9978 3.975 46.0228C0 42.0454 0 35.9546 0 25C0 14.0478 0 7.95454 3.975 3.97954C7.95454 -2.48353e-07 14.0432 0 24.9978 0C35.9546 0 42.0432 -2.48353e-07 46.0204 3.97954C50 7.95682 50 14.0454 50 25C50 35.9546 50 42.0454 46.0204 46.0228ZM27.3887 21.7887L12.2977 21.7591L12.2954 25.475L26.5387 25.5022L25.7 29.2114L12.2954 29.1841V32.8978L24.8613 32.925H24.8409C24.3546 34.7978 25.725 36.6546 27.6068 36.6546H30.2159L31.6568 32.925H24.8613L25.7 29.2159L34.2409 29.2318L35.5659 25.5182L26.5568 25.5022L27.4 21.7887L39.5954 21.7296L41.1068 18.0318L28.2432 18.075L27.3887 21.7887ZM26.0454 14.3478L12.2977 14.3182L12.2954 18.0341L28.2409 18.0614L28.3841 17.4137C28.7409 15.85 27.6 14.3478 26.0454 14.3478Z"
-              fill="#B6349A"
-            />
-          </svg>
-        </div>
-
-        <div
-          id="footer-grid"
-          class="flex-1 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 text-gray-500"
-        >
-          <div class="space-y-4">
-            <b
-              class="text-black inline-block cursor-pointer transform transition-all duration-150 hover:text-[#B6349A] hover:translate-x-1"
-              >About</b
-            >
-            <p
-              class="cursor-pointer transform transition-all duration-150 hover:text-[#B6349A] hover:translate-x-1"
-            >
-              About Us
-            </p>
-            <p
-              class="cursor-pointer transform transition-all duration-150 hover:text-[#B6349A] hover:translate-x-1"
-            >
-              Our Branches
-            </p>
-            <p
-              class="cursor-pointer transform transition-all duration-150 hover:text-[#B6349A] hover:translate-x-1"
-            >
-              Changelog
-            </p>
-          </div>
-
-          <div class="space-y-4">
-            <b
-              class="text-black inline-block cursor-pointer transform transition-all duration-150 hover:text-[#B6349A] hover:translate-x-1"
-              >Quick Links</b
-            >
-            <p
-              class="cursor-pointer transform transition-all duration-150 hover:text-[#B6349A] hover:translate-x-1"
-            >
-              FAQs
-            </p>
-            <p
-              class="cursor-pointer transform transition-all duration-150 hover:text-[#B6349A] hover:translate-x-1"
-            >
-              Recipes
-            </p>
-            <p
-              class="cursor-pointer transform transition-all duration-150 hover:text-[#B6349A] hover:translate-x-1"
-            >
-              Contact Us
-            </p>
-          </div>
-
-          <div class="space-y-4">
-            <b
-              class="text-black inline-block cursor-pointer transform transition-all duration-150 hover:text-[#B6349A] hover:translate-x-1"
-              >Help & Support</b
-            >
-            <p
-              class="cursor-pointer transform transition-all duration-150 hover:text-[#B6349A] hover:translate-x-1"
-            >
-              Terms of Privacy
-            </p>
-            <p
-              class="cursor-pointer transform transition-all duration-150 hover:text-[#B6349A] hover:translate-x-1"
-            >
-              Privacy Policy
-            </p>
-            <p
-              class="cursor-pointer transform transition-all duration-150 hover:text-[#B6349A] hover:translate-x-1"
-            >
-              Security
-            </p>
-          </div>
-
-          <div class="space-y-4">
-            <b
-              class="text-black inline-block cursor-pointer transform transition-all duration-150 hover:text-[#B6349A] hover:translate-x-1"
-              >Company</b
-            >
-            <p
-              class="cursor-pointer transform transition-all duration-150 hover:text-[#B6349A] hover:translate-x-1"
-            >
-              Blog
-            </p>
-            <p
-              class="cursor-pointer transform transition-all duration-150 hover:text-[#B6349A] hover:translate-x-1"
-            >
-              Contact
-            </p>
-          </div>
-
-          <div class="space-y-4">
-            <b
-              class="text-black inline-block cursor-pointer transform transition-all duration-150 hover:text-[#B6349A] hover:translate-x-1"
-              >Social</b
-            >
-            <p
-              class="cursor-pointer transform transition-all duration-150 hover:text-[#B6349A] hover:translate-x-1"
-            >
-              Instagram
-            </p>
-            <p
-              class="cursor-pointer transform transition-all duration-150 hover:text-[#B6349A] hover:translate-x-1"
-            >
-              LinkedIn
-            </p>
-            <p
-              class="cursor-pointer transform transition-all duration-150 hover:text-[#B6349A] hover:translate-x-1"
-            >
-              Facebook
-            </p>
-          </div>
-        </div>
-      </div>
-    </footer>
-
-    <div class="mt-8 text-center bottom-0 left-0 w-full bg-white py-3">
-      <p class="text-xs text-black-400">
-        © 2026 EmaStudio. All rights reserved.
-      </p>
+      <div class="login"></div>
     </div>
+  </header>
 
-    <template id="home-item-template">
-      <div
-        data-home-item
-        class="cards p-1 md:p-1 rounded-xl flex flex-col min-w-0"
-      >
-        <div class="cards-header">
-          <div
-            class="rounded-2xl flex flex-col items-center justify-between bg-[#fef5fd]"
-            style="aspect-ratio: 1 / 1"
-          >
-            <img
-              data-image
-              alt="Singo pears"
-              class="w-full h-full object-contain p-2"
-            />
-            <div class="w-full flex items-center justify-end px-2 mb-4">
-              <button
-                class="flex items-center justify-center w-8 h-8 md:w-10 md:h-10 rounded-full text-[#B6349A] 2xl:mb-4 2xl:mr-4 bg-white"
-              >
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
+  <!-- Side Panel -->
+  <div id="side-panel"
+    class="side-panel fixed top-0 left-0 h-full w-[280px] sm:w-80 bg-white shadow-2xl z-[9999] transform -translate-x-full transition-transform duration-300 ease-in-out overflow-y-auto">
+    <div class="flex flex-col h-full min-h-screen">
+      <!-- Panel Header -->
+      <div class="flex items-center justify-between p-4 border-b border-gray-200 bg-white sticky top-0 z-10">
+        <h2 class="text-lg sm:text-xl font-semibold text-gray-900">Menu</h2>
+        <button id="close-panel-btn" type="button" class="p-2 hover:bg-gray-100 rounded-full transition-colors"
+          aria-label="Close menu">
+          <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18 6L6 18" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M6 6L18 18" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Panel Content -->
+      <div class="flex-1 p-4 sm:p-6 flex flex-col gap-4">
+        <!-- Login Button for Side Panel -->
+        <a href="login.html" id="side-panel-login-link"
+          class="side-panel-login-btn w-full flex items-center justify-center gap-3 rounded-full border-2 border-[#B6349A] bg-white text-[#B6349A] font-semibold py-3.5 px-6 text-sm sm:text-base hover:bg-[#B6349A] hover:text-white active:bg-[#B6349A] active:text-white transition-all duration-200 shadow-md hover:shadow-lg mt-2"
+          style="
+              display: flex !important;
+              visibility: visible !important;
+              opacity: 1 !important;
+            ">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+            class="login-icon">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round" />
+            <circle cx="12" cy="7" r="4" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+          <span class="font-semibold">Login</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Overlay (for closing panel when clicking outside) -->
+  <div id="panel-overlay"
+    class="panel-overlay fixed inset-0 bg-black bg-opacity-50 z-[9998] hidden transition-opacity duration-300"></div>
+
+  <main>
+    <section id="banners" class="mb-4 lg:mb-10 flex flex-wrap sm:h-70 lg:h-90 xl:h-144 2xl:h-160 w-94 min-w-full">
+      <img src="./src/assets/image/Banner01.jpg" alt=""
+        class="xl:hidden rounded-4xl h-[100%] w-[74%] sm:w-[50%] md:w-[32%] lg:w-[32%]" />
+
+      <img src="./src/assets/image/Banner01.jpg" alt=""
+        class="xl:hidden rounded-4xl h-auto w-[23%] sm:w-[48%] md:w-[32%] lg:w-[33%] ml-2" />
+
+      <img src="./src/assets/image/Banner01.jpg" alt=""
+        class="xl:hidden hidden md:block h-[100%] rounded-4xl w-[30%] sm:w-[28%] md:w-[33%] lg:w-[33%] xl:w-[25%] 2xl:w-[28%] ml-2" />
+
+      <img src="./src/assets/image/Banner01.jpg" alt=""
+        class="xl:hidden hidden h-[100%] rounded-4xl w-[30%] sm:w-[28%] md:w-[26%] lg:w-[25%] xl:w-[25%] 2xl:w-[19%] ml-2" />
+
+      <div class="banner hidden xl:flex flex-col w-full h-140 gap-3 overflow-hidden">
+        <div class="banner-top flex gap-2 px-2 h-[50%]">
+          <div class="rounded-4xl h-full overflow-hidden flex-shrink-0 xl:w-[30%] 2xl:w-[30%]">
+            <img src="./src/assets/image/Rectangle 3.svg" alt="" class="w-full h-full object-cover rounded-4xl" />
+          </div>
+
+          <div class="rounded-4xl h-full overflow-hidden flex-shrink-0 xl:w-[45%] 2xl:w-[45%]">
+            <img src="./src/assets/image/Rectangle 4.svg" alt="" class="w-full h-full object-cover rounded-4xl" />
+          </div>
+
+          <div class="rounded-4xl h-full overflow-hidden flex-shrink-0 xl:w-[25%] 2xl:w-[25%]">
+            <img src="./src/assets/image/Rectangle 5.svg" alt="" class="w-full h-full object-cover rounded-4xl" />
+          </div>
+        </div>
+
+        <div class="banner-bottom flex gap-2 px-2 pb-4 h-[50%]">
+          <div class="rounded-4xl h-full overflow-hidden flex-shrink-0 xl:w-[20%] 2xl:w-[20%]">
+            <img src="./src/assets/image/Rectangle 5.svg" alt="" class="w-full h-full object-cover rounded-4xl" />
+          </div>
+
+          <div class="rounded-4xl h-full overflow-hidden flex-shrink-0 xl:w-[60%] 2xl:w-[60%]">
+            <img src="./src/assets/image/Rectangle 6.svg" alt="" class="w-full h-full object-cover rounded-4xl" />
+          </div>
+
+          <div class="rounded-4xl h-full overflow-hidden flex-shrink-0 xl:w-[20%] 2xl:w-[20%]">
+            <img src="./src/assets/image/Rectangle 5.svg" alt="" class="w-full h-full object-cover rounded-4xl" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section id="content" class="mb-4 w-94 md:w-180 lg:w-232 min-w-full">
+      <div id="card-1" class="mb-10">
+        <div id="card-header" class="w-92 flex justify-between md:w-178 lg:w-230 min-w-full mb-10">
+          <h3 class="lg:text-2xl">Best Seller – Fruits</h3>
+          <div class="flex items-center justify-center gap-4">
+
+            <div class="hidden arrows xl:flex">
+              <a href="" class="left-arrow bg-[#F0EEF0] rounded-full p-2 mr-2">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path
-                    d="M4 12H20M12 4V20"
-                    stroke="#B6349A"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
+                    d="M16.0303 4.46967C16.2966 4.73594 16.3208 5.1526 16.1029 5.44621L16.0303 5.53033L9.561 12L16.0303 18.4697C16.2966 18.7359 16.3208 19.1526 16.1029 19.4462L16.0303 19.5303C15.7641 19.7966 15.3474 19.8208 15.0538 19.6029L14.9697 19.5303L7.96967 12.5303C7.7034 12.2641 7.6792 11.8474 7.89705 11.5538L7.96967 11.4697L14.9697 4.46967C15.2626 4.17678 15.7374 4.17678 16.0303 4.46967Z"
+                    fill="#212121" />
                 </svg>
-              </button>
+              </a>
+              <a href="" class="right-arrow bg-[#F0EEF0] rounded-full p-2 mr-2">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M7.96967 19.5303C7.7034 19.2641 7.6792 18.8474 7.89705 18.5538L7.96967 18.4697L14.439 12L7.96967 5.53033C7.7034 5.26406 7.6792 4.8474 7.89705 4.55379L7.96967 4.46967C8.23594 4.2034 8.6526 4.1792 8.94621 4.39705L9.03033 4.46967L16.0303 11.4697C16.2966 11.7359 16.3208 12.1526 16.1029 12.4462L16.0303 12.5303L9.03033 19.5303C8.73744 19.8232 8.26256 19.8232 7.96967 19.5303Z"
+                    fill="#212121" />
+                </svg>
+              </a>
             </div>
           </div>
         </div>
 
-        <div class="cards-bottom">
-          <p data-category class="hidden xl:block text-black">
-            This product is amazing!
-          </p>
-          <h5 data-name class="mb-2 xl:text-xl"></h5>
-          <!-- <span  class="text-xs font-semibold">$2.71/lb</span> -->
-          <br />
-          <span data-price class="text-md text-green-800 font-semibold">
-            <b>$</b>99.99 <s class="text-gray-500 text-xs">$99.99</s>
-          </span>
+        <div data-home-container id="card-row-1"
+          class="flex overflow-x-auto gap-3 md:gap-5 xl:gap-6 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6">
         </div>
       </div>
-    </template>
-  </body>
+
+      <div id="card-2" class="mb-10">
+        <div id="card-header-2" class="w-92 flex justify-between md:w-178 lg:w-230 min-w-full mb-10">
+          <h3 class="lg:text-2xl">Best Seller – Personal Care</h3>
+          <div class="cta flex items-center justify-center gap-4">
+
+            <div class="hidden arrows xl:flex">
+              <a href="" class="left-arrow bg-[#F0EEF0] rounded-full p-2 mr-2">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M16.0303 4.46967C16.2966 4.73594 16.3208 5.1526 16.1029 5.44621L16.0303 5.53033L9.561 12L16.0303 18.4697C16.2966 18.7359 16.3208 19.1526 16.1029 19.4462L16.0303 19.5303C15.7641 19.7966 15.3474 19.8208 15.0538 19.6029L14.9697 19.5303L7.96967 12.5303C7.7034 12.2641 7.6792 11.8474 7.89705 11.5538L7.96967 11.4697L14.9697 4.46967C15.2626 4.17678 15.7374 4.17678 16.0303 4.46967Z"
+                    fill="#212121" />
+                </svg>
+              </a>
+              <a href="" class="right-arrow bg-[#F0EEF0] rounded-full p-2 mr-2">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M7.96967 19.5303C7.7034 19.2641 7.6792 18.8474 7.89705 18.5538L7.96967 18.4697L14.439 12L7.96967 5.53033C7.7034 5.26406 7.6792 4.8474 7.89705 4.55379L7.96967 4.46967C8.23594 4.2034 8.6526 4.1792 8.94621 4.39705L9.03033 4.46967L16.0303 11.4697C16.2966 11.7359 16.3208 12.1526 16.1029 12.4462L16.0303 12.5303L9.03033 19.5303C8.73744 19.8232 8.26256 19.8232 7.96967 19.5303Z"
+                    fill="#212121" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div id="card-row-2"
+          class="flex overflow-x-auto gap-3 md:gap-5 xl:gap-6 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6">
+        </div>
+      </div>
+
+      <div id="card-3" class="mb-10">
+        <div id="card-header-3" class="w-92 flex justify-between md:w-178 lg:w-230 min-w-full mb-10">
+          <h3 class="lg:text-2xl">Best Seller – Groceries</h3>
+          <div class="cta flex items-center justify-center gap-4">
+            <div class="hidden arrows xl:flex">
+              <a href="" class="left-arrow bg-[#F0EEF0] rounded-full p-2 mr-2">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M16.0303 4.46967C16.2966 4.73594 16.3208 5.1526 16.1029 5.44621L16.0303 5.53033L9.561 12L16.0303 18.4697C16.2966 18.7359 16.3208 19.1526 16.1029 19.4462L16.0303 19.5303C15.7641 19.7966 15.3474 19.8208 15.0538 19.6029L14.9697 19.5303L7.96967 12.5303C7.7034 12.2641 7.6792 11.8474 7.89705 11.5538L7.96967 11.4697L14.9697 4.46967C15.2626 4.17678 15.7374 4.17678 16.0303 4.46967Z"
+                    fill="#212121" />
+                </svg>
+              </a>
+              <a href="" class="right-arrow bg-[#F0EEF0] rounded-full p-2 mr-2">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M7.96967 19.5303C7.7034 19.2641 7.6792 18.8474 7.89705 18.5538L7.96967 18.4697L14.439 12L7.96967 5.53033C7.7034 5.26406 7.6792 4.8474 7.89705 4.55379L7.96967 4.46967C8.23594 4.2034 8.6526 4.1792 8.94621 4.39705L9.03033 4.46967L16.0303 11.4697C16.2966 11.7359 16.3208 12.1526 16.1029 12.4462L16.0303 12.5303L9.03033 19.5303C8.73744 19.8232 8.26256 19.8232 7.96967 19.5303Z"
+                    fill="#212121" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div id="card-row-3"
+          class="flex overflow-x-auto gap-3 md:gap-5 xl:gap-6 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6">
+        </div>
+      </div>
+    </section>
+
+    <section id="trending-store-favorites"
+      class="hidden lg:block mt-30 bg-[#F0EEF0] rounded-4xl border border-gray-300 p-6">
+      <div id="trending-store-favorites-header" class="flex justify-between mb-4">
+        <h3 class="text-2xl">Trending Store Favorites</h3>
+      </div>
+      <div id="trending-store-favorites-group" class="flex mb-6 justify-between">
+        <div class="tags w-140">
+          <div id="trending-tags-row" class="row1 flex flex-wrap justify-between items-center gap-4 2xl:gap-2">
+            <!-- Tags will be populated dynamically from items.json -->
+          </div>
+        </div>
+        <div class="hidden arrows xl:flex">
+          <a href="" class="bg-[#F0EEF0] rounded-full p-2 mr-2">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M16.0303 4.46967C16.2966 4.73594 16.3208 5.1526 16.1029 5.44621L16.0303 5.53033L9.561 12L16.0303 18.4697C16.2966 18.7359 16.3208 19.1526 16.1029 19.4462L16.0303 19.5303C15.7641 19.7966 15.3474 19.8208 15.0538 19.6029L14.9697 19.5303L7.96967 12.5303C7.7034 12.2641 7.6792 11.8474 7.89705 11.5538L7.96967 11.4697L14.9697 4.46967C15.2626 4.17678 15.7374 4.17678 16.0303 4.46967Z"
+                fill="#212121" />
+            </svg>
+          </a>
+          <a href="" class="bg-[#F0EEF0] rounded-full p-2 mr-2">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M7.96967 19.5303C7.7034 19.2641 7.6792 18.8474 7.89705 18.5538L7.96967 18.4697L14.439 12L7.96967 5.53033C7.7034 5.26406 7.6792 4.8474 7.89705 4.55379L7.96967 4.46967C8.23594 4.2034 8.6526 4.1792 8.94621 4.39705L9.03033 4.46967L16.0303 11.4697C16.2966 11.7359 16.3208 12.1526 16.1029 12.4462L16.0303 12.5303L9.03033 19.5303C8.73744 19.8232 8.26256 19.8232 7.96967 19.5303Z"
+                fill="#212121" />
+            </svg>
+          </a>
+        </div>
+      </div>
+      <div id="trending-store-favorites-list">
+        <div id="trending-card-row"
+          class="flex overflow-x-auto gap-3 md:gap-5 xl:gap-6 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6">
+        </div>
+      </div>
+    </section>
+
+    <section id="order-now-your" class="hidden lg:flex flex-col md:flex-row mt-30 bg-[#FCFCFC] rounded-4xl">
+      <div id="order-now-your-left" class="w-full md:w-3/5 p-2 md:pr-6 flex gap-4"></div>
+      <div id="order-now-your-right" class="w-full md:w-2/5 p-4">
+        <p class="text-[#B6349A] font-semibold ml-10">
+          Get 10% OFF On Your First Order
+        </p>
+        <h3 class="font-bold text-3xl mt-6 ml-10">Order Now your Grocery!</h3>
+        <div id="order-now-tags" class="flex mt-6 ml-10">
+          <div class="tags w-100">
+            <div id="order-now-tags-row" class="row1 flex flex-wrap justify-between items-center gap-4 2xl:gap-2">
+              <!-- Tags will be populated dynamically from items.json -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="sizeBox">Loading screen size...</div>
+
+  <footer class="mt-30 px-6 py-10 bg-white">
+    <div class="w-full max-w-[1280px] mx-auto flex flex-col lg:flex-row lg:items-start lg:justify-between gap-8">
+      <div id="footer-header" class="flex-shrink-0 flex justify-center lg:justify-start mb-6 lg:mb-0 lg:mr-6">
+        <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd"
+            d="M46.0204 46.0228C42.0432 50 35.9546 50 24.9978 50C14.0432 50 7.95454 49.9978 3.975 46.0228C0 42.0454 0 35.9546 0 25C0 14.0478 0 7.95454 3.975 3.97954C7.95454 -2.48353e-07 14.0432 0 24.9978 0C35.9546 0 42.0432 -2.48353e-07 46.0204 3.97954C50 7.95682 50 14.0454 50 25C50 35.9546 50 42.0454 46.0204 46.0228ZM27.3887 21.7887L12.2977 21.7591L12.2954 25.475L26.5387 25.5022L25.7 29.2114L12.2954 29.1841V32.8978L24.8613 32.925H24.8409C24.3546 34.7978 25.725 36.6546 27.6068 36.6546H30.2159L31.6568 32.925H24.8613L25.7 29.2159L34.2409 29.2318L35.5659 25.5182L26.5568 25.5022L27.4 21.7887L39.5954 21.7296L41.1068 18.0318L28.2432 18.075L27.3887 21.7887ZM26.0454 14.3478L12.2977 14.3182L12.2954 18.0341L28.2409 18.0614L28.3841 17.4137C28.7409 15.85 27.6 14.3478 26.0454 14.3478Z"
+            fill="#B6349A" />
+        </svg>
+      </div>
+
+      <div id="footer-grid"
+        class="flex-1 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 text-gray-500">
+        <div class="space-y-4">
+          <b
+            class="text-black inline-block cursor-pointer transform transition-all duration-150 hover:text-[#B6349A] hover:translate-x-1">About</b>
+          <p class="cursor-pointer transform transition-all duration-150 hover:text-[#B6349A] hover:translate-x-1">
+            About Us
+          </p>
+          <p class="cursor-pointer transform transition-all duration-150 hover:text-[#B6349A] hover:translate-x-1">
+            Our Branches
+          </p>
+          <p class="cursor-pointer transform transition-all duration-150 hover:text-[#B6349A] hover:translate-x-1">
+            Changelog
+          </p>
+        </div>
+
+        <div class="space-y-4">
+          <b
+            class="text-black inline-block cursor-pointer transform transition-all duration-150 hover:text-[#B6349A] hover:translate-x-1">Quick
+            Links</b>
+          <p class="cursor-pointer transform transition-all duration-150 hover:text-[#B6349A] hover:translate-x-1">
+            FAQs
+          </p>
+          <p class="cursor-pointer transform transition-all duration-150 hover:text-[#B6349A] hover:translate-x-1">
+            Recipes
+          </p>
+          <p class="cursor-pointer transform transition-all duration-150 hover:text-[#B6349A] hover:translate-x-1">
+            Contact Us
+          </p>
+        </div>
+
+        <div class="space-y-4">
+          <b
+            class="text-black inline-block cursor-pointer transform transition-all duration-150 hover:text-[#B6349A] hover:translate-x-1">Help
+            & Support</b>
+          <p class="cursor-pointer transform transition-all duration-150 hover:text-[#B6349A] hover:translate-x-1">
+            Terms of Privacy
+          </p>
+          <p class="cursor-pointer transform transition-all duration-150 hover:text-[#B6349A] hover:translate-x-1">
+            Privacy Policy
+          </p>
+          <p class="cursor-pointer transform transition-all duration-150 hover:text-[#B6349A] hover:translate-x-1">
+            Security
+          </p>
+        </div>
+
+        <div class="space-y-4">
+          <b
+            class="text-black inline-block cursor-pointer transform transition-all duration-150 hover:text-[#B6349A] hover:translate-x-1">Company</b>
+          <p class="cursor-pointer transform transition-all duration-150 hover:text-[#B6349A] hover:translate-x-1">
+            Blog
+          </p>
+          <p class="cursor-pointer transform transition-all duration-150 hover:text-[#B6349A] hover:translate-x-1">
+            Contact
+          </p>
+        </div>
+
+        <div class="space-y-4">
+          <b
+            class="text-black inline-block cursor-pointer transform transition-all duration-150 hover:text-[#B6349A] hover:translate-x-1">Social</b>
+          <p class="cursor-pointer transform transition-all duration-150 hover:text-[#B6349A] hover:translate-x-1">
+            Instagram
+          </p>
+          <p class="cursor-pointer transform transition-all duration-150 hover:text-[#B6349A] hover:translate-x-1">
+            LinkedIn
+          </p>
+          <p class="cursor-pointer transform transition-all duration-150 hover:text-[#B6349A] hover:translate-x-1">
+            Facebook
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="mt-8 text-center bottom-0 left-0 w-full bg-white py-3">
+    <p class="text-xs text-black-400">
+      © 2026 EmaStudio. All rights reserved.
+    </p>
+  </div>
+
+  <template id="home-item-template">
+    <div data-home-item
+      class="cards p-1 md:p-1 rounded-xl flex flex-col min-w-0 bg-white shadow-sm transition-all duration-150 hover:-translate-y-1 hover:shadow-[0_18px_40px_rgba(15,23,42,0.08)]">
+      <div class="cards-header">
+        <div class="rounded-2xl flex flex-col items-center justify-between bg-[#fef5fd]" style="aspect-ratio: 1 / 1">
+          <img data-image alt="Singo pears" class="w-full h-full object-contain p-2" />
+          <div class="w-full flex items-center justify-end px-2 mb-4">
+            <button data-add-to-cart
+              class="flex items-center justify-center w-8 h-8 md:w-10 md:h-10 rounded-full text-[#B6349A] 2xl:mb-4 2xl:mr-4 bg-white cursor-pointer hover:bg-[#fef0f8] transition-all duration-150">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M4 12H20M12 4V20" stroke="#B6349A" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="cards-bottom">
+        <p data-category class="hidden xl:block text-black">
+          This product is amazing!
+        </p>
+        <h5 data-name class="mb-2 xl:text-xl"></h5>
+        <!-- <span  class="text-xs font-semibold">$2.71/lb</span> -->
+        <br />
+        <span data-price class="text-md text-green-800 font-semibold">
+          <b>$</b>99.99 <s class="text-gray-500 text-xs">$99.99</s>
+        </span>
+      </div>
+    </div>
+  </template>
+</body>
+
 </html>

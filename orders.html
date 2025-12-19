@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="/src/style.css" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+    rel="stylesheet" />
+  <script type="module" src="/src/javascript/script.js" defer></script>
+  <title>My Orders</title>
+</head>
+
+<body class="p-4 md:p-6 xl:p-8">
+  <!-- MOBILE HEADER -->
+  <header class="lg:hidden mb-4 w-full">
+    <div class="flex items-center justify-between gap-3 rounded-3xl px-3 py-3 shadow-sm bg-white">
+      <a href="/" class="w-9 h-9 rounded-full bg-[#f5f5f7] flex items-center justify-center">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M6 6L18 18M6 18L18 6" stroke="#111827" stroke-width="1.8" stroke-linecap="round"
+            stroke-linejoin="round" />
+        </svg>
+      </a>
+      <span class="font-semibold text-sm text-[#111827]">My Orders</span>
+      <a href="/cart.html"
+        class="inline-flex items-center gap-1.5 bg-white border border-[#ffd6f1] text-[#b6349a] text-[11px] font-medium rounded-full px-3 py-1.5 shadow-sm">
+        <span id="cart-count-mobile"
+          class="inline-flex items-center justify-center w-5 h-5 rounded-full bg-[#ffe5f6] text-[10px] text-[#b6349a]">0</span>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd"
+            d="M6.32759 8.3474L6.93059 15.5194C6.97459 16.0714 7.42559 16.4854 7.97659 16.4854H7.98059H18.8916H18.8936C19.4146 16.4854 19.8596 16.0974 19.9336 15.5824L20.8836 9.0234C20.9056 8.8674 20.8666 8.7114 20.7716 8.5854C20.6776 8.4584 20.5396 8.3764 20.3836 8.3544C20.1746 8.3624 11.5016 8.3504 6.32759 8.3474ZM7.97459 17.9854C6.65759 17.9854 5.54259 16.9574 5.43559 15.6424L4.51959 4.7484L3.01259 4.4884C2.60359 4.4164 2.33059 4.0294 2.40059 3.6204C2.47259 3.2114 2.86759 2.9454 3.26759 3.0094L5.34759 3.3694C5.68259 3.4284 5.93759 3.7064 5.96659 4.0464L6.20159 6.8474C20.4776 6.8534 20.5236 6.8604 20.5926 6.8684C21.1496 6.9494 21.6396 7.2404 21.9736 7.6884C22.3076 8.1354 22.4476 8.6864 22.3676 9.2384L21.4186 15.7964C21.2396 17.0444 20.1556 17.9854 18.8956 17.9854H18.8906H7.98259H7.97459Z"
+            fill="#B6349A" />
+          <path fill-rule="evenodd" clip-rule="evenodd"
+            d="M17.2874 12.0437H14.5154C14.1004 12.0437 13.7654 11.7077 13.7654 11.2937C13.7654 10.8797 14.1004 10.5437 14.5154 10.5437H17.2874C17.7014 10.5437 18.0374 10.8797 18.0374 11.2937C18.0374 11.7077 17.7014 12.0437 17.2874 12.0437Z"
+            fill="#212121" />
+          <path fill-rule="evenodd" clip-rule="evenodd"
+            d="M7.54451 20.7019C7.84551 20.7019 8.08851 20.9449 8.08851 21.2459C8.08851 21.5469 7.84551 21.7909 7.54451 21.7909C7.24251 21.7909 6.99951 21.5469 6.99951 21.2459C6.99951 20.9449 7.24251 20.7019 7.54451 20.7019Z"
+            fill="#212121" />
+          <mask id="mask0_401_46180" style="mask-type: luminance" maskUnits="userSpaceOnUse" x="6" y="20" width="3"
+            height="2">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M6.99878 21.2455C6.99878 21.5475 7.24178 21.7915 7.54478 21.7915C7.84578 21.7915 8.08878 21.5475 8.08878 21.2455C8.08878 20.9445 7.84578 20.7015 7.54478 20.7015C7.24178 20.7015 6.99878 20.9445 6.99878 21.2455Z"
+              fill="white" />
+          </mask>
+          <g mask="url(#mask0_401_46180)">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M1.99976 26.7905H13.0888V15.7015H1.99976V26.7905Z" />
+          </g>
+          <path fill-rule="evenodd" clip-rule="evenodd"
+            d="M7.54351 21.0408C7.43051 21.0408 7.33851 21.1328 7.33851 21.2458C7.33851 21.4728 7.74951 21.4728 7.74951 21.2458C7.74951 21.1328 7.65651 21.0408 7.54351 21.0408ZM7.54351 22.5408C6.82951 22.5408 6.24951 21.9598 6.24951 21.2458C6.24951 20.5318 6.82951 19.9518 7.54351 19.9518C8.25751 19.9518 8.83851 20.5318 8.83851 21.2458C8.83851 21.9598 8.25751 22.5408 7.54351 22.5408Z"
+            fill="#B6349A" />
+          <path fill-rule="evenodd" clip-rule="evenodd"
+            d="M18.8248 20.7019C19.1258 20.7019 19.3698 20.9449 19.3698 21.2459C19.3698 21.5469 19.1258 21.7909 18.8248 21.7909C18.5228 21.7909 18.2798 21.5469 18.2798 21.2459C18.2798 20.9449 18.5228 20.7019 18.8248 20.7019Z"
+            fill="#B6349A" />
+          <mask id="mask1_401_46180" style="mask-type: luminance" maskUnits="userSpaceOnUse" x="18" y="20" width="2"
+            height="2">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M18.2798 21.2455C18.2798 21.5475 18.5228 21.7915 18.8248 21.7915C19.1248 21.7915 19.3698 21.5475 19.3698 21.2455C19.3698 20.9445 19.1248 20.7015 18.8248 20.7015C18.5228 20.7015 18.2798 20.9445 18.2798 21.2455Z"
+              fill="#B6349A" />
+          </mask>
+          <g mask="url(#mask1_401_46180)">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M13.2798 26.7905H24.3698V15.7015H13.2798V26.7905Z" />
+          </g>
+          <path fill-rule="evenodd" clip-rule="evenodd"
+            d="M18.8238 21.0408C18.7118 21.0408 18.6198 21.1328 18.6198 21.2458C18.6208 21.4748 19.0308 21.4728 19.0298 21.2458C19.0298 21.1328 18.9368 21.0408 18.8238 21.0408ZM18.8238 22.5408C18.1098 22.5408 17.5298 21.9598 17.5298 21.2458C17.5298 20.5318 18.1098 19.9518 18.8238 19.9518C19.5388 19.9518 20.1198 20.5318 20.1198 21.2458C20.1198 21.9598 19.5388 22.5408 18.8238 22.5408Z"
+            fill="#B6349A" />
+        </svg>
+      </a>
+    </div>
+  </header>
+
+  <!-- DESKTOP HEADER -->
+  <header class="mb-6 w-100 md:w-full min-w-full">
+    <div class="hidden top lg:flex justify-between items-center">
+      <div class="w-5 h-5 md:hidden">
+        <button id="hamburger-menu-btn" type="button" class="hamburger-menu-btn" aria-label="Toggle menu">
+          <svg id="hamburger-icon" width="20px" height="20px" viewBox="0 0 24 24" fill="none"
+            xmlns="http://www.w3.org/2000/svg" class="hamburger-svg">
+            <path d="M4 18L20 18" stroke="#000000" stroke-width="2" stroke-linecap="round" />
+            <path d="M4 12L20 12" stroke="#000000" stroke-width="2" stroke-linecap="round" />
+            <path d="M4 6L20 6" stroke="#000000" stroke-width="2" stroke-linecap="round" />
+          </svg>
+          <svg id="close-icon" width="20px" height="20px" viewBox="0 0 24 24" fill="none"
+            xmlns="http://www.w3.org/2000/svg" class="close-svg hidden">
+            <path d="M18 6L6 18" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M6 6L18 18" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </button>
+      </div>
+      <a href="/" class="">
+        <img src="./src/assets/icons/Type=Logo, Dark=Yes.svg" alt="easyMart"
+          class="hidden md:block xl:w-50 xl:h-20 2xl:ml-2 2xl:h-20 2xl:w-60" />
+      </a>
+
+
+      <div
+        class="searchbar relative flex items-center h-8 gap-2 md:h-8 md:w-60 xl:w-100 xl:h-12 xl:rounded-4xl xl:mr-20 bg-primary-100 rounded-2xl 2xl:ml-20 2xl:h-16 2xl:w-130 shadow-xl inset-shadow-xs focus-within:border focus-within:border-pink-500 focus-within:shadow-lg focus-within:shadow-pink-300 transition-all duration-300 overflow-hidden">
+        <div
+          class="search-bar ml-1 w-7 h-7 rounded-full md:mr-2 md:ml-2 md:h-6 md:w-6 2xl:w-10 2xl:h-10 2xl:rounded-4xl 2xl:ml-6 flex items-center justify-center bg-purple-50">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <mask id="mask0_402_50551" style="mask-type: luminance" maskUnits="userSpaceOnUse" x="2" y="2" width="21"
+              height="21">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M2 2.0293H22.9995V22.974H2V2.0293Z" fill="white" />
+            </mask>
+            <g mask="url(#mask0_402_50551)">
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M11.9245 3.29443C6.9845 3.29443 3.00149 7.27744 3.00149 12.2175C3.00149 17.1575 6.9845 21.1405 11.9245 21.1405C14.2065 21.1405 16.3385 20.3805 17.9825 18.9845L21.1835 22.1855C21.4605 22.4625 21.9005 22.4625 22.1775 22.1855C22.4545 21.9085 22.4545 21.4685 22.1775 21.1915L19.0035 18.0175C20.5625 16.3285 21.5435 14.0825 21.5435 11.6185C21.5435 7.27744 17.8645 3.29443 11.9245 3.29443ZM11.9245 4.48843C16.7945 4.48843 20.8465 8.25544 20.8465 12.2175C20.8465 16.1795 16.7945 19.9465 11.9245 19.9465C7.0555 19.9465 3.00349 16.1795 3.00349 12.2175C3.00349 8.25544 7.0555 4.48843 11.9245 4.48843Z"
+                fill="#212121" />
+            </g>
+          </svg>
+        </div>
+        <input type="text"
+          class="search-input border-0 bg-transparent outline-none w-full text-xs md:text-sm py-1 2xl:text-lg 2xl:py-2"
+          placeholder="Search by" autocomplete="off" />
+      </div>
+
+      <div class="hidden cart lg:flex 2xl:w-80 p-2 gap-4 w-80 2xl:ml-50 cursor-pointer">
+        <a href="/cart.html"
+          class="cart-left flex items-center justify-between p-3 w-34 h-12 bg-[#FEF5FD] gap-2 rounded-full">
+          <div
+            class="cart-left-left flex items-center w-16 h-10 justify-center gap-1 text-xs font-semibold text-[#B6349A] bg-white rounded-full border-b-amber-950">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M6.32759 8.3474L6.93059 15.5194C6.97459 16.0714 7.42559 16.4854 7.97659 16.4854H7.98059H18.8916H18.8936C19.4146 16.4854 19.8596 16.0974 19.9336 15.5824L20.8836 9.0234C20.9056 8.8674 20.8666 8.7114 20.7716 8.5854C20.6776 8.4584 20.5396 8.3764 20.3836 8.3544C20.1746 8.3624 11.5016 8.3504 6.32759 8.3474ZM7.97459 17.9854C6.65759 17.9854 5.54259 16.9574 5.43559 15.6424L4.51959 4.7484L3.01259 4.4884C2.60359 4.4164 2.33059 4.0294 2.40059 3.6204C2.47259 3.2114 2.86759 2.9454 3.26759 3.0094L5.34759 3.3694C5.68259 3.4284 5.93759 3.7064 5.96659 4.0464L6.20159 6.8474C20.4776 6.8534 20.5236 6.8604 20.5926 6.8684C21.1496 6.9494 21.6396 7.2404 21.9736 7.6884C22.3076 8.1354 22.4476 8.6864 22.3676 9.2384L21.4186 15.7964C21.2396 17.0444 20.1556 17.9854 18.8956 17.9854H18.8906H7.98259H7.97459Z"
+                fill="#B6349A" />
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M17.2874 12.0437H14.5154C14.1004 12.0437 13.7654 11.7077 13.7654 11.2937C13.7654 10.8797 14.1004 10.5437 14.5154 10.5437H17.2874C17.7014 10.5437 18.0374 10.8797 18.0374 11.2937C18.0374 11.7077 17.7014 12.0437 17.2874 12.0437Z"
+                fill="#212121" />
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M7.54451 20.7019C7.84551 20.7019 8.08851 20.9449 8.08851 21.2459C8.08851 21.5469 7.84551 21.7909 7.54451 21.7909C7.24251 21.7909 6.99951 21.5469 6.99951 21.2459C6.99951 20.9449 7.24251 20.7019 7.54451 20.7019Z"
+                fill="#212121" />
+              <mask id="mask0_401_46180" style="mask-type: luminance" maskUnits="userSpaceOnUse" x="6" y="20" width="3"
+                height="2">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M6.99878 21.2455C6.99878 21.5475 7.24178 21.7915 7.54478 21.7915C7.84578 21.7915 8.08878 21.5475 8.08878 21.2455C8.08878 20.9445 7.84578 20.7015 7.54478 20.7015C7.24178 20.7015 6.99878 20.9445 6.99878 21.2455Z"
+                  fill="white" />
+              </mask>
+              <g mask="url(#mask0_401_46180)">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M1.99976 26.7905H13.0888V15.7015H1.99976V26.7905Z" />
+              </g>
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M7.54351 21.0408C7.43051 21.0408 7.33851 21.1328 7.33851 21.2458C7.33851 21.4728 7.74951 21.4728 7.74951 21.2458C7.74951 21.1328 7.65651 21.0408 7.54351 21.0408ZM7.54351 22.5408C6.82951 22.5408 6.24951 21.9598 6.24951 21.2458C6.24951 20.5318 6.82951 19.9518 7.54351 19.9518C8.25751 19.9518 8.83851 20.5318 8.83851 21.2458C8.83851 21.9598 8.25751 22.5408 7.54351 22.5408Z"
+                fill="#B6349A" />
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M18.8248 20.7019C19.1258 20.7019 19.3698 20.9449 19.3698 21.2459C19.3698 21.5469 19.1258 21.7909 18.8248 21.7909C18.5228 21.7909 18.2798 21.5469 18.2798 21.2459C18.2798 20.9449 18.5228 20.7019 18.8248 20.7019Z"
+                fill="#B6349A" />
+              <mask id="mask1_401_46180" style="mask-type: luminance" maskUnits="userSpaceOnUse" x="18" y="20" width="2"
+                height="2">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M18.2798 21.2455C18.2798 21.5475 18.5228 21.7915 18.8248 21.7915C19.1248 21.7915 19.3698 21.5475 19.3698 21.2455C19.3698 20.9445 19.1248 20.7015 18.8248 20.7015C18.5228 20.7015 18.2798 20.9445 18.2798 21.2455Z"
+                  fill="#B6349A" />
+              </mask>
+              <g mask="url(#mask1_401_46180)">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M13.2798 26.7905H24.3698V15.7015H13.2798V26.7905Z" />
+              </g>
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M18.8238 21.0408C18.7118 21.0408 18.6198 21.1328 18.6198 21.2458C18.6208 21.4748 19.0308 21.4728 19.0298 21.2458C19.0298 21.1328 18.9368 21.0408 18.8238 21.0408ZM18.8238 22.5408C18.1098 22.5408 17.5298 21.9598 17.5298 21.2458C17.5298 20.5318 18.1098 19.9518 18.8238 19.9518C19.5388 19.9518 20.1198 20.5318 20.1198 21.2458C20.1198 21.9598 19.5388 22.5408 18.8238 22.5408Z"
+                fill="#B6349A" />
+            </svg>
+            <span id="cart-count-home">0</span>
+          </div>
+          <div class="cart-left-right text-sm font-semibold">Cart</div>
+        </a>
+        <a href="login.html" id="login-link"
+          class="cart-right flex items-center justify-center w-36 rounded-full gap-1 border-1 border-solid border-[#B6349A] hover:cursor-pointer">
+          <div class="cart-right-left">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <mask id="mask0_401_46169" style="mask-type: luminance" maskUnits="userSpaceOnUse" x="2" y="13" width="16"
+                height="9">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M2 13.957H17.1838V21.0566H2V13.957Z" fill="white" />
+              </mask>
+              <g mask="url(#mask0_401_46169)">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M9.5938 21.0566C7.6308 21.0566 6.0208 19.4466 6.0208 17.4836C6.0208 15.5206 7.6308 13.9106 9.5938 13.9106C11.5568 13.9106 13.1668 15.5206 13.1668 17.4836C13.1668 19.4466 11.5568 21.0566 9.5938 21.0566ZM9.5938 20.1096C11.0738 20.1096 12.2168 18.9666 12.2168 17.4836C12.2168 16.0006 11.0738 14.8576 9.5938 14.8576C8.1138 14.8576 6.9708 16.0006 6.9708 17.4836C6.9708 18.9666 8.1138 20.1096 9.5938 20.1096Z"
+                  fill="#B6349A" />
+              </g>
+              <mask id="mask1_401_46169" style="mask-type: luminance" maskUnits="userSpaceOnUse" x="12" y="13"
+                width="11" height="10">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M12.1499 13.957H22.4995V23.0495H12.1499V13.957Z"
+                  fill="white" />
+              </mask>
+              <g mask="url(#mask1_401_46169)">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M17.3247 23.0495C15.3627 23.0495 13.7537 21.4405 13.7537 19.4785C13.7537 17.5155 15.3627 15.9075 17.3247 15.9075C19.2867 15.9075 20.8957 17.5155 20.8957 19.4785C20.8957 21.4405 19.2867 23.0495 17.3247 23.0495ZM17.3247 22.1025C18.8067 22.1025 19.9487 20.9595 19.9487 19.4785C19.9487 17.9965 18.8067 16.8535 17.3247 16.8535C15.8437 16.8535 14.7007 17.9965 14.7007 19.4785C14.7007 20.9595 15.8437 22.1025 17.3247 22.1025Z"
+                  fill="#B6349A" />
+              </g>
+              <mask id="mask2_401_46169" style="mask-type: luminance" maskUnits="userSpaceOnUse" x="2" y="2" width="20"
+                height="13">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M2 2H22.4995V14.4555H2V2Z" fill="white" />
+              </mask>
+              <g mask="url(#mask2_401_46169)">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M19.4045 14.4555H5.2785C3.8165 14.4555 2.6025 13.2415 2.6025 11.7795V3.0555C2.6025 2.4975 3.0615 2.0385 3.6185 2.0385H21.0665C21.6245 2.0385 22.0835 2.4975 22.0835 3.0555V11.7795C22.0835 13.2415 20.8685 14.4555 19.4045 14.4555ZM19.4045 13.5095H5.2785C4.3505 13.5095 3.5485 12.7085 3.5485 11.7795V3.0555C3.5485 2.9995 3.5965 2.9855 3.6185 2.9855H21.0665C21.1225 2.9855 21.1375 3.0345 21.1375 3.0555V11.7795C21.1375 12.7085 20.3365 13.5095 19.4045 13.5095Z"
+                  fill="#B6349A" />
+              </g>
+            </svg>
+          </div>
+          <div class="cart-right-right text-sm font-semibold">Login</div>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- SIDEBAR PANEL -->
+  <div id="side-panel"
+    class="fixed left-0 top-0 w-64 h-screen bg-white shadow-lg z-40 -translate-x-full transition-transform duration-300">
+    <div class="p-4">
+      <button id="close-panel-btn" class="absolute top-4 right-4 text-gray-600 hover:text-gray-900">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+        </svg>
+      </button>
+      <nav class="mt-8 space-y-2">
+        <a href="/" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded">Home</a>
+        <a href="/cart.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded">Cart</a>
+        <a href="/myorders.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded">My Orders</a>
+        <a href="/account.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded">Account Details</a>
+      </nav>
+    </div>
+  </div>
+  <div id="panel-overlay" class="hidden fixed inset-0 bg-black bg-opacity-50 z-30"></div>
+
+  <!-- MAIN CONTENT -->
+  <div class="w-full max-w-7xl mx-auto">
+    <!-- DESKTOP: Back button and Help button -->
+    <div class="hidden lg:flex items-center justify-between mb-6">
+      <button class="flex items-center gap-2 text-gray-600 hover:text-gray-900 transition">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round" />
+        </svg>
+      </button>
+      <button id="help-btn"
+        class="flex items-center gap-2 bg-white border border-[#B6349A] text-[#B6349A] px-6 py-2 rounded-full font-semibold hover:bg-[#f5f5f5] transition">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" />
+          <path d="M12 8V12L15 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+        </svg>
+        Help
+      </button>
+    </div>
+
+    <!-- Order Status Section -->
+    <div class="grid lg:grid-cols-3 gap-6">
+      <!-- Left: Order Status (Main Content) -->
+      <div class="lg:col-span-2 space-y-6">
+        <!-- Order Status Card -->
+        <div class="bg-white rounded-lg p-6 shadow-sm">
+          <div class="flex items-start justify-between mb-6">
+            <div>
+              <h2 class="text-2xl font-bold text-gray-900 mb-2">
+                Order in Progress
+              </h2>
+              <p class="text-sm text-gray-500">
+                Order Arrived at Apr 6, 0030, 10:07 AM
+              </p>
+            </div>
+            <span
+              class="bg-[#FEF0F8] text-[#B6349A] text-xs font-semibold px-3 py-1 rounded-full border border-[#B6349A]">
+              In Progress
+            </span>
+          </div>
+
+          <!-- Timeline -->
+          <div class="mt-8 mb-8">
+            <div class="flex items-center justify-between mb-4">
+              <div class="flex flex-col items-center">
+                <div class="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center mb-2">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" fill="#10B981" />
+                  </svg>
+                </div>
+                <p class="text-xs text-gray-600 text-center">
+                  Apr 5, 2022, 10:07 AM
+                </p>
+              </div>
+
+              <!-- Line connecting to next -->
+              <div class="flex-1 h-1 bg-[#B6349A] mx-2"></div>
+
+              <div class="flex flex-col items-center">
+                <div class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center mb-2">
+                  <div class="w-2 h-2 rounded-full bg-gray-400"></div>
+                </div>
+                <p class="text-xs text-gray-600 text-center">
+                  Jan 5, 2026, 10:07 AM
+                </p>
+              </div>
+
+              <!-- Line -->
+              <div class="flex-1 h-1 bg-gray-200 mx-2"></div>
+
+              <div class="flex flex-col items-center">
+                <div class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center mb-2">
+                  <div class="w-2 h-2 rounded-full bg-gray-400"></div>
+                </div>
+                <p class="text-xs text-gray-600 text-center">
+                  Jan 5, 2026, 10:07 AM
+                </p>
+              </div>
+            </div>
+
+            <!-- Timeline Labels -->
+            <div class="flex justify-between text-xs font-semibold text-gray-700 mt-4">
+              <span>Order is Placed</span>
+              <span>In Transit</span>
+              <span>Delivered</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Items Section -->
+        <div class="bg-white rounded-lg p-6 shadow-sm">
+          <h3 class="text-lg font-bold text-gray-900 mb-4">Items</h3>
+          <div class="space-y-4" id="orders-items-container">
+            <!-- Items will be rendered here -->
+          </div>
+          <!-- Pagination -->
+          <div class="flex items-center justify-center gap-2 mt-6">
+            <button class="text-gray-600 hover:text-gray-900">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" />
+              </svg>
+            </button>
+            <button class="w-8 h-8 rounded text-gray-900 font-semibold bg-gray-100">
+              1
+            </button>
+            <button class="w-8 h-8 rounded text-gray-600 hover:bg-gray-100">
+              2
+            </button>
+            <button class="text-gray-600 hover:text-gray-900">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" />
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Cancel Order Section -->
+        <div class="bg-white rounded-lg p-6 shadow-sm">
+          <p class="text-sm text-gray-600 mb-4">
+            You can cancel your order before it starts being prepared.
+          </p>
+          <button
+            class="w-full lg:w-auto px-6 py-2 border-2 border-[#B6349A] text-[#B6349A] rounded-full font-semibold hover:bg-[#FEF0F8] transition">
+            Cancel Order
+          </button>
+        </div>
+      </div>
+
+      <!-- Right: Order Summary (Sidebar) -->
+      <div class="lg:col-span-1">
+        <div id="order-summary" class="bg-white rounded-lg p-6 shadow-sm sticky top-6">
+          <h3 class="text-lg font-bold text-gray-900 mb-6">Order Summary</h3>
+
+          <div class="space-y-3 mb-6">
+            <div class="flex justify-between text-sm">
+              <span class="text-gray-600">Order Number</span>
+              <span class="font-semibold text-gray-900">#1223-001</span>
+            </div>
+            <div class="flex justify-between text-sm">
+              <span class="text-gray-600">Delivery Fees</span>
+              <span class="font-semibold text-gray-900">₹1.44</span>
+            </div>
+            <div class="flex justify-between text-sm border-t pt-3">
+              <span class="text-gray-600">Delivery Fees</span>
+              <span class="font-semibold text-gray-900">₹1.44</span>
+            </div>
+          </div>
+
+          <div class="border-t pt-4">
+            <div class="flex justify-between">
+              <span class="font-semibold text-gray-900">Total</span>
+              <span class="text-xl font-bold text-gray-900">₹144</span>
+            </div>
+          </div>
+
+          <div class="mt-6 pt-6 border-t space-y-3">
+            <div>
+              <p class="text-xs text-gray-500 mb-1">Pay With</p>
+              <p class="text-sm font-semibold text-gray-900 flex items-center gap-2">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="2" y="5" width="20" height="14" rx="2" stroke="currentColor" stroke-width="2" />
+                  <path d="M2 10H22" stroke="currentColor" stroke-width="2" />
+                </svg>
+                MasterCard 02132
+              </p>
+            </div>
+            <div>
+              <p class="text-xs text-gray-500 mb-1">Delivery Address</p>
+              <p class="text-sm font-semibold text-[#B6349A]">
+                Shopping in OT114
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="mt-30 px-6 py-10 bg-white">
+    <div class="w-full max-w-[1280px] mx-auto flex flex-col lg:flex-row lg:items-start lg:justify-between gap-8">
+      <div id="footer-header" class="flex-shrink-0 flex justify-center lg:justify-start mb-6 lg:mb-0 lg:mr-6">
+        <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd"
+            d="M46.0204 46.0228C42.0432 50 35.9546 50 24.9978 50C14.0432 50 7.95454 49.9978 3.975 46.0228C0 42.0454 0 35.9546 0 25C0 14.0478 0 7.95454 3.975 3.97954C7.95454 -2.48353e-07 14.0432 0 24.9978 0C35.9546 0 42.0432 -2.48353e-07 46.0204 3.97954C50 7.95682 50 14.0454 50 25C50 35.9546 50 42.0454 46.0204 46.0228ZM27.3887 21.7887L12.2977 21.7591L12.2954 25.475L26.5387 25.5022L25.7 29.2114L12.2954 29.1841V32.8978L24.8613 32.925H24.8409C24.3546 34.7978 25.725 36.6546 27.6068 36.6546H30.2159L31.6568 32.925H24.8613L25.7 29.2159L34.2409 29.2318L35.5659 25.5182L26.5568 25.5022L27.4 21.7887L39.5954 21.7296L41.1068 18.0318L28.2432 18.075L27.3887 21.7887ZM26.0454 14.3478L12.2977 14.3182L12.2954 18.0341L28.2409 18.0614L28.3841 17.4137C28.7409 15.85 27.6 14.3478 26.0454 14.3478Z"
+            fill="#B6349A" />
+        </svg>
+      </div>
+
+      <div id="footer-grid"
+        class="flex-1 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 text-gray-500">
+        <div class="space-y-4">
+          <b
+            class="text-black inline-block cursor-pointer transform transition-all duration-150 hover:text-[#B6349A] hover:translate-x-1">About</b>
+          <p class="cursor-pointer transform transition-all duration-150 hover:text-[#B6349A] hover:translate-x-1">
+            About Us
+          </p>
+          <p class="cursor-pointer transform transition-all duration-150 hover:text-[#B6349A] hover:translate-x-1">
+            Our Branches
+          </p>
+          <p class="cursor-pointer transform transition-all duration-150 hover:text-[#B6349A] hover:translate-x-1">
+            Changelog
+          </p>
+        </div>
+
+        <div class="space-y-4">
+          <b
+            class="text-black inline-block cursor-pointer transform transition-all duration-150 hover:text-[#B6349A] hover:translate-x-1">Quick
+            Links</b>
+          <p class="cursor-pointer transform transition-all duration-150 hover:text-[#B6349A] hover:translate-x-1">
+            FAQs
+          </p>
+          <p class="cursor-pointer transform transition-all duration-150 hover:text-[#B6349A] hover:translate-x-1">
+            Recipes
+          </p>
+          <p class="cursor-pointer transform transition-all duration-150 hover:text-[#B6349A] hover:translate-x-1">
+            Contact Us
+          </p>
+        </div>
+
+        <div class="space-y-4">
+          <b
+            class="text-black inline-block cursor-pointer transform transition-all duration-150 hover:text-[#B6349A] hover:translate-x-1">Help
+            & Support</b>
+          <p class="cursor-pointer transform transition-all duration-150 hover:text-[#B6349A] hover:translate-x-1">
+            Terms of Privacy
+          </p>
+          <p class="cursor-pointer transform transition-all duration-150 hover:text-[#B6349A] hover:translate-x-1">
+            Privacy Policy
+          </p>
+          <p class="cursor-pointer transform transition-all duration-150 hover:text-[#B6349A] hover:translate-x-1">
+            Security
+          </p>
+        </div>
+
+        <div class="space-y-4">
+          <b
+            class="text-black inline-block cursor-pointer transform transition-all duration-150 hover:text-[#B6349A] hover:translate-x-1">Company</b>
+          <p class="cursor-pointer transform transition-all duration-150 hover:text-[#B6349A] hover:translate-x-1">
+            Blog
+          </p>
+          <p class="cursor-pointer transform transition-all duration-150 hover:text-[#B6349A] hover:translate-x-1">
+            Contact
+          </p>
+        </div>
+
+        <div class="space-y-4">
+          <b
+            class="text-black inline-block cursor-pointer transform transition-all duration-150 hover:text-[#B6349A] hover:translate-x-1">Social</b>
+          <p class="cursor-pointer transform transition-all duration-150 hover:text-[#B6349A] hover:translate-x-1">
+            Instagram
+          </p>
+          <p class="cursor-pointer transform transition-all duration-150 hover:text-[#B6349A] hover:translate-x-1">
+            LinkedIn
+          </p>
+          <p class="cursor-pointer transform transition-all duration-150 hover:text-[#B6349A] hover:translate-x-1">
+            Facebook
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="/src/javascript/orders.js" defer></script>
+</body>
+
+</html>

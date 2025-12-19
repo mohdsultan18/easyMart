@@ -9,6 +9,10 @@ export default defineConfig({
         main: "./index.html",
         login: "./login.html",
         signup: "./signup.html",
+        // To add more pages in the future, just add them here:
+        // checkout: "./checkout.html",
+        // profile: "./profile.html",
+        // error: "./error.html",
       },
     },
   },

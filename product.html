@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="/src/style.css" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+    rel="stylesheet" />
+  <script type="module" src="/src/javascript/product.js" defer></script>
+  <title>Product Details</title>
+</head>
+
+<body class="min-h-screen p-4 md:p-6 xl:p-8">
+  <!-- MOBILE HEADER -->
+  <header class="lg:hidden mb-4 w-full">
+    <div class="flex items-center justify-between gap-3 rounded-3xl px-3 py-3 shadow-sm bg-white">
+      <a href="/" class="w-9 h-9 rounded-full bg-[#f5f5f7] flex items-center justify-center">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M6 6L18 18M6 18L18 6" stroke="#111827" stroke-width="1.8" stroke-linecap="round"
+            stroke-linejoin="round" />
+        </svg>
+      </a>
+
+      <div class="flex-1 mx-1">
+        <div class="relative">
+          <input type="text" placeholder="Search by"
+            class="search-input w-full rounded-full bg-[#f5f5f7] px-10 py-2.5 text-[13px] border border-transparent focus:border-pink-400 focus:bg-white outline-none"
+            aria-label="Search" />
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+            class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">
+            <path d="M15 15l4 4m-8-2a6 6 0 110-12 6 6 0 010 12z" stroke="currentColor" stroke-width="1.8"
+              stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </div>
+      </div>
+
+      <a href="/cart.html"
+        class="inline-flex items-center gap-1.5 bg-white border border-[#ffd6f1] text-[#b6349a] text-[11px] font-medium rounded-full px-3 py-1.5 shadow-sm">
+        <span id="cart-count-mobile"
+          class="inline-flex items-center justify-center w-5 h-5 rounded-full bg-[#ffe5f6] text-[10px] text-[#b6349a]">0</span>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd"
+            d="M6.32759 8.3474L6.93059 15.5194C6.97459 16.0714 7.42559 16.4854 7.97659 16.4854H7.98059H18.8916H18.8936C19.4146 16.4854 19.8596 16.0974 19.9336 15.5824L20.8836 9.0234C20.9056 8.8674 20.8666 8.7114 20.7716 8.5854C20.6776 8.4584 20.5396 8.3764 20.3836 8.3544C20.1746 8.3624 11.5016 8.3504 6.32759 8.3474ZM7.97459 17.9854C6.65759 17.9854 5.54259 16.9574 5.43559 15.6424L4.51959 4.7484L3.01259 4.4884C2.60359 4.4164 2.33059 4.0294 2.40059 3.6204C2.47259 3.2114 2.86759 2.9454 3.26759 3.0094L5.34759 3.3694C5.68259 3.4284 5.93759 3.7064 5.96659 4.0464L6.20159 6.8474C20.4776 6.8534 20.5236 6.8604 20.5926 6.8684C21.1496 6.9494 21.6396 7.2404 21.9736 7.6884C22.3076 8.1354 22.4476 8.6864 22.3676 9.2384L21.4186 15.7964C21.2396 17.0444 20.1556 17.9854 18.8956 17.9854H18.8906H7.98259H7.97459Z"
+            fill="#B6349A" />
+          <path fill-rule="evenodd" clip-rule="evenodd"
+            d="M17.2874 12.0437H14.5154C14.1004 12.0437 13.7654 11.7077 13.7654 11.2937C13.7654 10.8797 14.1004 10.5437 14.5154 10.5437H17.2874C17.7014 10.5437 18.0374 10.8797 18.0374 11.2937C18.0374 11.7077 17.7014 12.0437 17.2874 12.0437Z"
+            fill="#212121" />
+          <path fill-rule="evenodd" clip-rule="evenodd"
+            d="M7.54451 20.7019C7.84551 20.7019 8.08851 20.9449 8.08851 21.2459C8.08851 21.5469 7.84551 21.7909 7.54451 21.7909C7.24251 21.7909 6.99951 21.5469 6.99951 21.2459C6.99951 20.9449 7.24251 20.7019 7.54451 20.7019Z"
+            fill="#212121" />
+          <mask id="mask0_401_46180" style="mask-type: luminance" maskUnits="userSpaceOnUse" x="6" y="20" width="3"
+            height="2">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M6.99878 21.2455C6.99878 21.5475 7.24178 21.7915 7.54478 21.7915C7.84578 21.7915 8.08878 21.5475 8.08878 21.2455C8.08878 20.9445 7.84578 20.7015 7.54478 20.7015C7.24178 20.7015 6.99878 20.9445 6.99878 21.2455Z"
+              fill="white" />
+          </mask>
+          <g mask="url(#mask0_401_46180)">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M1.99976 26.7905H13.0888V15.7015H1.99976V26.7905Z" />
+          </g>
+          <path fill-rule="evenodd" clip-rule="evenodd"
+            d="M7.54351 21.0408C7.43051 21.0408 7.33851 21.1328 7.33851 21.2458C7.33851 21.4728 7.74951 21.4728 7.74951 21.2458C7.74951 21.1328 7.65651 21.0408 7.54351 21.0408ZM7.54351 22.5408C6.82951 22.5408 6.24951 21.9598 6.24951 21.2458C6.24951 20.5318 6.82951 19.9518 7.54351 19.9518C8.25751 19.9518 8.83851 20.5318 8.83851 21.2458C8.83851 21.9598 8.25751 22.5408 7.54351 22.5408Z"
+            fill="#B6349A" />
+          <path fill-rule="evenodd" clip-rule="evenodd"
+            d="M18.8248 20.7019C19.1258 20.7019 19.3698 20.9449 19.3698 21.2459C19.3698 21.5469 19.1258 21.7909 18.8248 21.7909C18.5228 21.7909 18.2798 21.5469 18.2798 21.2459C18.2798 20.9449 18.5228 20.7019 18.8248 20.7019Z"
+            fill="#B6349A" />
+          <mask id="mask1_401_46180" style="mask-type: luminance" maskUnits="userSpaceOnUse" x="18" y="20" width="2"
+            height="2">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M18.2798 21.2455C18.2798 21.5475 18.5228 21.7915 18.8248 21.7915C19.1248 21.7915 19.3698 21.5475 19.3698 21.2455C19.3698 20.9445 19.1248 20.7015 18.8248 20.7015C18.5228 20.7015 18.2798 20.9445 18.2798 21.2455Z"
+              fill="#B6349A" />
+          </mask>
+          <g mask="url(#mask1_401_46180)">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M13.2798 26.7905H24.3698V15.7015H13.2798V26.7905Z" />
+          </g>
+          <path fill-rule="evenodd" clip-rule="evenodd"
+            d="M18.8238 21.0408C18.7118 21.0408 18.6198 21.1328 18.6198 21.2458C18.6208 21.4748 19.0308 21.4728 19.0298 21.2458C19.0298 21.1328 18.9368 21.0408 18.8238 21.0408ZM18.8238 22.5408C18.1098 22.5408 17.5298 21.9598 17.5298 21.2458C17.5298 20.5318 18.1098 19.9518 18.8238 19.9518C19.5388 19.9518 20.1198 20.5318 20.1198 21.2458C20.1198 21.9598 19.5388 22.5408 18.8238 22.5408Z"
+            fill="#B6349A" />
+        </svg>
+      </a>
+    </div>
+  </header>
+
+  <!-- DESKTOP HEADER -->
+  <header class="hidden lg:block mb-6 w-100 md:w-full min-w-full">
+    <div class="top flex justify-between items-center">
+      <div class="w-5 h-5 md:hidden">
+        <button id="hamburger-menu-btn" type="button" class="hamburger-menu-btn" aria-label="Toggle menu">
+          <!-- Hamburger Icon -->
+          <svg id="hamburger-icon" width="20px" height="20px" viewBox="0 0 24 24" fill="none"
+            xmlns="http://www.w3.org/2000/svg" class="hamburger-svg">
+            <path d="M4 18L20 18" stroke="#000000" stroke-width="2" stroke-linecap="round" />
+            <path d="M4 12L20 12" stroke="#000000" stroke-width="2" stroke-linecap="round" />
+            <path d="M4 6L20 6" stroke="#000000" stroke-width="2" stroke-linecap="round" />
+          </svg>
+          <!-- X Icon (hidden by default) -->
+          <svg id="close-icon" width="20px" height="20px" viewBox="0 0 24 24" fill="none"
+            xmlns="http://www.w3.org/2000/svg" class="close-svg hidden">
+            <path d="M18 6L6 18" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M6 6L18 18" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </button>
+      </div>
+      <a href="/" class="">
+        <img src="./src/assets/icons/Type=Logo, Dark=Yes.svg" alt=""
+          class="hidden md:block xl:w-50 xl:h-20 2xl:ml-2 2xl:h-20 2xl:w-60" />
+      </a>
+
+      <div
+        class="searchbar relative flex items-center h-8 gap-2 md:h-8 md:w-60 xl:w-100 xl:h-12 xl:rounded-4xl xl:mr-20 bg-primary-100 rounded-2xl 2xl:ml-20 2xl:h-16 2xl:w-130 shadow-xl inset-shadow-xs focus-within:border focus-within:border-pink-500 focus-within:shadow-lg focus-within:shadow-pink-300 transition-all duration-300 overflow-hidden">
+        <div
+          class="search-bar ml-1 w-7 h-7 rounded-full md:mr-2 md:ml-2 md:h-6 md:w-6 2xl:w-10 2xl:h-10 2xl:rounded-4xl 2xl:ml-6 flex items-center justify-center bg-purple-50">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <mask id="mask0_402_50551" style="mask-type: luminance" maskUnits="userSpaceOnUse" x="2" y="2" width="20"
+              height="20">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M2 2H21.4768V21.477H2V2Z" fill="white" />
+            </mask>
+            <g mask="url(#mask0_402_50551)">
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M11.7388 3.5C7.19576 3.5 3.49976 7.195 3.49976 11.738C3.49976 16.281 7.19576 19.977 11.7388 19.977C16.2808 19.977 19.9768 16.281 19.9768 11.738C19.9768 7.195 16.2808 3.5 11.7388 3.5ZM11.7388 21.477C6.36876 21.477 1.99976 17.108 1.99976 11.738C1.99976 6.368 6.36876 2 11.7388 2C17.1088 2 21.4768 6.368 21.4768 11.738C21.4768 17.108 17.1088 21.477 11.7388 21.477Z"
+                fill="#c136a8" />
+            </g>
+            <mask id="mask1_402_50551" style="mask-type: luminance" maskUnits="userSpaceOnUse" x="17" y="17" width="6"
+              height="6">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M17.24 17.707H22.264V22.7217H17.24V17.707Z"
+                fill="white" />
+            </mask>
+            <g mask="url(#mask1_402_50551)">
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M21.5142 22.7217C21.3232 22.7217 21.1312 22.6487 20.9842 22.5027L17.4602 18.9887C17.1672 18.6957 17.1662 18.2207 17.4592 17.9277C17.7512 17.6327 18.2262 17.6347 18.5202 17.9257L22.0442 21.4407C22.3372 21.7337 22.3382 22.2077 22.0452 22.5007C21.8992 22.6487 21.7062 22.7217 21.5142 22.7217Z"
+                fill="#c136a8" />
+            </g>
+          </svg>
+        </div>
+        <input id="search" type="text" placeholder="Search by"
+          class="font-sans placeholder:text-sm placeholder:text-gray-500 outline-none search-input flex-1 min-w-0 px-3 py-1 h-full bg-transparent" />
+      </div>
+
+      <div id="suggestion-area"
+        class="hidden fixed z-50 max-h-80 overflow-y-auto p-3 rounded-3xl bg-white shadow-2xl border border-gray-200">
+      </div>
+
+      <div onclick="window.location.href='/cart.html'"
+        class="lg:hidden cart rounded-4xl h-8 w-12 flex items-center justify-center ml-4 bg-white cursor-pointer">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd"
+            d="M6.32759 8.3474L6.93059 15.5194C6.97459 16.0714 7.42559 16.4854 7.97659 16.4854H7.98059H18.8916H18.8936C19.4146 16.4854 19.8596 16.0974 19.9336 15.5824L20.8836 9.0234C20.9056 8.8674 20.8666 8.7114 20.7716 8.5854C20.6776 8.4584 20.5396 8.3764 20.3836 8.3544C20.1746 8.3624 11.5016 8.3504 6.32759 8.3474ZM7.97459 17.9854C6.65759 17.9854 5.54259 16.9574 5.43559 15.6424L4.51959 4.7484L3.01259 4.4884C2.60359 4.4164 2.33059 4.0294 2.40059 3.6204C2.47259 3.2114 2.86759 2.9454 3.26759 3.0094L5.34759 3.3694C5.68259 3.4284 5.93759 3.7064 5.96659 4.0464L6.20159 6.8474C20.4776 6.8534 20.5236 6.8604 20.5926 6.8684C21.1496 6.9494 21.6396 7.2404 21.9736 7.6884C22.3076 8.1354 22.4476 8.6864 22.3676 9.2384L21.4186 15.7964C21.2396 17.0444 20.1556 17.9854 18.8956 17.9854H18.8906H7.98259H7.97459Z"
+            fill="#FFFFFF" />
+          <path fill-rule="evenodd" clip-rule="evenodd"
+            d="M17.2874 12.0437H14.5154C14.1004 12.0437 13.7654 11.7077 13.7654 11.2937C13.7654 10.8797 14.1004 10.5437 14.5154 10.5437H17.2874C17.7014 10.5437 18.0374 10.8797 18.0374 11.2937C18.0374 11.7077 17.7014 12.0437 17.2874 12.0437Z"
+            fill="#FFFFFF" />
+          <path fill-rule="evenodd" clip-rule="evenodd"
+            d="M7.54451 20.7019C7.84551 20.7019 8.08851 20.9449 8.08851 21.2459C8.08851 21.5469 7.84551 21.7909 7.54451 21.7909C7.24251 21.7909 6.99951 21.5469 6.99951 21.2459C6.99951 20.9449 7.24251 20.7019 7.54451 20.7019Z"
+            fill="#FFFFFF" />
+          <mask id="mask0_401_46180" style="mask-type: luminance" maskUnits="userSpaceOnUse" x="6" y="20" width="3"
+            height="2">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M6.99878 21.2455C6.99878 21.5475 7.24178 21.7915 7.54478 21.7915C7.84578 21.7915 8.08878 21.5475 8.08878 21.2455C8.08878 20.9445 7.84578 20.7015 7.54478 20.7015C7.24178 20.7015 6.99878 20.9445 6.99878 21.2455Z"
+              fill="white" />
+          </mask>
+          <g mask="url(#mask0_401_46180)">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M1.99976 26.7905H13.0888V15.7015H1.99976V26.7905Z"
+              fill="#FFFFFF" />
+          </g>
+          <path fill-rule="evenodd" clip-rule="evenodd"
+            d="M7.54351 21.0408C7.43051 21.0408 7.33851 21.1328 7.33851 21.2458C7.33851 21.4728 7.74951 21.4728 7.74951 21.2458C7.74951 21.1328 7.65651 21.0408 7.54351 21.0408ZM7.54351 22.5408C6.82951 22.5408 6.24951 21.9598 6.24951 21.2458C6.24951 20.5318 6.82951 19.9518 7.54351 19.9518C8.25751 19.9518 8.83851 20.5318 8.83851 21.2458C8.83851 21.9598 8.25751 22.5408 7.54351 22.5408Z"
+            fill="#FFFFFF" />
+          <path fill-rule="evenodd" clip-rule="evenodd"
+            d="M18.8248 20.7019C19.1258 20.7019 19.3698 20.9449 19.3698 21.2459C19.3698 21.5469 19.1258 21.7909 18.8248 21.7909C18.5228 21.7909 18.2798 21.5469 18.2798 21.2459C18.2798 20.9449 18.5228 20.7019 18.8248 20.7019Z"
+            fill="#FFFFFF" />
+          <mask id="mask1_401_46180" style="mask-type: luminance" maskUnits="userSpaceOnUse" x="18" y="20" width="2"
+            height="2">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M18.2798 21.2455C18.2798 21.5475 18.5228 21.7915 18.8248 21.7915C19.1248 21.7915 19.3698 21.5475 19.3698 21.2455C19.3698 20.9445 19.1248 20.7015 18.8248 20.7015C18.5228 20.7015 18.2798 20.9445 18.2798 21.2455Z"
+              fill="white" />
+          </mask>
+          <g mask="url(#mask1_401_46180)">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M13.2798 26.7905H24.3698V15.7015H13.2798V26.7905Z"
+              fill="#FFFFFF" />
+          </g>
+          <path fill-rule="evenodd" clip-rule="evenodd"
+            d="M18.8238 21.0408C18.7118 21.0408 18.6198 21.1328 18.6198 21.2458C18.6208 21.4748 19.0308 21.4728 19.0298 21.2458C19.0298 21.1328 18.9368 21.0408 18.8238 21.0408ZM18.8238 22.5408C18.1098 22.5408 17.5298 21.9598 17.5298 21.2458C17.5298 20.5318 18.1098 19.9518 18.8238 19.9518C19.5388 19.9518 20.1198 20.5318 20.1198 21.2458C20.1198 21.9598 19.5388 22.5408 18.8238 22.5408Z"
+            fill="#FFFFFF" />
+        </svg>
+      </div>
+      <div class="hidden cart lg:flex 2xl:w-80 p-2 gap-4 w-80 2xl:ml-50 cursor-pointer">
+        <a href="/cart.html"
+          class="cart-left flex items-center justify-between p-3 w-34 h-12 bg-[#FEF5FD] gap-2 rounded-full">
+          <div
+            class="cart-left-left flex items-center w-16 h-10 justify-center gap-1 text-xs font-semibold text-[#B6349A] bg-white rounded-full border-b-amber-950">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M6.32759 8.3474L6.93059 15.5194C6.97459 16.0714 7.42559 16.4854 7.97659 16.4854H7.98059H18.8916H18.8936C19.4146 16.4854 19.8596 16.0974 19.9336 15.5824L20.8836 9.0234C20.9056 8.8674 20.8666 8.7114 20.7716 8.5854C20.6776 8.4584 20.5396 8.3764 20.3836 8.3544C20.1746 8.3624 11.5016 8.3504 6.32759 8.3474ZM7.97459 17.9854C6.65759 17.9854 5.54259 16.9574 5.43559 15.6424L4.51959 4.7484L3.01259 4.4884C2.60359 4.4164 2.33059 4.0294 2.40059 3.6204C2.47259 3.2114 2.86759 2.9454 3.26759 3.0094L5.34759 3.3694C5.68259 3.4284 5.93759 3.7064 5.96659 4.0464L6.20159 6.8474C20.4776 6.8534 20.5236 6.8604 20.5926 6.8684C21.1496 6.9494 21.6396 7.2404 21.9736 7.6884C22.3076 8.1354 22.4476 8.6864 22.3676 9.2384L21.4186 15.7964C21.2396 17.0444 20.1556 17.9854 18.8956 17.9854H18.8906H7.98259H7.97459Z"
+                fill="#B6349A" />
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M17.2874 12.0437H14.5154C14.1004 12.0437 13.7654 11.7077 13.7654 11.2937C13.7654 10.8797 14.1004 10.5437 14.5154 10.5437H17.2874C17.7014 10.5437 18.0374 10.8797 18.0374 11.2937C18.0374 11.7077 17.7014 12.0437 17.2874 12.0437Z"
+                fill="#212121" />
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M7.54451 20.7019C7.84551 20.7019 8.08851 20.9449 8.08851 21.2459C8.08851 21.5469 7.84551 21.7909 7.54451 21.7909C7.24251 21.7909 6.99951 21.5469 6.99951 21.2459C6.99951 20.9449 7.24251 20.7019 7.54451 20.7019Z"
+                fill="#212121" />
+              <mask id="mask0_401_46180" style="mask-type: luminance" maskUnits="userSpaceOnUse" x="6" y="20" width="3"
+                height="2">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M6.99878 21.2455C6.99878 21.5475 7.24178 21.7915 7.54478 21.7915C7.84578 21.7915 8.08878 21.5475 8.08878 21.2455C8.08878 20.9445 7.84578 20.7015 7.54478 20.7015C7.24178 20.7015 6.99878 20.9445 6.99878 21.2455Z"
+                  fill="white" />
+              </mask>
+              <g mask="url(#mask0_401_46180)">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M1.99976 26.7905H13.0888V15.7015H1.99976V26.7905Z" />
+              </g>
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M7.54351 21.0408C7.43051 21.0408 7.33851 21.1328 7.33851 21.2458C7.33851 21.4728 7.74951 21.4728 7.74951 21.2458C7.74951 21.1328 7.65651 21.0408 7.54351 21.0408ZM7.54351 22.5408C6.82951 22.5408 6.24951 21.9598 6.24951 21.2458C6.24951 20.5318 6.82951 19.9518 7.54351 19.9518C8.25751 19.9518 8.83851 20.5318 8.83851 21.2458C8.83851 21.9598 8.25751 22.5408 7.54351 22.5408Z"
+                fill="#B6349A" />
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M18.8248 20.7019C19.1258 20.7019 19.3698 20.9449 19.3698 21.2459C19.3698 21.5469 19.1258 21.7909 18.8248 21.7909C18.5228 21.7909 18.2798 21.5469 18.2798 21.2459C18.2798 20.9449 18.5228 20.7019 18.8248 20.7019Z"
+                fill="#B6349A" />
+              <mask id="mask1_401_46180" style="mask-type: luminance" maskUnits="userSpaceOnUse" x="18" y="20" width="2"
+                height="2">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M18.2798 21.2455C18.2798 21.5475 18.5228 21.7915 18.8248 21.7915C19.1248 21.7915 19.3698 21.5475 19.3698 21.2455C19.3698 20.9445 19.1248 20.7015 18.8248 20.7015C18.5228 20.7015 18.2798 20.9445 18.2798 21.2455Z"
+                  fill="#B6349A" />
+              </mask>
+              <g mask="url(#mask1_401_46180)">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M13.2798 26.7905H24.3698V15.7015H13.2798V26.7905Z" />
+              </g>
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M18.8238 21.0408C18.7118 21.0408 18.6198 21.1328 18.6198 21.2458C18.6208 21.4748 19.0308 21.4728 19.0298 21.2458C19.0298 21.1328 18.9368 21.0408 18.8238 21.0408ZM18.8238 22.5408C18.1098 22.5408 17.5298 21.9598 17.5298 21.2458C17.5298 20.5318 18.1098 19.9518 18.8238 19.9518C19.5388 19.9518 20.1198 20.5318 20.1198 21.2458C20.1198 21.9598 19.5388 22.5408 18.8238 22.5408Z"
+                fill="#B6349A" />
+            </svg>
+            <span id="cart-count-home">0</span>
+          </div>
+          <div class="cart-left-right text-sm font-semibold">Cart</div>
+        </a>
+        <a href="login.html" id="login-link"
+          class="cart-right flex items-center justify-center w-36 rounded-full gap-1 border-1 border-solid border-[#B6349A] hover:cursor-pointer">
+          <div class="cart-right-left">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <mask id="mask0_401_46169" style="mask-type: luminance" maskUnits="userSpaceOnUse" x="2" y="13" width="16"
+                height="9">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M2 13.957H17.1838V21.0566H2V13.957Z" fill="white" />
+              </mask>
+              <g mask="url(#mask0_401_46169)">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M9.59176 15.457C6.81276 15.457 3.49976 15.814 3.49976 17.519C3.49976 18.871 5.54976 19.557 9.59176 19.557C13.6338 19.557 15.6838 18.864 15.6838 17.499C15.6838 16.144 13.6338 15.457 9.59176 15.457ZM9.59176 21.057C7.51576 21.057 1.99976 21.057 1.99976 17.519C1.99976 13.957 7.71376 13.957 9.59176 13.957C12.8508 13.957 17.1838 14.324 17.1838 17.499C17.1838 21.057 11.4698 21.057 9.59176 21.057Z"
+                  fill="#212121" />
+              </g>
+              <mask id="mask1_401_46169" style="mask-type: luminance" maskUnits="userSpaceOnUse" x="17" y="13" width="5"
+                height="6">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M17.8452 13.4834H21.979V18.4609H17.8452V13.4834Z"
+                  fill="white" />
+              </mask>
+              <g mask="url(#mask1_401_46169)">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M19.8955 18.4609C19.5925 18.4609 19.3075 18.2759 19.1945 17.9769C19.0475 17.5899 19.2425 17.1559 19.6295 17.0099C20.4795 16.6879 20.4795 16.2949 20.4795 16.1269C20.4795 15.5599 19.8085 15.1719 18.4855 14.9749C18.0755 14.9129 17.7925 14.5309 17.8535 14.1219C17.9155 13.7119 18.3045 13.4369 18.7065 13.4899C21.4125 13.8949 21.9795 15.1479 21.9795 16.1269C21.9795 16.8559 21.6645 17.8429 20.1615 18.4119C20.0745 18.4449 19.9845 18.4609 19.8955 18.4609Z"
+                  fill="#212121" />
+              </g>
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M16.4824 11.1318C16.1144 11.1318 15.7934 10.8608 15.7404 10.4858C15.6834 10.0758 15.9684 9.6958 16.3784 9.6388C17.6264 9.4638 18.5684 8.3808 18.5704 7.1188C18.5704 5.8648 17.6724 4.8068 16.4374 4.6048C16.0284 4.5368 15.7514 4.1518 15.8184 3.7428C15.8854 3.3338 16.2724 3.0588 16.6794 3.1238C18.6444 3.4458 20.0704 5.1268 20.0704 7.1198C20.0664 9.1248 18.5694 10.8468 16.5874 11.1248C16.5524 11.1298 16.5174 11.1318 16.4824 11.1318Z"
+                fill="#212121" />
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M9.59181 3.5C7.58681 3.5 5.95581 5.131 5.95581 7.135C5.95581 9.139 7.58681 10.77 9.59181 10.77H9.62281C10.5868 10.766 11.4948 10.387 12.1758 9.7C12.8578 9.015 13.2308 8.104 13.2268 7.138C13.2268 5.131 11.5958 3.5 9.59181 3.5ZM9.59181 12.27C6.75981 12.27 4.45581 9.966 4.45581 7.135C4.45581 4.304 6.75981 2 9.59181 2C12.4228 2 14.7268 4.304 14.7268 7.135C14.7328 8.499 14.2038 9.787 13.2398 10.757C12.2778 11.728 10.9928 12.265 9.62581 12.27H9.59181Z"
+                fill="#212121" />
+            </svg>
+          </div>
+          <div class="cart-right-right text-sm font-semibold">Login</div>
+        </a>
+      </div>
+      <div class="login"></div>
+    </div>
+  </header>
+  <main id="product-page" class="max-w-[1280px] mx-auto space-y-8">
+    <!-- PRODUCT HERO -->
+    <section class="p-0">
+      <div class="rounded-[36px] bg-white shadow-[0_35px_80px_rgba(15,23,42,0.08)] p-4 sm:p-6 lg:p-10">
+        <div class="grid gap-8 lg:grid-cols-2">
+          <div>
+            <div
+              class="rounded-[32px] bg-[#fef5fd] flex items-center justify-center w-full aspect-square overflow-hidden border border-[#ffe1f2]">
+              <img id="product-image" src="" alt="Product"
+                class="w-[80%] h-[80%] object-contain transition-transform duration-200" />
+            </div>
+            <div class="mt-4 flex items-center justify-center">
+              <div id="product-gallery"
+                class="flex gap-2 px-3 py-2 rounded-full bg-white shadow-[0_10px_30px_rgba(15,23,42,0.08)]"></div>
+            </div>
+          </div>
+
+          <div>
+            <div id="product-badges"
+              class="flex flex-wrap gap-2 text-xs font-semibold uppercase text-[#ec4899] tracking-wide mb-3"></div>
+            <h1 id="product-title" class="text-3xl md:text-4xl font-semibold text-[#111827]"></h1>
+            <p id="product-subtitle" class="text-sm text-gray-500 mb-4"></p>
+
+            <div class="flex flex-wrap items-center gap-3 mb-4">
+              <div id="product-price-current" class="text-3xl font-semibold text-[#111827]">
+                ₹0.00
+              </div>
+              <div id="product-price-original" class="text-lg text-gray-400 line-through"></div>
+              <span id="                 product-price-discount" class="text-sm font-sem ibold text-[#ec4899]"></span>
+            </div>
+
+            <div class="flex flex-wrap items-center gap-3 text-sm mb-6">
+              <div class="flex items-center text-[#f97316]" id="product-rating-stars"></div>
+              <span id="product-rating-text" class="text-gray-600"></span>
+              <span id="product-unit" class="text-gray-400"></span>
+              <span id="product-stock" class="t e xt-gray-400"></span>
+            </div>
+
+            <ul id="product-highlights" class="grid grid-cols-2 gap-3 text-sm text-gray-700 mb-6"></ul>
+
+            <p id="product-description" class="text-sm text-gray-600 mb-6"></p>
+
+            <div class="flex flex-wrap gap-3">
+              <button id="product-add-to-cart"
+                class="px-8 py-3 rounded-full bg-[#b6349a] text-white font-medium shadow-sm hover:bg-[#a12f8a] transition-colors">
+                Add to cart
+              </button>
+              <button id="product-buy-now"
+                class="px-8 py-3 rounded-full border border-[#b6349a] text-[#b6349a] font-medium bg-white hover:bg-[#fff0fa] transition-colors">
+                Buy now
+              </button>
+            </div>
+
+            <div class="mt-6 flex items-center gap-2 text-sm text-gray-500">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 3L3 7V11C3 16.55 6.84 21.74 12 23C17.16 21.74 21 16.55 21 11V7L12 3Z" stroke="#22c55e"
+                  stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M9 11L11 13L15 9" s troke="#22c55e" stroke-width="1.5" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+              <span>100% satisfaction guarantee</span>
+            </div>
+            <p id="product-added-hint" class="mt-2 text-sm text-[#22c55e]"></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- REVIEWS -->
+    <section class="grid gap-6 lg:grid-cols-[0. 9fr_1.1fr]">
+      <div class="bg-white rounded-3xl p-6 md:p-8 shadow-sm">
+        <div class="flex items-center justify-between mb-4">
+          <h3 class="text-lg font-semibold text-[#111827]">
+            Customer Reviews
+          </h3>
+          <span class="text-sm text-gray-500" id="product-review-count">0 Reviews</span>
+        </div>
+        <div class="flex items-end gap-4 mb-6">
+          <div>
+            <div id="product-rating-overall" class="text-4xl font-semibold text-[#111827]">
+              0.0
+            </div>
+            <div class="text-sm text-gray-500">Average rating</div>
+          </div>
+          <div class="text-sm text-gray-400">Updated daily</div>
+        </div>
+        <div id="rating-bars" class="space-y-2">
+          <div class="flex items-center gap-3 text-sm">
+            <span cl a ss="w-6 text-gray-500">5★</span>
+
+            <div class="flex-1 h-2 bg-g ray-100 rounded-full">
+              <div class="h-full rounded-full bg-[#ec4899]" data-rating-bar="5" style="width: 0%"></div>
+            </div>
+            <span class="w-10 text-right text-xs text-gray-500" data-rating-count="5">0</span>
+          </div>
+          <div class="flex items-center gap-3 text-sm">
+            <span class="w-6 text-gray-500">4★</span>
+
+            <div cla ss="flex
+              -1 h-2 bg-gray-100 rounded-full">
+              <div class="h-full rounded-full bg-[#ec4899]" data-rating-bar="4" style="width: 0%"></div>
+            </div>
+            <span class="w-10 text-right text-xs text-gray-500" data-rating-count="4">0</span>
+          </div>
+          <div class="flex items-center gap-3 text-sm">
+            <span class="w-6 text-gray-500"> 3★</span>
+
+            <div class="flex-1 h-2 bg-gray-100 rounded-full">
+              <div class="h-full rounded-full bg-[#ec4899]" data-rating-bar="3" style="width: 0%"></div>
+            </div>
+            <span class="w-10 text-right text-xs text-gray-500" data-rating-count="3">0</span>
+          </div>
+          <div class="flex items-center gap-3 text-sm">
+            <span class="w-6 text -gray-500">2★</span>
+
+            <div class="flex-1 h-2 bg-gray-100 rounded-full">
+              <div class="h-full rounded-full bg-[#ec4899]" data-rating-bar="2" style="width: 0%"></div>
+            </div>
+            <span class="w-10 text-right text-xs text-gray-500" data-rating-count="2">0</span>
+          </div>
+          <div class="flex items-ce nter gap-3 text-sm">
+            <span clas s="w-6 text-gray-500"> 1★</span>
+            <div class="flex-1 h-2 bg-gray-100 rounded-full">
+              <div class="h-full rounded-full bg-[#ec4899]" data-rating-bar="1" style="width: 0%"></div>
+            </div>
+            <span class="w-10 text-right text-xs text-gray-500" data-rating-count="1">0</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-3xl p-6 md:p-8 shadow-sm">
+        <div class="flex items-center justify-between mb-4">
+          <h3 class="text-lg font-semibold text-[#111827]">Reviews</h3>
+          <button class="text-xs text-[#b6349a] font-medium">Report</button>
+        </div>
+        <div id="reviews-list" class="space-y-6"></div>
+      </div>
+    </section>
+
+    <!-- DETAILS -->
+    <section class="bg-white rounded-3xl p-6 md:p-8 shadow-sm space-y-4">
+      <details open class="group">
+        <summary class="flex items-center justify-between cursor-pointer text-sm font-semibold text-[#111827]">
+          About Product
+          <span class="text-xl group-open:rotate-180 transition-transform">⌄</span>
+        </summary>
+        <p id="product-about" class="mt-3 text-sm text-gray-600">
+          Loading product information...
+        </p>
+      </details>
+      <details class="group">
+        <summary class="flex items-center justify-between cursor-pointer text-sm font-semibold text-[#111827]">
+          Cold/room storage
+          <span class="text-xl group-open:rotate-180 transition-transform">⌄</span>
+        </summary>
+
+        <p id="p
+            roduct-storage" class="mt-3 text-sm text-gray-600">
+          Store information pending.
+        </p>
+      </details>
+      <details class="group">
+        <summary class="flex items-center justify-between cursor-pointer text-sm font-semibold text-[#111827]">
+          Ingredients
+          <span class="text-xl group-open:rotate-180 transition-transform">⌄</span>
+        </summary>
+        <p id="product-ingredients" class="mt-3 text-sm text-gray-600">
+          Ingredients pending.
+        </p>
+      </details>
+    </section>
+
+    <!-- RECOMMENDATIONS -->
+    <section class="bg-white rounded-3xl p-6 md:p-8 shadow-sm">
+      <div class="flex items-center justify-between mb-5">
+        <h3 class="text-lg font-semibold text-[#111827]">Recommendations</h3>
+        <a id="product-view-all" href="/search.html" class="text-sm font-medium text-[#b6349a]">View all</a>
+      </div>
+      <div id="product-recommendations" class="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-4"></div>
+    </section>
+  </main>
+
+  <section id="product-not-found" class="hidden max-w-[480px] mx-auto mt-16 text-center text-gray-600 text-sm">
+    Sorry, we couldn’t find that product. Please go back and try again.
+  </section>
+
+  <footer class="mt-30 px-6 py-10 bg-white">
+    <div class="w-full max-w-[1280px] mx-auto flex flex-col lg:flex-row lg:items-start lg:justify-between gap-8">
+      <div id="footer-header" class="flex-shrink-0 flex justify-center lg:justify-start mb-6 lg:mb-0 lg:mr-6">
+        <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd"
+            d="M46.0204 46.0228C42.0432 50 35.9546 50 24.9978 50C14.0432 50 7.95454 49.9978 3.975 46.0228C0 42.0454 0 35.9546 0 25C0 14.0478 0 7.95454 3.975 3.97954C7.95454 -2.48353e-07 14.0432 0 24.9978 0C35.9546 0 42.0432 -2.48353e-07 46.0204 3.97954C50 7.95682 50 14.0454 50 25C50 35.9546 50 42.0454 46.0204 46.0228ZM27.3887 21.7887L12.2977 21.7591L12.2954 25.475L26.5387 25.5022L25.7 29.2114L12.2954 29.1841V32.8978L24.8613 32.925H24.8409C24.3546 34.7978 25.725 36.6546 27.6068 36.6546H30.2159L31.6568 32.925H24.8613L25.7 29.2159L34.2409 29.2318L35.5659 25.5182L26.5568 25.5022L27.4 21.7887L39.5954 21.7296L41.1068 18.0318L28.2432 18.075L27.3887 21.7887ZM26.0454 14.3478L12.2977 14.3182L12.2954 18.0341L28.2409 18.0614L28.3841 17.4137C28.7409 15.85 27.6 14.3478 26.0454 14.3478Z"
+            fill="#B6349A" />
+        </svg>
+      </div>
+
+      <div id="footer-grid"
+        class="flex-1 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 text-gray-500">
+        <div class="space-y-4">
+          <b
+            class="text-black inline-block cursor-pointer transform transition-all duration-150 hover:text-[#B6349A] hover:translate-x-1">About</b>
+          <p class="cursor-pointer transform transition-all duration-150 hover:text-[#B6349A] hover:translate-x-1">
+            About Us
+          </p>
+          <p class="cursor-pointer transform transition-all duration-150 hover:text-[#B6349A] hover:translate-x-1">
+            Our Branches
+          </p>
+          <p class="cursor-pointer transform transition-all duration-150 hover:text-[#B6349A] hover:translate-x-1">
+            Changelog
+          </p>
+        </div>
+
+        <div class="space-y-4">
+          <b
+            class="text-black inline-block cursor-pointer transform transition-all duration-150 hover:text-[#B6349A] hover:translate-x-1">Quick
+            Links</b>
+          <p class="cursor-pointer transform transition-all duration-150 hover:text-[#B6349A] hover:translate-x-1">
+            FAQs
+          </p>
+          <p class="cursor-pointer transform transition-all duration-150 hover:text-[#B6349A] hover:translate-x-1">
+            Recipes
+          </p>
+          <p class="cursor-pointer transform transition-all duration-150 hover:text-[#B6349A] hover:translate-x-1">
+            Contact Us
+          </p>
+        </div>
+
+        <div class="space-y-4">
+          <b
+            class="text-black inline-block cursor-pointer transform transition-all duration-150 hover:text-[#B6349A] hover:translate-x-1">Help
+            & Support</b>
+          <p class="cursor-pointer transform transition-all duration-150 hover:text-[#B6349A] hover:translate-x-1">
+            Terms of Privacy
+          </p>
+          <p class="cursor-pointer transform transition-all duration-150 hover:text-[#B6349A] hover:translate-x-1">
+            Privacy Policy
+          </p>
+          <p class="cursor-pointer transform transition-all duration-150 hover:text-[#B6349A] hover:translate-x-1">
+            Security
+          </p>
+        </div>
+
+        <div class="space-y-4">
+          <b
+            class="text-black inline-block cursor-pointer transform transition-all duration-150 hover:text-[#B6349A] hover:translate-x-1">Company</b>
+          <p class="cursor-pointer transform transition-all duration-150 hover:text-[#B6349A] hover:translate-x-1">
+            Blog
+          </p>
+          <p class="cursor-pointer transform transition-all duration-150 hover:text-[#B6349A] hover:translate-x-1">
+            Contact
+          </p>
+        </div>
+
+        <div class="space-y-4">
+          <b
+            class="text-black inline-block cursor-pointer transform transition-all duration-150 hover:text-[#B6349A] hover:translate-x-1">Social</b>
+          <p class="cursor-pointer transform transition-all duration-150 hover:text-[#B6349A] hover:translate-x-1">
+            Instagram
+          </p>
+          <p class="cursor-pointer transform transition-all duration-150 hover:text-[#B6349A] hover:translate-x-1">
+            LinkedIn
+          </p>
+          <p class="cursor-pointer transform transition-all duration-150 hover:text-[#B6349A] hover:translate-x-1">
+            Facebook
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Shared template for recommendations -->
+  <template id="home-item-template">
+    <div data-home-item
+      class="cards p-2 rounded-2xl flex flex-col min-w-0 bg-white shadow-[0_8px_24px_rgba(15,23,42,0.04)]">
+      <div class="cards-header relative mb-3 transition-transform duration-150 hover:-translate-y-1 hover:shadow-md">
+        <div class="rounded-2xl flex items-center justify-center bg-[#fef5fd] overflow-hidden"
+          style="aspect-ratio: 1 / 1">
+          <img data-image alt="product" class="w-[76%] h-[76%] object-contain" />
+        </div>
+      </div>
+
+      <div class="cards-bottom">
+        <p data-category class="hidden xl:block text-black">
+          This product is amazing!
+        </p>
+        <h5 data-name class="mb-1 text-[13px] font-medium text-[#111827] xl:text-[15px]"></h5>
+        <div class="flex items-center justify-between mt-1.5">
+          <div>
+            <div class="text-[11px] text-gray-500">₹ per unit</div>
+            <div data-price class="text-[13px] text-[#16a34a] font-semibold flex items-center gap-1">
+              <span>₹0.00</span>
+            </div>
+            <div class="text-[11px] text-[#ec4899] mt-0.5" data-stock In stock></div>
+          </div>
+          <button data-add-to-cart
+            class="inline-flex items-center justify-center w-8 h-8 rounded-full border border-[#ffd6f1] bg-white text-[#B6349A] text-xl leading-none transition-colors duration-150 hover:bg-[#B6349A] hover:text-white cursor-pointer">
+            +
+          </button>
+        </div>
+      </div>
+    </div>
+  </template>
+</body>
+
+</html>

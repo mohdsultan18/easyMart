@@ -91,11 +91,24 @@ async function initUsersFromJson() {
 }
 
 function setupHeaderUI() {
+  // Skip logout button setup on login/signup pages
+  const path = window.location.pathname.split("/").pop() || ""
+  const isAuthPage =
+    path === "login.html" ||
+    path === "login" ||
+    path === "signup.html" ||
+    path === "signup"
+
   let loginLink = document.getElementById("login-link")
+  let sidePanelLoginLink = document.getElementById("side-panel-login-link")
   let signupLink = document.getElementById("signup-link")
   if (!loginLink)
     loginLink = document.querySelector(
       'a[href="login.html"], a[href="./login.html"]'
+    )
+  if (!sidePanelLoginLink)
+    sidePanelLoginLink = document.querySelector(
+      '#side-panel a[href="login.html"], #side-panel a[href="./login.html"]'
     )
   if (!signupLink)
     signupLink = document.querySelector(
@@ -112,12 +125,147 @@ function setupHeaderUI() {
     if (loginLink) loginLink.classList.add("hidden")
     if (signupLink) signupLink.classList.add("hidden")
 
+    // Update side panel to show logged-in user and menu instead of login button
+    if (sidePanelLoginLink && !isAuthPage) {
+      // FORCE hide (because HTML has display:flex !important)
+      sidePanelLoginLink.style.display = "none"
+      sidePanelLoginLink.style.visibility = "hidden"
+      sidePanelLoginLink.style.opacity = "0"
+
+      const sidePanel = document.getElementById("side-panel")
+
+      if (sidePanel) {
+        const panelContent = sidePanel.querySelector(".flex-1")
+        if (
+          panelContent &&
+          !document.getElementById("side-panel-user-display")
+        ) {
+          const userDiv = document.createElement("div")
+          userDiv.id = "side-panel-user-display"
+          userDiv.className = "flex flex-col gap-4"
+
+          // User info card
+          const userInfo = document.createElement("div")
+          userInfo.className =
+            "flex items-center gap-3 p-3 rounded-lg bg-[#FEF5FD]"
+
+          const initials =
+            ((current.name || current.email || "").split(" ")[0] ||
+              "")[0].toUpperCase() || "U"
+          const avatar = document.createElement("span")
+          avatar.className =
+            "inline-flex items-center justify-center w-10 h-10 rounded-full bg-[#B6349A] text-white font-semibold"
+          avatar.textContent = initials
+
+          const info = document.createElement("div")
+          info.className = "flex flex-col"
+          const name = document.createElement("p")
+          name.className = "text-sm font-semibold text-gray-900"
+          name.textContent = current.name || "User"
+          const email = document.createElement("p")
+          email.className = "text-xs text-gray-500"
+          email.textContent = current.email || ""
+          info.appendChild(name)
+          info.appendChild(email)
+
+          userInfo.appendChild(avatar)
+          userInfo.appendChild(info)
+          userDiv.appendChild(userInfo)
+
+          // Menu items
+          const menuDiv = document.createElement("nav")
+          menuDiv.className = "flex flex-col gap-2"
+
+          const menuItems = [
+            {
+              label: "Profile",
+              href: "/account.html",
+              icon: `
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                  <circle cx="12" cy="7" r="4" stroke="currentColor" stroke-width="2"/>
+                 <path d="M5 21v-2a7 7 0 0 1 14 0v2"
+                  stroke="currentColor" stroke-width="2"/>
+               </svg>
+    `,
+            },
+            {
+              label: "My Orders",
+              href: "/myorders.html",
+              icon: `
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+        <path d="M3 7h18l-2 13H5L3 7z"
+          stroke="currentColor" stroke-width="2"/>
+        <path d="M16 11a4 4 0 0 0-8 0"
+          stroke="currentColor" stroke-width="2"/>
+      </svg>
+    `,
+            },
+            {
+              label: "My Addresses",
+              href: "/myaddresses.html",
+              icon: `
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+        <path d="M12 21s7-4.35 7-10a7 7 0 1 0-14 0c0 5.65 7 10 7 10z"
+          stroke="currentColor" stroke-width="2"/>
+        <circle cx="12" cy="11" r="2"
+          stroke="currentColor" stroke-width="2"/>
+      </svg>
+    `,
+            },
+            {
+              label: "My Payments",
+              href: "/list.html",
+              icon: `
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+        <rect x="2" y="5" width="20" height="14" rx="2"
+          stroke="currentColor" stroke-width="2"/>
+        <path d="M2 10h20"
+          stroke="currentColor" stroke-width="2"/>
+      </svg>
+    `,
+            },
+          ]
+
+          menuItems.forEach((item) => {
+            const link = document.createElement("a")
+            link.href = item.href
+            link.className =
+              "flex items-center gap-3 px-4 py-2.5 rounded-lg text-gray-700 hover:bg-gray-100 transition-colors text-sm"
+            link.innerHTML = `<span>${item.icon}</span><span>${item.label}</span>`
+            menuDiv.appendChild(link)
+          })
+
+          userDiv.appendChild(menuDiv)
+
+          // Logout button
+          const sidePanelLogoutBtn = document.createElement("button")
+          sidePanelLogoutBtn.className =
+            "w-full flex items-center justify-center gap-2 rounded-full border border-[#B6349A] text-[#B6349A] font-semibold py-2 px-4 text-sm hover:bg-[#FEF5FD] transition-colors mt-2"
+          sidePanelLogoutBtn.innerHTML =
+            '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15 3H7C5.89543 3 5 3.89543 5 5V19C5 20.1046 5.89543 21 7 21H15M8 12H21M21 12L18 9M21 12L18 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></svg><span>Logout</span>'
+          sidePanelLogoutBtn.addEventListener("click", (ev) => {
+            ev.preventDefault()
+            ev.stopPropagation()
+            clearCurrent()
+            window.location.href = "index.html"
+          })
+
+          userDiv.appendChild(sidePanelLogoutBtn)
+          panelContent.insertBefore(userDiv, panelContent.firstChild)
+        }
+      }
+    }
+
     if (logoutBtn) {
-      logoutBtn.classList.remove("hidden")
-      logoutBtn.addEventListener("click", () => {
-        clearCurrent()
-        window.location.href = "index.html"
-      })
+      if (!isAuthPage) {
+        logoutBtn.classList.remove("hidden")
+        logoutBtn.addEventListener("click", () => {
+          clearCurrent()
+          window.location.href = "index.html"
+        })
+      } else {
+        logoutBtn.classList.add("hidden")
+      }
     } else if (loginLink) {
       try {
         loginLink.id = "user-display"
@@ -175,10 +323,20 @@ function setupHeaderUI() {
         dropdown.className =
           "absolute right-0 top-full mt-2 w-44 rounded-xl border border-gray-200 bg-white py-2 shadow-lg transition-all duration-150 transform opacity-0 pointer-events-none -translate-y-1"
 
+        const profileOption = document.createElement("a")
+        profileOption.href = "account.html"
+        profileOption.className =
+          "w-full block px-4 py-2 text-left text-sm text-gray-700 hover:bg-gray-50 focus:outline-none focus:bg-gray-100"
+        profileOption.textContent = "Profile"
+        profileOption.addEventListener("click", (ev) => {
+          // allow anchor to navigate; ensure dropdown closes
+          ev.stopPropagation()
+        })
+
         const logoutOption = document.createElement("button")
         logoutOption.id = "logout-btn"
         logoutOption.className =
-          "w-full px-4 py-2 text-left text-sm text-gray-700 hover:bg-gray-50 focus:outline-none focus:bg-gray-100"
+          "w-full px-4 py-2 text-left text-sm text-gray-700 hover:bg-gray-50 focus:outline-none focus:bg-gray-100 cursor-pointer"
         logoutOption.textContent = "Log out"
         logoutOption.addEventListener("click", (ev) => {
           ev.preventDefault()
@@ -187,6 +345,8 @@ function setupHeaderUI() {
           window.location.href = "index.html"
         })
 
+        // add Profile first, then Logout
+        dropdown.appendChild(profileOption)
         dropdown.appendChild(logoutOption)
 
         loginLink.appendChild(avatar)

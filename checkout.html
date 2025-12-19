@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="/src/style.css" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+    rel="stylesheet" />
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+  <script type="module" src="/src/javascript/checkout.js" defer></script>
+  <title>Checkout - EasyMart</title>
+</head>
+
+<body class="min-h-screen p-4 md:p-6 xl:p-8">
+  <!-- LOGIN REQUIRED MESSAGE -->
+  <div id="login-required-message"
+    class="hidden mb-4 p-4 bg-yellow-100 text-yellow-800 rounded-lg shadow-sm flex items-center justify-between">
+    <span class="font-medium">You must log in before buying. <a href="/login.html"
+        class="underline text-yellow-900 font-semibold">Login here</a></span>
+  </div>
+
+  <!-- MOBILE HEADER -->
+  <header class="lg:hidden mb-4 w-full">
+    <div class="flex items-center justify-between gap-3 rounded-3xl px-3 py-3 shadow-sm bg-white">
+      <a href="/" class="w-9 h-9 rounded-full bg-[#f5f5f7] flex items-center justify-center">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M6 6L18 18M6 18L18 6" stroke="#111827" stroke-width="1.8" stroke-linecap="round"
+            stroke-linejoin="round" />
+        </svg>
+      </a>
+      <span class="font-semibold text-sm text-[#111827]"> Secure Checkout</span>
+      <div class="w-9 h-9"></div>
+    </div>
+  </header>
+
+  <!-- DESKTOP HEADER -->
+  <header class="hidden lg:flex mb-6 w-full items-center justify-between px-6 py-4 bg-white rounded-3xl shadow-sm">
+    <a href="/" class="text-xl font-bold text-[#B6349A]">EasyMart</a>
+    <span class="font-semibold"> Secure Checkout</span>
+    <div></div>
+  </header>
+
+  <main class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-6">
+    <!-- Left Column - Forms -->
+    <div class="lg:col-span-2 space-y-6">
+      <!-- Delivery Info -->
+      <div class="bg-white rounded-3xl shadow-sm overflow-hidden">
+        <button
+          class="checkout-section-btn w-full flex items-center justify-between p-4 md:p-6 hover:bg-gray-50 transition cursor-pointer"
+          data-section="delivery">
+          <div class="flex items-center gap-3">
+            <div class="flex items-center justify-center w-8 h-8 rounded-full bg-[#fef0f8]">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                  fill="#B6349A" />
+              </svg>
+            </div>
+            <h3 class="text-lg font-semibold text-[#111827]">
+              Delivery Info
+            </h3>
+          </div>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M9 5l7 7-7 7" stroke="#111827" stroke-width="2" stroke-linecap="round" />
+          </svg>
+        </button>
+
+        <div id="delivery-content" class="border-t border-gray-100 p-4 md:p-6 space-y-4 hidden">
+          <div>
+            <label class="block text-sm font-medium text-[#111827] mb-2">Delivery Address</label>
+            <input type="text" placeholder="Enter your address" id="delivery-address"
+              class="w-full px-4 py-2 border border-gray-200 rounded-lg focus:outline-none focus:border-[#B6349A]" />
+          </div>
+          <div class="grid grid-cols-2 gap-4">
+            <div>
+              <label class="block text-sm font-medium text-[#111827] mb-2">City</label>
+              <input type="text" placeholder="City" id="delivery-city"
+                class="w-full px-4 py-2 border border-gray-200 rounded-lg focus:outline-none focus:border-[#B6349A]" />
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-[#111827] mb-2">Postal Code</label>
+              <input type="text" placeholder="Postal Code" id="delivery-postal"
+                class="w-full px-4 py-2 border border-gray-200 rounded-lg focus:outline-none focus:border-[#B6349A]" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Delivery Summary -->
+        <div id="delivery-summary" class="p-4 md:p-6 bg-[#fff7fd] border-t border-gray-100">
+
+        </div>
+      </div>
+
+      <!-- Payment Method -->
+      <div class="bg-white rounded-3xl shadow-sm overflow-hidden">
+        <button
+          class="checkout-section-btn w-full flex items-center justify-between p-4 md:p-6 hover:bg-gray-50 transition cursor-pointer"
+          data-section="payment">
+          <div class="flex items-center gap-3">
+            <div class="flex items-center justify-center w-8 h-8 rounded-full bg-[#fef0f8]">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="2" y="4" width="20" height="16" rx="2" stroke="#B6349A" stroke-width="2" />
+                <path d="M2 8h20" stroke="#B6349A" stroke-width="2" />
+              </svg>
+            </div>
+            <h3 class="text-lg font-semibold text-[#111827]">
+              Payment Method
+            </h3>
+          </div>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M9 5l7 7-7 7" stroke="#111827" stroke-width="2" stroke-linecap="round" />
+          </svg>
+        </button>
+
+        <div id="payment-content" class="border-t border-gray-100 p-4 md:p-6 space-y-4 hidden">
+          <label class="flex items-start gap-3 p-3 border border-gray-200 rounded-lg cursor-pointer hover:bg-gray-50">
+            <input type="radio" name="payment" value="razorpay" class="w-4 h-4 mt-1" checked />
+            <div class="flex flex-col">
+              <span class="text-sm font-medium">Razorpay (Sandbox)</span>
+              <span class="text-xs text-gray-500">Test mode checkout via Razorpay. Uses Razorpay free sandbox.</span>
+            </div>
+          </label>
+          <p class="text-xs text-gray-500 pl-11">
+            Use Razorpay test card: 4111 1111 1111 1111 · any future expiry · CVV 123.
+          </p>
+        </div>
+
+        <!-- Payment Summary -->
+        <div id="payment-summary" class="p-4 md:p-6 bg-[#fff7fd] border-t border-gray-100">
+          <p class="text-sm text-[#111827]">
+            <span class="font-semibold">Payment:</span>
+            <span id="payment-summary-text" class="text-[#B6349A]">Razorpay (Sandbox)</span>
+          </p>
+        </div>
+      </div>
+
+      <!-- Review Order -->
+      <div class="bg-white rounded-3xl shadow-sm overflow-hidden">
+        <button
+          class="checkout-section-btn w-full flex items-center justify-between p-4 md:p-6 hover:bg-gray-50 transition cursor-pointer"
+          data-section="review">
+          <div class="flex items-center gap-3">
+            <div class="flex items-center justify-center w-8 h-8 rounded-full bg-[#fef0f8]">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M5 13l4 4L19 7" stroke="#B6349A" stroke-width="2" stroke-linecap="round" />
+              </svg>
+            </div>
+            <h3 class="text-lg font-semibold text-[#111827]">Review Order</h3>
+          </div>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M9 5l7 7-7 7" stroke="#111827" stroke-width="2" stroke-linecap="round" />
+          </svg>
+        </button>
+
+        <div id="review-content" class="border-t border-gray-100 p-4 md:p-6 space-y-4 hidden">
+          <div id="review-items" class="space-y-3">
+            <!-- Cart items will be injected here -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Column - Order Summary (Sticky on Desktop) -->
+    <aside class="lg:sticky lg:top-8 h-fit">
+      <div class="bg-white rounded-3xl shadow-sm p-4 md:p-6 space-y-6">
+        <h2 class="text-lg font-semibold text-[#111827]">Order Summary</h2>
+
+        <div class="bg-[#fff7fd] rounded-2xl p-4 space-y-2 text-sm">
+          <div class="flex justify-between">
+            <span class="text-gray-600">Delivery fee</span>
+            <span class="font-medium text-[#111827]" id="summary-delivery-fee">₹4.78</span>
+          </div>
+          <div class="flex justify-between">
+            <span class="text-gray-600">Service fee</span>
+            <span class="font-medium text-[#111827]" id="summary-service-fee">₹1,298.78</span>
+          </div>
+          <div class="flex justify-between font-semibold text-[#111827]">
+            <span>Items total</span>
+            <span id="summary-items-total">₹1,298.78</span>
+          </div>
+        </div>
+
+        <!-- Delivery Tip -->
+        <div>
+          <p class="text-sm font-medium text-[#111827] mb-3">Delivery Tip</p>
+          <p class="text-xs text-gray-600 mb-3">
+            Your delivery person keeps 100% of tips.
+          </p>
+          <div class="flex gap-2 flex-wrap">
+            <button
+              class="px-3 py-2 text-sm font-medium border border-gray-200 rounded-full hover:border-[#B6349A] hover:text-[#B6349A] transition">
+              ₹5
+            </button>
+            <button
+              class="px-3 py-2 text-sm font-medium border border-gray-200 rounded-full hover:border-[#B6349A] hover:text-[#B6349A] transition">
+              ₹10
+            </button>
+            <button
+              class="px-3 py-2 text-sm font-medium border border-gray-200 rounded-full hover:border-[#B6349A] hover:text-[#B6349A] transition">
+              ₹15
+            </button>
+            <button
+              class="px-3 py-2 text-sm font-medium border border-gray-200 rounded-full hover:border-[#B6349A] hover:text-[#B6349A] transition">
+              ₹15
+            </button>
+            <button
+              class="px-3 py-2 text-sm font-medium border border-gray-200 rounded-full hover:border-[#B6349A] hover:text-[#B6349A] transition">
+              ₹20
+            </button>
+            <button
+              class="px-3 py-2 text-sm font-medium border border-gray-200 rounded-full hover:border-[#B6349A] hover:text-[#B6349A] transition">
+              ₹30
+            </button>
+          </div>
+          <input type="text" placeholder="Other"
+            class="w-full mt-2 px-3 py-2 border border-gray-200 rounded-full text-sm focus:outline-none focus:border-[#B6349A]" />
+        </div>
+
+        <!-- Coupon -->
+        <div>
+          <div class="flex items-center justify-between">
+            <p class="text-sm font-medium text-[#111827]">Coupon</p>
+            <button class="text-xs font-medium text-[#B6349A] hover:underline">
+              + Add Coupon
+            </button>
+          </div>
+        </div>
+
+        <!-- Total -->
+        <div class="border-t border-gray-100 pt-4">
+          <div class="flex justify-between items-center mb-4">
+            <span class="text-lg font-semibold text-[#111827]">Total</span>
+            <span class="text-2xl font-bold text-[#B6349A]" id="summary-total">₹20</span>
+          </div>
+          <p class="text-xs text-gray-600 mb-4">
+            By placing this order, you are agreeing to our
+            <a href="#" class="text-[#B6349A] hover:underline">Terms and Conditions</a>.
+          </p>
+          <button id="place-order-btn"
+            class="w-full bg-[#B6349A] text-white font-semibold py-3 rounded-full hover:bg-[#9b2c86] transition-colors cursor-pointer">
+            Place Order
+          </button>
+        </div>
+      </div>
+    </aside>
+  </main>
+
+  <!-- Footer -->
+  <footer class="mt-30 px-6 py-10 bg-white">
+    <div class="w-full max-w-[1280px] mx-auto flex flex-col lg:flex-row lg:items-start lg:justify-between gap-8">
+      <div id="footer-header" class="flex-shrink-0 flex justify-center lg:justify-start mb-6 lg:mb-0 lg:mr-6">
+        <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd"
+            d="M46.0204 46.0228C42.0432 50 35.9546 50 24.9978 50C14.0432 50 7.95454 49.9978 3.975 46.0228C0 42.0454 0 35.9546 0 25C0 14.0478 0 7.95454 3.975 3.97954C7.95454 -2.48353e-07 14.0432 0 24.9978 0C35.9546 0 42.0432 -2.48353e-07 46.0204 3.97954C50 7.95682 50 14.0454 50 25C50 35.9546 50 42.0454 46.0204 46.0228ZM27.3887 21.7887L12.2977 21.7591L12.2954 25.475L26.5387 25.5022L25.7 29.2114L12.2954 29.1841V32.8978L24.8613 32.925H24.8409C24.3546 34.7978 25.725 36.6546 27.6068 36.6546H30.2159L31.6568 32.925H24.8613L25.7 29.2159L34.2409 29.2318L35.5659 25.5182L26.5568 25.5022L27.4 21.7887L39.5954 21.7296L41.1068 18.0318L28.2432 18.075L27.3887 21.7887ZM26.0454 14.3478L12.2977 14.3182L12.2954 18.0341L28.2409 18.0614L28.3841 17.4137C28.7409 15.85 27.6 14.3478 26.0454 14.3478Z"
+            fill="#B6349A" />
+        </svg>
+      </div>
+
+      <div id="footer-grid"
+        class="flex-1 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 text-gray-500">
+        <div class="space-y-4">
+          <b
+            class="text-black inline-block cursor-pointer transform transition-all duration-150 hover:text-[#B6349A] hover:translate-x-1">About</b>
+          <p class="cursor-pointer transform transition-all duration-150 hover:text-[#B6349A] hover:translate-x-1">
+            About Us
+          </p>
+          <p class="cursor-pointer transform transition-all duration-150 hover:text-[#B6349A] hover:translate-x-1">
+            Our Branches
+          </p>
+          <p class="cursor-pointer transform transition-all duration-150 hover:text-[#B6349A] hover:translate-x-1">
+            Changelog
+          </p>
+        </div>
+
+        <div class="space-y-4">
+          <b
+            class="text-black inline-block cursor-pointer transform transition-all duration-150 hover:text-[#B6349A] hover:translate-x-1">Quick
+            Links</b>
+          <p class="cursor-pointer transform transition-all duration-150 hover:text-[#B6349A] hover:translate-x-1">
+            FAQs
+          </p>
+          <p class="cursor-pointer transform transition-all duration-150 hover:text-[#B6349A] hover:translate-x-1">
+            Recipes
+          </p>
+          <p class="cursor-pointer transform transition-all duration-150 hover:text-[#B6349A] hover:translate-x-1">
+            Contact Us
+          </p>
+        </div>
+
+        <div class="space-y-4">
+          <b
+            class="text-black inline-block cursor-pointer transform transition-all duration-150 hover:text-[#B6349A] hover:translate-x-1">Help
+            & Support</b>
+          <p class="cursor-pointer transform transition-all duration-150 hover:text-[#B6349A] hover:translate-x-1">
+            Terms of Privacy
+          </p>
+          <p class="cursor-pointer transform transition-all duration-150 hover:text-[#B6349A] hover:translate-x-1">
+            Privacy Policy
+          </p>
+          <p class="cursor-pointer transform transition-all duration-150 hover:text-[#B6349A] hover:translate-x-1">
+            Security
+          </p>
+        </div>
+
+        <div class="space-y-4">
+          <b
+            class="text-black inline-block cursor-pointer transform transition-all duration-150 hover:text-[#B6349A] hover:translate-x-1">Company</b>
+          <p class="cursor-pointer transform transition-all duration-150 hover:text-[#B6349A] hover:translate-x-1">
+            Blog
+          </p>
+          <p class="cursor-pointer transform transition-all duration-150 hover:text-[#B6349A] hover:translate-x-1">
+            Contact
+          </p>
+        </div>
+
+        <div class="space-y-4">
+          <b
+            class="text-black inline-block cursor-pointer transform transition-all duration-150 hover:text-[#B6349A] hover:translate-x-1">Social</b>
+          <p class="cursor-pointer transform transition-all duration-150 hover:text-[#B6349A] hover:translate-x-1">
+            Instagram
+          </p>
+          <p class="cursor-pointer transform transition-all duration-150 hover:text-[#B6349A] hover:translate-x-1">
+            LinkedIn
+          </p>
+          <p class="cursor-pointer transform transition-all duration-150 hover:text-[#B6349A] hover:translate-x-1">
+            Facebook
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>
